@@ -12,7 +12,7 @@ from users.views import UserLoginViewSet
 from users.logic_views import LoginView
 
 router = DefaultRouter()
-#router.register(r'test',LoginView) #用户登录模块
+router.register(r'test',UserLoginViewSet) #用户登录模块
 
 urlpatterns = [
     path('login/',LoginView.as_view(),name='login'),

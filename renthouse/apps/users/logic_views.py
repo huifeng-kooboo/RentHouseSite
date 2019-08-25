@@ -7,11 +7,12 @@
 
 from django.shortcuts import render
 from .models import UserModel
-from django.http import JsonResponse
+from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import UserSerializer
-from .basic_tools import checkUserLoginInfo
+from .basic_tools import checkUserLoginInfo,generateSecurityPassword,checkSecurityPassword
+import json
 
 class LoginView(APIView):
     '''
@@ -28,11 +29,15 @@ class LoginView(APIView):
         # get fronted data
         username_str = request.data.get('username')
         password_str = request.data.get('password')
+        is_admin_str = request.data.get('is_admin')
         json_Result = checkUserLoginInfo(username_str,password_str)
-        if (json_Result['OK'] == 0):
-            return Response(json_Result['error'])
+        '''用户名或密码不符合要求时'''
+        if json.loads(json_Result)['OK'] == 0:
+            return Response(json.loads(json_Result)['error'],status=status.HTTP_400_BAD_REQUEST) #错误请求
         userdata = UserModel.objects.all()
+        '''检查数据库是否存在重复用户名'''
+        '''生成加密密码'''
+        password_sec = generateSecurityPassword(password_str) # generate security password
+        '''save to database'''
         serializer = UserSerializer(userdata,many=True)
-        print(type(serializer.data))
-        print(type(serializer))
         return Response(serializer.data)
