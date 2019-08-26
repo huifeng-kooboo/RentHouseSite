@@ -58,15 +58,17 @@ class RegisterView(APIView):
         # get fronted data
         username_str = request.data.get('username')
         password_str = request.data.get('password')
+        phone_number_str = request.data.get('phone_number')
+        rent_address_str = request.data.get('rent_address')
+        idcard_str = request.data.get('idcard')
         # check whether true
         json_Result = checkUserLoginInfo(username_str,password_str)
         '''Error Type Password Or UserName'''
         if json.loads(json_Result)['OK'] == 0:
             return Response(json.loads(json_Result)['error'],status=status.HTTP_400_BAD_REQUEST) #错误请求
         cur_password = generateSecurityPassword(password_str) #密码加密
-        print(cur_password)
         userdata_count = UserModel.objects.filter(username=username_str)
-        if len(userdata_count) < 1:
+        if len(userdata_count) > 0:
             return Response('当前用户已注册，请返回登录！',status=status.HTTP_400_BAD_REQUEST)
-        userdata = UserModel.objects.create(username=username_str,password=cur_password,is_admin=False)
+        userdata = UserModel.objects.create(username=username_str,password=cur_password,is_admin=False,idcard=idcard_str,rent_address=rent_address_str,phone_number=phone_number_str)
         return Response('注册成功',status=status.HTTP_200_OK)
