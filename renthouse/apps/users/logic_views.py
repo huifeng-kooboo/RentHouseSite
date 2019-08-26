@@ -31,13 +31,42 @@ class LoginView(APIView):
         password_str = request.data.get('password')
         is_admin_str = request.data.get('is_admin')
         json_Result = checkUserLoginInfo(username_str,password_str)
-        '''用户名或密码不符合要求时'''
+        '''Error Type Password Or UserName'''
         if json.loads(json_Result)['OK'] == 0:
             return Response(json.loads(json_Result)['error'],status=status.HTTP_400_BAD_REQUEST) #错误请求
-        userdata = UserModel.objects.all()
-        '''检查数据库是否存在重复用户名'''
-        '''生成加密密码'''
-        password_sec = generateSecurityPassword(password_str) # generate security password
-        '''save to database'''
-        serializer = UserSerializer(userdata,many=True)
-        return Response(serializer.data)
+        userdata = UserModel.objects.filter(username=username_str)
+        if len(userdata) < 1:
+            return Response('当前用户名不存在,请重新输入',status=status.HTTP_400_BAD_REQUEST)
+        cur_password_str = userdata[0].password
+        b_password =checkSecurityPassword(password_str,cur_password_str) # compare the password
+        if b_password == False:
+            return Response('密码错误,请重新输入',status=status.HTTP_400_BAD_REQUEST)
+        return Response('登录成功',status=status.HTTP_200_OK)
+
+class RegisterView(APIView):
+    '''
+    @description: a basic method to console register page
+    @author: ytouch
+    '''
+    def post(self,request,*args,**kwargs):
+        '''
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        '''
+        # get fronted data
+        username_str = request.data.get('username')
+        password_str = request.data.get('password')
+        # check whether true
+        json_Result = checkUserLoginInfo(username_str,password_str)
+        '''Error Type Password Or UserName'''
+        if json.loads(json_Result)['OK'] == 0:
+            return Response(json.loads(json_Result)['error'],status=status.HTTP_400_BAD_REQUEST) #错误请求
+        cur_password = generateSecurityPassword(password_str) #密码加密
+        print(cur_password)
+        userdata_count = UserModel.objects.filter(username=username_str)
+        if len(userdata_count) < 1:
+            return Response('当前用户已注册，请返回登录！',status=status.HTTP_400_BAD_REQUEST)
+        userdata = UserModel.objects.create(username=username_str,password=cur_password,is_admin=False)
+        return Response('注册成功',status=status.HTTP_200_OK)

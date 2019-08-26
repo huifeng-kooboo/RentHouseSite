@@ -15,7 +15,7 @@ class UserModel(models.Model):
     @email:gisdoing@gmail.com
     '''
     username = models.CharField(default='',unique=True,verbose_name='用户名',max_length=20,primary_key=True) # username: primary_key
-    password = models.CharField(default='', verbose_name='密码', max_length=120) # password: member
+    password = models.CharField(default='', verbose_name='密码', max_length=100) # password: member
     is_admin = models.BooleanField(default=False,verbose_name="是否为管理员") # is_admin: member
     class Meta:
         db_table = 'user_table'  #@comment : db_table means create a table_name 'user_table'

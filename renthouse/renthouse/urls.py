@@ -9,13 +9,14 @@ from rest_framework.authtoken import views
 
 #@comment: data view
 from users.views import UserLoginViewSet
-from users.logic_views import LoginView
+from users.logic_views import LoginView,RegisterView
 
 router = DefaultRouter()
 router.register(r'test',UserLoginViewSet) #用户登录模块
 
 urlpatterns = [
-    path('login/',LoginView.as_view(),name='login'),
+    path('login/',LoginView.as_view(),name='login'), #@comment: login page
+    path('register/',RegisterView.as_view(),name= 'register'), #@comment: register page
     path('api-token-auth/',views.obtain_auth_token),
     path('admin/', admin.site.urls),
     url(r'^',include(router.urls)),
