@@ -6,9 +6,10 @@
 # update info:
 
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
-class UserModel(models.Model):
+class UserModel(AbstractUser):
     '''
     @description: login table for users
     @author:ytouch
@@ -23,3 +24,4 @@ class UserModel(models.Model):
     class Meta:
         db_table = 'user_table'  #@comment : db_table means create a table_name 'user_table'
         verbose_name = '用户信息表'
+        ordering = ['-username']  #排序方式 根据username

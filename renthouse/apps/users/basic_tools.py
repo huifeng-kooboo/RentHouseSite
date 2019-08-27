@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate
 
 def checkUserLoginInfo(username,password):
     '''
-    @description: basic function to check password and username
+    @brief: basic function to check password and username
     :param username: 用户名
     :param password: 密码
     :return: jsondata that whether has password or user problem
@@ -31,6 +31,7 @@ def checkUserLoginInfo(username,password):
 
 
 ''' password method : 加密 or 解密 '''
+
 def generateSecurityPassword(password):
     '''
     @description: gernerate Security Word:

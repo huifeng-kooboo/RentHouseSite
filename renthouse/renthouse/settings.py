@@ -55,11 +55,11 @@ INSTALLED_APPS = [
 
 # config RestFramework
 REST_FRAMEWORK = {
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAdminUser',
-    # ],
-    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    # 'PAGE_SIZE': 10
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
 
 
@@ -152,3 +152,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # config media setting
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+# inherit user class
+AUTH_USER_MODEL = 'users.UserModel'
