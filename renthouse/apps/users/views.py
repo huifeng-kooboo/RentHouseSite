@@ -5,7 +5,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import UserSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
+from .signals import user_save
 import json
+
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
@@ -42,6 +44,7 @@ class LoginView(APIView):
         '''b_password :True:密码正确，False:密码错误'''
         if b_password == False:
             return Response('密码错误,请重新输入',status=status.HTTP_400_BAD_REQUEST)
+        request.session['login_name'] = username_str #设置登录session
         return Response('登录成功',status=status.HTTP_200_OK)
 
 

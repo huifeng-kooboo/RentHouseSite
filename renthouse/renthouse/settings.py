@@ -155,3 +155,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # inherit user class
 AUTH_USER_MODEL = 'users.UserModel'
+
+#save session
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'

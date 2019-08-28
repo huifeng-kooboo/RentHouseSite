@@ -24,4 +24,4 @@ class UserModel(AbstractUser):
     class Meta:
         db_table = 'user_table'  #@comment : db_table means create a table_name 'user_table'
         verbose_name = '用户信息表'
-        ordering = ['-username']  #排序方式 根据username
+        ordering = ['-username']  #内部数据排序方式 根据username
