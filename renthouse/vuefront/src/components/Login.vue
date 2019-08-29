@@ -1,7 +1,7 @@
 <template>
  <div>
    <h1>测试进入该界面</h1>
-   <el-button type="primary">默认按钮</el-button>
+   <el-button type="primary" id="login_post">登录</el-button>
  </div>
 
 
