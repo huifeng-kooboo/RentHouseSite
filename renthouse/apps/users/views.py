@@ -47,6 +47,7 @@ class LoginView(APIView):
             return Response('密码错误,请重新输入',status=status.HTTP_400_BAD_REQUEST)
         request.session['login_name'] = username_str #设置登录session
         return Response('登录成功',status=status.HTTP_200_OK)
+        #return "登录成功"
 
 
 

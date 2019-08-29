@@ -14,7 +14,7 @@ import xadmin
 from users.views import UserRegisterViewSet,LoginView
 
 router = DefaultRouter()
-router.register(r'login',UserRegisterViewSet,base_name='register') #用户注册
+router.register(r'register',UserRegisterViewSet,base_name='register') #用户注册
 
 
 urlpatterns = [
