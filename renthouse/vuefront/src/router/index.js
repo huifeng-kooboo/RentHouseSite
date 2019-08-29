@@ -18,12 +18,6 @@ import Register from "../components/users/Register"
 Vue.use(ElementUI);
 Vue.use(Router);
 
-var datas = {message:'Hellow World'};
-var ssapp = new Vue({
-  el: '#ssapp',
-  data:datas
-});
-
 export default new Router({
   el: '#app',
   mode:'history', /*解决#问题*/
