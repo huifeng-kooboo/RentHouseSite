@@ -18,7 +18,7 @@ router.register(r'register',UserRegisterViewSet,base_name='register') #用户注
 
 
 urlpatterns = [
-    url(r'^login/',LoginView.as_view(),name='login'), #用户登录
+   # url(r'^login/',LoginView.as_view(),name='login'), #用户登录
     path('api-token-auth/',views.obtain_auth_token),
     #path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),
