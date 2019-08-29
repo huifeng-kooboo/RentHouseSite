@@ -1,12 +1,16 @@
 <template>
+
+  <!--导航栏-->
   <div id="app">
-    <h2>测试</h2>
     <router-view/>
   </div>
-
 </template>
-
 <script>
+ // <!--引入相关库-->
+  import 'bootstrap/dist/css/bootstrap.min.css'
+  import 'bootstrap/dist/js/bootstrap.min'
+  import 'at-ui'
+  import 'at-ui-style'
 export default {
   name: 'App'
 }

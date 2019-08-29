@@ -8,11 +8,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
 import ElementUI from 'element-ui'
-
-
 //import axios from 'axios'
 //import VueAxios from 'vue-axios'
-
 //import some pages
 import Login from "../components/users/Login"
 import Register from "../components/users/Register"

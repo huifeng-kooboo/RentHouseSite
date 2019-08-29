@@ -1,7 +1,7 @@
 <!--主界面-->
 <template>
     <div id = "main_page">
-      <h1> 主页面</h1>
+      <el-button type="primary" id="cur_jj"> 当年</el-button>
     </div>
 </template>
 
@@ -12,5 +12,8 @@
 </script>
 
 <style scoped>
-
+  #cur_jj {
+    font-family:Consolas;
+    font-size: 20px;
+  }
 </style>
