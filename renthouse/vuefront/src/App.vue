@@ -2,11 +2,12 @@
 
   <!--导航栏-->
   <div id="app">
+    测试当前快快快
     <router-view/>
   </div>
 </template>
 <script>
- // <!--引入相关库-->
+  // <!--引入相关库-->
   import 'bootstrap/dist/css/bootstrap.min.css'
   import 'bootstrap/dist/js/bootstrap.min'
   import 'at-ui'

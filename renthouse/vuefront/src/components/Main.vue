@@ -1,7 +1,10 @@
 <!--主界面-->
 <template>
     <div id = "main_page">
-      <el-button type="primary" id="cur_jj"> 当年</el-button>
+      <router-link to="/login"> <el-button type="primary" id="cur_jj">测试</el-button></router-link>
+      <div id="app">
+        小举动
+      </div>
     </div>
 </template>
 
@@ -9,6 +12,8 @@
     export default {
         name: "Main"
     }
+
+
 </script>
 
 <style scoped>

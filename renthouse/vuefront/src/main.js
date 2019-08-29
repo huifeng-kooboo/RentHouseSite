@@ -12,7 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 /*导入jquery库*/
 import $ from 'jquery'
 
-
+Vue.use(router);
 Vue.use(ElementUI);
 //Vue.use(VueAxios,axios);
 Vue.use($);
@@ -21,9 +21,10 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-fromurlencodeed
 Vue.config.productionTip = false;
 Vue.use(VueResource);
 /* eslint-disable no-new */
-new Vue({
+var app = new Vue({
+  delimiter:['[[', ']]'], //修改与django冲突的语法
   el: '#app',
   router,
   components: { App },
   template: '<App/>'
-})
+});

@@ -19,6 +19,7 @@ Vue.use(ElementUI);
 Vue.use(Router);
 
 export default new Router({
+  el: '#app',
   mode:'history', /*解决#问题*/
   /*定义相关路由*/
   routes: [
