@@ -2,6 +2,9 @@
   <div id="app">
     <img src="./assets/logo.png">
     <router-view/>
+    <div>
+      <el-button type="primary">默认按钮</el-button>
+    </div>
   </div>
 </template>
 
