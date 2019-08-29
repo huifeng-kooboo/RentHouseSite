@@ -11,11 +11,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 /*导入jquery库*/
 import $ from 'jquery'
-
 Vue.use(router);
+//注册ElementUI
 Vue.use(ElementUI);
-//Vue.use(VueAxios,axios);
 Vue.use($);
+
+//设置axios的请求
 Vue.prototype.$http = axios;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-fromurlencodeed'; /*解决跨域问题*/
 Vue.config.productionTip = false;
@@ -23,8 +24,7 @@ Vue.use(VueResource);
 
 /* eslint-disable no-new */
 var app = new Vue({
-  //delimiter:['[[', ']]'], //修改与django冲突的语法
-  el: '#app',
+  el: '#app', //对应的是index.html的id
   router,
   components: { App },
   template: '<App/>'

@@ -14,6 +14,7 @@ import ElementUI from 'element-ui'
 import Login from "../components/users/Login"
 import Register from "../components/users/Register"
 
+
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);

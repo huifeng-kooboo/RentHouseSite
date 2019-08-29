@@ -1,9 +1,10 @@
 <template>
 
   <!--导航栏-->
-  <div id="app">
-    测试当前快快快
+  <div id="div_init">
+    <!--主要入口处，即为所有网页的入口-->
     {{ msg }}
+    <!-- router-view 为替换后面模块的地方 -->
     <router-view/>
   </div>
 </template>
@@ -13,6 +14,7 @@
   import 'bootstrap/dist/js/bootstrap.min'
   import 'at-ui'
   import 'at-ui-style'
+
 export default {
   name: 'App',
   data() {

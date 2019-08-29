@@ -14,7 +14,7 @@ module.exports = {
     proxyTable: {
       // proxy all requests starting with /api to jsonplaceholder
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'http://localhost:8000', //跨域访问的地址
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
