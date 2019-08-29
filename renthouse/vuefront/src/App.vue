@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <h2>测试</h2>
     <router-view/>
-    <div>
-      <el-button type="primary">默认按钮</el-button>
-    </div>
   </div>
+
 </template>
 
 <script>
@@ -13,14 +11,13 @@ export default {
   name: 'App'
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+/*#app {*/
+/*  font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*  text-align: center;*/
+/*  color: #2c3e50;*/
+/*  margin-top: 60px;*/
+/*}*/
 </style>

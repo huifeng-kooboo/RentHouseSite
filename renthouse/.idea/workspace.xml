@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/vuefront/src/components/Main.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuefront/src/components/users/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vuefront/src/components/users/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/renthouse/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/renthouse/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/build/webpack.dev.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/build/webpack.dev.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/Login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/router/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="421">
+              <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
               <folding>
                 <element signature="e#35#67#0" expanded="true" />
               </folding>
@@ -99,8 +109,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="837" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="561" />
     <option name="y" value="199" />
     <option name="width" value="1086" />
     <option name="height" value="790" />
@@ -111,6 +121,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -121,18 +132,12 @@
             <path>
               <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
               <item name="renthouse" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renthouse" type="462c0819:PsiDirectoryNode" />
-              <item name="renthouse" type="462c0819:PsiDirectoryNode" />
+              <item name="vuefront" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,21 +208,23 @@
       <workItem from="1566994014965" duration="720000" />
       <workItem from="1567040461837" duration="931000" />
       <workItem from="1567050172634" duration="516000" />
+      <workItem from="1567052688458" duration="921000" />
+      <workItem from="1567063360606" duration="514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44675000" />
+    <option name="totallyTimeSpent" value="46110000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="561" y="199" width="1086" height="790" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31023455" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.4220273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3557484" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39863715" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -226,7 +233,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.36442515" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29609543" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -394,6 +401,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/renthouse/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1577">
@@ -404,17 +418,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="421">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
           <folding>
             <element signature="e#35#67#0" expanded="true" />
           </folding>
