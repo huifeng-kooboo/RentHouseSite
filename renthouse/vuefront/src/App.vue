@@ -3,6 +3,7 @@
   <!--导航栏-->
   <div id="app">
     测试当前快快快
+    {{ msg }}
     <router-view/>
   </div>
 </template>
@@ -13,7 +14,12 @@
   import 'at-ui'
   import 'at-ui-style'
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      msg: 'hello vue'
+    }
+  }
 }
 </script>
 <style scoped>

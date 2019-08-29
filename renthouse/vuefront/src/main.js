@@ -20,9 +20,10 @@ Vue.prototype.$http = axios;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-fromurlencodeed'; /*解决跨域问题*/
 Vue.config.productionTip = false;
 Vue.use(VueResource);
+
 /* eslint-disable no-new */
 var app = new Vue({
-  delimiter:['[[', ']]'], //修改与django冲突的语法
+  //delimiter:['[[', ']]'], //修改与django冲突的语法
   el: '#app',
   router,
   components: { App },
