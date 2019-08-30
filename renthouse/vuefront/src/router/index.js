@@ -14,6 +14,7 @@ import ElementUI from 'element-ui'
 import Login from "../components/users/Login"
 import Register from "../components/users/Register"
 import Navbar from "../components/tools/Navbar";
+import LoginNavbar from "../components/tools/LoginNavbar";
 
 
 //Vue.use(VueAxios,axios); //使用axios请求
@@ -54,6 +55,12 @@ export default new Router({
       path:'/main',
       name:'Main',
       component:Main
+    },
+    {
+      /*@description:未登录的导航栏功能*/
+      path:'/loginnavbar',
+      name: 'LoginNavbar',
+      component:LoginNavbar
     }
   ]
 })
