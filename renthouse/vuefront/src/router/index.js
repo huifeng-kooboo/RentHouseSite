@@ -15,7 +15,7 @@ import Login from "../components/users/Login"
 import Register from "../components/users/Register"
 import Navbar from "../components/tools/Navbar";
 import LoginNavbar from "../components/tools/LoginNavbar";
-
+import LoginForm from '../components/tools/LoginForm'
 
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
@@ -61,6 +61,12 @@ export default new Router({
       path:'/loginnavbar',
       name: 'LoginNavbar',
       component:LoginNavbar
-    }
+    },
+    {
+      /*@description:测试登录表单功能*/
+      path:'/loginform',
+      name:'LoginForm',
+      component:LoginForm
+    },
   ]
 })

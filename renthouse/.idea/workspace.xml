@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/renthouse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/renthouse.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renthouse/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/renthouse/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vuefront/src/components/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/Main.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/tools/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/tools/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/tools/LoginNavbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/tools/LoginNavbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vuefront/src/components/users/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/users/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/router/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+            <state relative-caret-position="266">
+              <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -149,10 +146,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2200" />
-    <option name="y" value="102" />
-    <option name="width" value="1086" />
-    <option name="height" value="850" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -254,16 +251,18 @@
       <workItem from="1567088937405" duration="388000" />
       <workItem from="1567091963798" duration="824000" />
       <workItem from="1567126526043" duration="796000" />
+      <workItem from="1567174633802" duration="619000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51682000" />
+    <option name="totallyTimeSpent" value="52301000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13646056" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -476,8 +475,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="266">
+          <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
         </state>
       </provider>
     </entry>

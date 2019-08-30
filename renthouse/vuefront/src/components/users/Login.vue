@@ -1,6 +1,7 @@
 <template>
    <div>
-    <h2>登录界面</h2>
+     <!-- 引入登录导航栏，后面登录成功后替换-->
+     <VNavbar></VNavbar>
   <form action="api/login/" method="post">
      用户名:<input type="text" name="username"/>
     密码:<input type="password" name="password">
@@ -10,8 +11,12 @@
 </template>
 
 <script>
+    import LoginNavbar from '../tools/LoginNavbar'
     export default {
-        name: "Login"
+        name: "Login",
+        components:{
+        VNavbar:LoginNavbar,
+      },
     }
 </script>
 

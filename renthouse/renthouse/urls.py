@@ -23,7 +23,7 @@ urlpatterns = [
     #path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),
    #
-    path(r'', TemplateView.as_view(template_name="index.html")),
+    path(r'', TemplateView.as_view(template_name="index.html")), #绑定前端，相当于与前端进行交互
     url(r'^',include(router.urls)),
     url(r'^api-auth/',include('rest_framework.urls',namespace='rest_framework'))
 ]
