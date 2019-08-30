@@ -17,6 +17,15 @@
       </el-submenu>
       -->
     </el-submenu>
+    <el-submenu index="3">
+      <template slot="title">租户缴费</template>
+      <el-menu-item index="3-1">费用清单</el-menu-item>
+      <el-menu-item index="3-2">立即缴费</el-menu-item>
+    </el-submenu>
+    <el-submenu index="4">
+      <template slot="title">管理中心</template>
+      <el-menu-item index="4-1">租户管理</el-menu-item>
+    </el-submenu>
     <!-- <el-menu-item index="3" disabled>消息中心</el-menu-item> disabled表示不可选 -->
     <!--  百度导航栏<el-menu-item index="4"><a href="https://www.baidu.com" target="blank">百度</a></el-menu-item> -->
   </el-menu>
