@@ -3,7 +3,6 @@
   <!--导航栏-->
   <div id="div_init">
     <!--主要入口处，即为所有网页的入口-->
-    {{ msg }}
     <!-- router-view 为替换后面模块的地方 -->
     <router-view/>
   </div>
@@ -17,11 +16,6 @@
 
 export default {
   name: 'App',
-  data() {
-    return {
-      msg: 'hello vue'
-    }
-  }
 }
 </script>
 <style scoped>

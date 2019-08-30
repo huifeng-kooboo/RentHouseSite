@@ -13,6 +13,7 @@ import ElementUI from 'element-ui'
 //import some pages
 import Login from "../components/users/Login"
 import Register from "../components/users/Register"
+import Navbar from "../components/tools/Navbar";
 
 
 //Vue.use(VueAxios,axios); //使用axios请求
@@ -41,6 +42,18 @@ export default new Router({
       path:'/register',
       name: 'Register',
       component:Register
+    },
+    {
+      /*@description:导航栏组件*/
+      path:'/navbar',
+      name: 'Navbar',
+      component:Navbar
+    },
+    {
+      /*@description:主页功能*/
+      path:'/main',
+      name:'Main',
+      component:Main
     }
   ]
 })
