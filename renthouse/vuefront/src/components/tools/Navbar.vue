@@ -33,7 +33,17 @@
 
 <script>
     export default {
-        name: "Navbar"
+        name: "Navbar",
+      data() {
+        return {
+          activeIndex: '1',
+        };
+      },
+      methods:{
+          handleSelect(){
+
+          }
+      }
     }
 </script>
 

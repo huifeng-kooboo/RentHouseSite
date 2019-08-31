@@ -18,7 +18,8 @@ Vue.use($);
 
 //设置axios的请求
 Vue.prototype.$http = axios;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-fromurlencodeed'; /*解决跨域问题*/
+Vue.prototype.$axios = axios;
+axios.defaults.headers.post['Content-Type'] = 'application/json'; /*解决跨域问题*/
 Vue.config.productionTip = false;
 Vue.use(VueResource);
 

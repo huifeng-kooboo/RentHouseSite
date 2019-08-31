@@ -16,6 +16,7 @@ import Register from "../components/users/Register"
 import Navbar from "../components/tools/Navbar";
 import LoginNavbar from "../components/tools/LoginNavbar";
 import LoginForm from '../components/tools/LoginForm'
+import RegisterForm from '../components/tools/RegisterForm'
 
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
@@ -45,28 +46,10 @@ export default new Router({
       component:Register
     },
     {
-      /*@description:导航栏组件*/
-      path:'/navbar',
-      name: 'Navbar',
-      component:Navbar
-    },
-    {
       /*@description:主页功能*/
       path:'/main',
       name:'Main',
       component:Main
-    },
-    {
-      /*@description:未登录的导航栏功能*/
-      path:'/loginnavbar',
-      name: 'LoginNavbar',
-      component:LoginNavbar
-    },
-    {
-      /*@description:测试登录表单功能*/
-      path:'/loginform',
-      name:'LoginForm',
-      component:LoginForm
-    },
+    }
   ]
 })

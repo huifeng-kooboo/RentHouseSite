@@ -13,7 +13,6 @@
   import 'bootstrap/dist/js/bootstrap.min'
   import 'at-ui'
   import 'at-ui-style'
-
 export default {
   name: 'App',
 }

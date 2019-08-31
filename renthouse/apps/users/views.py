@@ -38,6 +38,7 @@ class LoginView(APIView):
         if json.loads(json_Result)['OK'] == 0:
             return Response(json.loads(json_Result)['error'],status=status.HTTP_400_BAD_REQUEST) #错误请求
         userdata = UserModel.objects.filter(username=username_str)
+        print(type(userdata))
         if len(userdata) < 1:
             return Response('当前用户名不存在,请重新输入',status=status.HTTP_400_BAD_REQUEST)
         cur_password_str = userdata[0].password
