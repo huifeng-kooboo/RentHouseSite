@@ -10,7 +10,7 @@
 <script>
   // <!--引入相关库-->
   import 'bootstrap/dist/css/bootstrap.min.css'
-  import 'bootstrap/dist/js/bootstrap.min'
+  import 'bootstrap/dist/js/bootstrap'
   import 'at-ui'
   import 'at-ui-style'
 export default {

@@ -30,7 +30,7 @@
     </div>
 
     <div id="div_button_register">
-      <el-button type="primary" class="btn_register" icon="el-icon-user" style="">注册</el-button>
+      <el-button type="primary" class="btn_register" icon="el-icon-user" style="" v-on:click="postRegister()">注册</el-button>
     </div>
 
   </div>
@@ -42,13 +42,90 @@
         name: "RegisterForm",
         data(){
         return{
-          input_username:'', //此处可以设置 直接绑定到输入框
-          input_password:'',
-          input_phone_number:'',
-          input_rent_address:'',
-          input_idcard:'',
+          input_username:'ytouchcoder', //此处可以设置 直接绑定到输入框
+          input_password:'445578963dhf',
+          input_phone_number:'13824464121',
+          input_rent_address:'dkalkdla',
+          input_idcard:'350181199608271875',
         }
-       }
+       },
+      methods:{
+          postRegister(){
+            const that = this;
+            var post_data = {"username":this.input_username,"password":this.input_password,"is_admin":false,"phone_number":this.input_phone_number,"rent_address":this.input_rent_address,"idcard":this.input_idcard};/*需要post的数据*/
+            if (this.input_username.length < 6)
+            {
+              alert("用户名输入过短,请重新输入");
+            }
+            else if (this.input_password.length < 6)
+            {
+              alert("密码过短，请重新输入");
+            }
+            else if (this.input_idcard.length< 16)
+            {
+              alert("身份证号码过短，请重新输入");
+            }
+            else if (this.input_rent_address.length<4)
+            {
+              alert("住址有误，请重新输入");
+            }
+            else if (this.input_phone_number.length<11)
+            {
+              alert("手机号过短，请重新输入");
+            }
+            else {
+             // var post_data = {"username":this.input_username,"password":this.input_password};/*需要post的数据*/
+              this.$axios(
+                {
+                  url:"api/register/", //请求的url 由于跨域
+                  method:'post',
+                  data:JSON.stringify(post_data),
+                }
+              ).then(
+                function (return_data) {
+                  //注册成功返回201:状态码201 创建成功的请求
+                  if (return_data.status == 201){
+                    //跳转url，并传递数据：跳转到主页面，自动完成登录
+                    alert("租户注册成功！");
+                    that.$router.push({name:'Main',params:return_data.data});
+                  }
+                }
+              ).catch(
+                function (res) {
+                  //处理请求失败的情况
+                  if (res.response.status == 400)
+                  {
+                    if (res.response.data.username)
+                    {
+                      alert(res.response.data.username);
+                    }
+                    else if (res.response.data.password)
+                    {
+                      alert(res.response.data.password);
+                    }
+                    else if (res.response.data.phone_number){
+                      alert(res.response.data.phone_number);
+                    }
+                    else if(res.response.data.rent_address)
+                    {
+                      alert(res.response.data.rent_address);
+                    }
+                    else {
+                      alert(res.response.data.idcard);
+                    }
+                  }
+                  else if(res.response.status == 500)
+                  {
+                    alert("服务器出错，请联系QQ:942840260");
+                  }
+                  else {
+                    alert("当前网络异常！");
+                  }
+                }
+              )
+            }
+          }
+      }
     }
 </script>
 

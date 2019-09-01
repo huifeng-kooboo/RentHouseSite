@@ -1,7 +1,7 @@
 <template>
    <div>
      <!-- 引入登录导航栏，后面登录成功后替换-->
-     <VNavbar></VNavbar>
+     <VNavbar link_address="/login" link_title="租户登录"></VNavbar>
      <VLoginForm></VLoginForm>
    </div>
 </template>

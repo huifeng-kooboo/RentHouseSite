@@ -59,7 +59,9 @@
                   if (return_data.status == 200){
                     //跳转url，并传递数据
                     console.log(return_data.data.username);
-                    that.$router.push({name:'Main',params:return_data.data})
+                    that.$router.push({name:'Main',params:return_data.data});
+                    // that.$router.push({name:'Main',params:return_data.data})---》处理跳转的一种方式
+                    // that.$router.push({path:''}) //不传参清理方式
                   }
                 }
               ).catch(

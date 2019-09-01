@@ -8,16 +8,21 @@
 </template>
 <script>
      import LoginNavbar from './tools/LoginNavbar'
+     import Navbar from './tools/Navbar'
     export default {
         name: "Main",
         components:{
-        VNavbar:LoginNavbar,
+          VNavbar:Navbar
         },
+      // 数据
       data(){
         return{
           input_username:this.$route.params.phone_number, //此处可以设置 获取传值信息 直接绑定到输入框
         }
-        }
+        },
+      //方法类
+      methods:{
+      }
     }
 </script>
 
