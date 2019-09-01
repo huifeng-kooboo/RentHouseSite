@@ -36,19 +36,19 @@ class LoginView(APIView):
         json_Result = checkUserLoginInfo(username_str,password_str)
         '''Error Type Password Or UserName'''
         if json.loads(json_Result)['OK'] == 0:
-            return Response(json.loads(json_Result)['error'],status=status.HTTP_400_BAD_REQUEST) #错误请求
+            return Response(json.loads(json_Result)['error'],status=status.HTTP_400_BAD_REQUEST) #由前端做数据处理
         userdata = UserModel.objects.filter(username=username_str)
         print(type(userdata))
         if len(userdata) < 1:
-            return Response('当前用户名不存在,请重新输入',status=status.HTTP_400_BAD_REQUEST)
+            return Response('当前用户名不存在,请重新输入',status=status.HTTP_400_BAD_REQUEST) #由前端做数据处理
         cur_password_str = userdata[0].password
         b_password =checkSecurityPassword(password_str,cur_password_str) # compare the password
         '''b_password :True:密码正确，False:密码错误'''
         if b_password == False:
             return Response('密码错误,请重新输入',status=status.HTTP_400_BAD_REQUEST)
         request.session['login_name'] = username_str #设置登录session
-        return Response('登录成功',status=status.HTTP_200_OK)
-        #return "登录成功"
+        print(userdata.values())
+        return Response(userdata.values()[0],status=status.HTTP_200_OK) #由前端做数据处理
 
 
 

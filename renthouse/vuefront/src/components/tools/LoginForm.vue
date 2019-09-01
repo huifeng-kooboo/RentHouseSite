@@ -21,8 +21,6 @@
      import Vue from 'vue'
     import axios from "axios"
     import $ from 'jquery'
-   //  axios.defaults.withCredentials = true;//允许跨域
-
     export default {
         name: "LoginForm",
       data(){
@@ -34,10 +32,11 @@
       methods:{
           /*
           * @brief: 发送登录请求到服务器
-          * */
+          */
           sendLoginPost(){
+            const that = this; //解决无法跳转的问题
             //设置规则 用户名和密码大小不能小于6
-            //js中对字符串修改的规则如下
+            //js中对字符串求长度的方法
             if (this.input_username.length < 6)
             {
               alert("用户名输入过短,请重新输入");
@@ -47,8 +46,7 @@
               alert("密码过短，请重新输入");
             }
             else {
-              alert("发起请求");
-              var post_data = {"username":this.input_username,"password":this.input_password};
+              var post_data = {"username":this.input_username,"password":this.input_password};/*需要post的数据*/
               this.$axios(
                 {
                   url:"api/login/", //请求的url 由于跨域
@@ -57,7 +55,23 @@
                 }
               ).then(
                 function (return_data) {
-                  alert("返回成功");
+                  /*当返回成功时，先判断状态码是否正确,信息解析*/
+                  if (return_data.status == 200){
+                    //跳转url，并传递数据
+                    console.log(return_data.data.username);
+                    that.$router.push({name:'Main',params:return_data.data})
+                  }
+                }
+              ).catch(
+                function (res) {
+                  //处理请求异常
+                  if (res.response.status == 400)
+                  {
+                    alert(res.response.data); //弹出错误信息
+                  }
+                  else {
+                    alert("当前网络异常！");
+                  }
                 }
               )
             }

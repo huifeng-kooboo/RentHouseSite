@@ -19,10 +19,10 @@ Vue.use($);
 //设置axios的请求
 Vue.prototype.$http = axios;
 Vue.prototype.$axios = axios;
-axios.defaults.headers.post['Content-Type'] = 'application/json'; /*解决跨域问题*/
+axios.defaults.headers.post['Content-Type'] = 'application/json'; /*设置发送请求数据格式为json格式*/
+axios.defaults.timeout = 10000; //设置超时时间
 Vue.config.productionTip = false;
 Vue.use(VueResource);
-
 /* eslint-disable no-new */
 var app = new Vue({
   el: '#app', //对应的是index.html的id
