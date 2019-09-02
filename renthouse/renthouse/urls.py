@@ -11,11 +11,11 @@ from django.views.generic.base import TemplateView
 import xadmin
 
 #@comment: data view
-from users.views import UserRegisterViewSet,LoginView
+from users.views import UserRegisterViewSet,LoginView,HouseInfoAddViewSet
 
 router = DefaultRouter()
 router.register(r'register',UserRegisterViewSet,base_name='register') #用户注册
-
+router.register(r'addhouse',HouseInfoAddViewSet,base_name='addhouse') #添加房源
 
 urlpatterns = [
     url(r'^login/',LoginView.as_view(),name='login'), #用户登录
