@@ -8,7 +8,7 @@
       <template slot="title">个人中心</template>
       <el-menu-item index="2-1">个人信息设置</el-menu-item>
       <el-menu-item index="2-2">修改密码</el-menu-item>
-      <el-menu-item index="2-3"><a href="/login">用户登录</a></el-menu-item>
+      <el-menu-item index="2-3"><a id="a_login" href="/login">用户登录</a></el-menu-item>
       <el-menu-item index="2-3"><a href="/register">用户注册</a></el-menu-item>
       <el-menu-item index="2-4">退出登录</el-menu-item>
       <!-- 添加子导航栏方法
@@ -28,6 +28,7 @@
     <el-submenu index="4">
       <template slot="title">管理中心</template>
       <el-menu-item index="4-1">租户管理</el-menu-item>
+      <el-menu-item index="4-2">房源管理</el-menu-item> <!--此处为房东增加房源功能-->
     </el-submenu>
     <!-- <el-menu-item index="3" disabled>消息中心</el-menu-item> disabled表示不可选 -->
     <!--  百度导航栏<el-menu-item index="4"><a href="https://www.baidu.com" target="blank">百度</a></el-menu-item> -->
@@ -52,5 +53,7 @@
 </script>
 
 <style scoped>
-
+#a_login{
+  color:black;
+}
 </style>
