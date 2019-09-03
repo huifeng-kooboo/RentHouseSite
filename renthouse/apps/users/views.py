@@ -20,6 +20,8 @@ class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
 class AddHouseInfoViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin,mixins.ListModelMixin):
     '''
     @brief :添加房源信息
+    @remark:其中ListModelMixin：可以实现get请求，返回所有数据，前端进行处理展示给用户
+    CreateModelMixin:负责post请求，创建新对象
     '''
     queryset = HouseInfoModel.objects.all()
     serializer_class = HouseInfoSerializer

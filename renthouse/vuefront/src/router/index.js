@@ -10,6 +10,7 @@ import Main from '@/components/Main'
 import ElementUI from 'element-ui'
 import Login from "../components/users/Login"
 import Register from "../components/users/Register"
+import AddHouse from "../components/projects/AddHouse";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -41,6 +42,12 @@ export default new Router({
       path:'/main',
       name:'Main',
       component:Main
+    },
+    {
+      /*@brief: 添加房源信息界面*/
+      path:'/addhouse',
+      name:'AddHouse',
+      component:AddHouse
     }
   ]
 })

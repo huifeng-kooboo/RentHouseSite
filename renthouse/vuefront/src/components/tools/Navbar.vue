@@ -29,11 +29,11 @@
       <template slot="title">管理中心</template>
       <el-menu-item index="4-1">租户管理</el-menu-item>
       <el-menu-item index="4-2">房源管理</el-menu-item> <!--此处为房东增加房源功能-->
+      <el-menu-item index="4-3"><a href="/addhouse">添加房源</a></el-menu-item> <!--此处为房东增加房源功能-->
     </el-submenu>
     <!-- <el-menu-item index="3" disabled>消息中心</el-menu-item> disabled表示不可选 -->
     <!--  百度导航栏<el-menu-item index="4"><a href="https://www.baidu.com" target="blank">百度</a></el-menu-item> -->
   </el-menu>
-    <h3 hidden >{{messagenn}}</h3>
   </div>
 </template>
 <script>
