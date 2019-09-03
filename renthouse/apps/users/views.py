@@ -1,10 +1,10 @@
 from rest_framework import viewsets,mixins
-from .models import UserModel,HouseInfoModel
+from .models import UserModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer
+from .serializers import UserSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
@@ -50,9 +50,3 @@ class LoginView(APIView):
         print(userdata.values())
         return Response(userdata.values()[0],status=status.HTTP_200_OK) #由前端做数据处理 userdata.values会直接转成json格式
 
-class HouseInfoAddViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
-    '''
-    @brief:添加房源信息
-    '''
-    queryset = HouseInfoModel.objects.all()
-    serializer_class = HouseInfoSerializer #添加房屋信息，由管理员添加，在前端展示
