@@ -4,18 +4,15 @@
       <!-- VNavbar 引入导航栏模块-->
       <VNavbar></VNavbar>
       <el-input id="username" class="username" v-model="input_username" suffix-icon="el-icon-user" placeholder = "请输入用户名"></el-input>
-      <VHouse></VHouse>
     </div>
 </template>
 <script>
      import LoginNavbar from './tools/LoginNavbar'
      import Navbar from './tools/Navbar'
-     import HousesInfo from './projects/HousesInfo'
     export default {
         name: "Main",
         components:{
-          VNavbar:Navbar,
-          VHouse:HousesInfo
+          VNavbar:Navbar
         },
       // 数据
       data(){
