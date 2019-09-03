@@ -1,10 +1,10 @@
 from rest_framework import viewsets,mixins
-from .models import UserModel
+from .models import UserModel,HouseInfoModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer
+from .serializers import UserSerializer,HouseInfoSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
@@ -16,6 +16,13 @@ class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
+
+class AddHouseInfoViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin,mixins.ListModelMixin):
+    '''
+    @brief :添加房源信息
+    '''
+    queryset = HouseInfoModel.objects.all()
+    serializer_class = HouseInfoSerializer
 
 class LoginView(APIView):
     '''
