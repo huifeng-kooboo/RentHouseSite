@@ -33,6 +33,14 @@
           alert("不存在号码");
         }
       },
+      mounted(){
+          //对dom进行操作，即赋值等操作
+        alert("渲染结束测试");
+      },
+      destroyed()
+      {
+        alert("摧毁调用");
+      },
       //方法类
       methods:{
       }
