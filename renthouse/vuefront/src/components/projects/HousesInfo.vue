@@ -1,12 +1,24 @@
 <template>
 <!--房源信息模块-->
   <!--Project包主要存放各种项目需要的安装模块-->
-  <el-main>main</el-main>
+  <el-main>
+    <h1>main</h1>
+  </el-main>
 </template>
 
 <script>
     export default {
-        name: "HousesInfo"
+        name: "HousesInfo",
+      methods:{
+          doSomething(){
+          alert("测试看看");
+          }
+      },
+      mounted(){
+      },
+      watch:{
+
+      }
     }
 </script>
 

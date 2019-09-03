@@ -24,22 +24,16 @@
         }
         },
       created(){
-          //初始化
-        if (this.$route.params.phone_number)
-        {
-          alert("存在电话号码");
-        }
-        else {
-          alert("不存在号码");
-        }
+          //渲染模板前进行操作
       },
       mounted(){
           //对dom进行操作，即赋值等操作
-        alert("渲染结束测试");
+      },
+      watch(){
+          //监听相关
       },
       destroyed()
       {
-        alert("摧毁调用");
       },
       //方法类
       methods:{
