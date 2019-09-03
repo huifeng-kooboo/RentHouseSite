@@ -10,7 +10,7 @@
     limit:限制上传照片数量：5
     multiple：表示允许上传多张图片
     accept:允许上传的图片类型
-
+    :action="UploadUrl" 自定义上传，这里使用先保存全局变量的方法,原因是，没法保存图片
     -->
     <el-upload
       class="upload_housejpg"
@@ -38,7 +38,8 @@
       data(){
           return{
             //绑定相应的数据信息
-            fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+            fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
+            curVal:2
           }
       },
        components:{
@@ -77,9 +78,12 @@
           return isIMAGE && isLt1M;
         },
         onSuccessUpload(file,fileList){
-          alert("恭喜上传成功"+file.name);
+          alert("恭喜上传成功");
+          console.log(this.curVal);
         },
+        UploadUrl(){
 
+        },
         //功能
       }
     }
