@@ -23,6 +23,16 @@
           input_username:this.$route.params.phone_number, //此处可以设置 获取传值信息 直接绑定到输入框
         }
         },
+      created(){
+          //初始化
+        if (this.$route.params.phone_number)
+        {
+          alert("存在电话号码");
+        }
+        else {
+          alert("不存在号码");
+        }
+      },
       //方法类
       methods:{
       }

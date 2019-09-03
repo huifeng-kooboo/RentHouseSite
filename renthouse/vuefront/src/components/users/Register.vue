@@ -17,6 +17,9 @@
         VNavbar:LoginNavbar,
         VRegisterForm:RegisterForm,
       },
+      created() {
+          //进行请求数据
+      }
     }
     // var example1 = new Vue({
     //   el: '#example-1',

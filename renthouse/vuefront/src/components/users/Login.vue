@@ -14,6 +14,9 @@
         components:{
         VNavbar:LoginNavbar,
         VLoginForm:LoginForm,
+      },
+      created() {
+          //这里发送get请求 调用数据
       }
     }
 </script>

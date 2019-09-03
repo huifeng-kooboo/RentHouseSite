@@ -15,7 +15,7 @@ class UserModel(AbstractUser):
     @author:ytouch
     @email:gisdoing@gmail.com
     '''
-    username = models.CharField(default='',unique=True,verbose_name='用户名',max_length=20,primary_key=True) # username: primary_key
+    username = models.CharField(default='',unique=True,verbose_name='用户名',max_length=20,primary_key=True) #username: primary_key
     password = models.CharField(default='', verbose_name='密码', max_length=100) # password: member
     is_admin = models.BooleanField(default=False, verbose_name="是否为管理员")  # is_admin: member
     phone_number = models.CharField(default='',unique=True,verbose_name='手机号',max_length=11) # phonenumber
