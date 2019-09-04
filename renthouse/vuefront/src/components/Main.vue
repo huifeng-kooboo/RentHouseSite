@@ -27,16 +27,12 @@
           //渲染模板前进行操作
       },
       mounted(){
-        //设置请求类型：get/json,方便服务端检查
-          var get_data = {'house_data':'1'}; //发送get_data =1 请求得到所有房源信息
           //对dom进行操作，即赋值等操作
-        this.$axios(
-          {
-            url:"api/addhouse/", //请求的url 由于跨域
-            method:'get',
-            data:JSON.stringify(get_data), //发送请求加载相关数据
+        this.$axios.get('/api/addhouse/',{
+          params:{
+            "house_position":1311
           }
-        );
+        }).then().catch();
       },
       watch(){
           //监听相关

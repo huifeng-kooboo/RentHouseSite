@@ -68,7 +68,6 @@ class AddPhotoView(APIView):
     '''
     def post(self,request,*args,**kwargs):
         image = request.data['file']
-        print(image)
         image_data = [image.file, image.field_name, image.name, image.content_type,
                       image.size, image.charset, image.content_type_extra]
         cache_key = 'image_key'

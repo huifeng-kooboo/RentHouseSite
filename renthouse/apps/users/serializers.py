@@ -13,7 +13,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = UserModel
         fields = ('username','password','is_admin','phone_number','rent_address','idcard')
 
-class HouseInfoSerializer(serializers.ModelField):
+class HouseInfoSerializer(serializers.HyperlinkedModelSerializer):
     # @bug：序列化过程中可能存在问题 待解决
     class Meta:
         model = HouseInfoModel
