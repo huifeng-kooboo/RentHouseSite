@@ -1,14 +1,18 @@
 from rest_framework import viewsets,mixins
-from .models import UserModel,HouseInfoModel
+from .models import UserModel,HouseInfoModel,AddPhotoModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer
+from .serializers import UserSerializer,HouseInfoSerializer,AddPhotoModelSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
-
+import base64
+from django.db import models
+from django.core.cache import cache
+from django.http import JsonResponse
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
@@ -58,4 +62,26 @@ class LoginView(APIView):
         request.session['login_name'] = username_str #设置登录session
         print(userdata.values())
         return Response(userdata.values()[0],status=status.HTTP_200_OK) #由前端做数据处理 userdata.values会直接转成json格式
+
+class AddPhotoViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
+    queryset = AddPhotoModel.objects.all()
+    serializer_class = AddPhotoModelSerializer
+
+class AddPhotoView(APIView):
+    '''
+    @description: save photo
+    @author: ytouch
+    '''
+    def post(self,request,*args,**kwargs):
+        print(request.data['file'])
+        image = request.data['file']
+        image_data = [image.file, image.field_name, image.name, image.content_type,
+                      image.size, image.charset, image.content_type_extra]
+        cache_key = 'image_key'
+        cache.set(cache_key, image_data, 60)
+        cache_data = cache.get(cache_key)
+        image = InMemoryUploadedFile(*cache_data)
+        AddPhotoModel(photos=image).save()
+        print(request.data)
+        return Response('get',status=status.HTTP_201_CREATED)
 

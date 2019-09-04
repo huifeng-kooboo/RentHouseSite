@@ -5,7 +5,7 @@
 # version: v1.0.0
 # update info:
 
-from .models import UserModel,HouseInfoModel
+from .models import UserModel,HouseInfoModel,AddPhotoModel
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -18,3 +18,8 @@ class HouseInfoSerializer(serializers.ModelSerializer):
         model = HouseInfoModel
         fields = ('house_images','basic_interviews','house_price',
                   'house_position','connect_phone','renter_name')
+
+class AddPhotoModelSerializer(serializers.ModelDurationField):
+    class Meta:
+        model = AddPhotoModel
+        fields = ('photos')

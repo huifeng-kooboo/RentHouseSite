@@ -14,14 +14,13 @@
     -->
     <el-upload
       class="upload_housejpg"
-      action="http://127.0.0.1:8000/media/house/"
+      action="/api/addphoto/"
       accept="image/jpeg,image/gif,image/png"
       :before-upload="onBeforeUpload"
       :on-preview="handlePreview"
       :on-remove="handleRemove"
       :on-success = 'onSuccessUpload'
       :file-list="fileList"
-      multiple
       :limit="5"
       :on-exceed="uploadExceed"
       list-type="picture">

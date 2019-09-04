@@ -39,3 +39,6 @@ class HouseInfoModel(models.Model):
     class Meta:
         db_table = 'houseinfo_table' # 房屋信息表
         verbose_name = '房屋信息表'
+
+class AddPhotoModel(models.Model):
+    photos = models.FileField(verbose_name='当前图片',upload_to='house/')
