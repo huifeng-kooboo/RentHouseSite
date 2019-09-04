@@ -4,7 +4,6 @@
     <!--主要为添加房源功能：针对于管理者，为项目特有，故放在projects模块-->
     <!--先放置常用导航栏模块-->
     <VNavbar></VNavbar>
-    <h2>添加房源</h2>
     <p>上传图片</p>
     <!-- el-upload 上传
     limit:限制上传照片数量：5
@@ -28,6 +27,12 @@
       <el-button size="small" type="primary">上传房源图片</el-button>
       <div slot="tip" class="el-upload__tip">格式允许jpg/png,最多允许上传5张图</div>
     </el-upload>
+    <el-input id="input_interview"  v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input>
+    <el-input id="input_price"  v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input>
+    <el-input id="input_address"  v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input>
+    <el-input id="input_phone"  v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input>
+    <el-input id="input_name"  v-model="input_name" suffix-icon="el-icon-female" placeholder = "请输入业主姓名" clearable></el-input>
+    <el-button type="primary" id="post_add" @click="addPost">添加</el-button>
   </div>
 </template>
 
@@ -39,7 +44,12 @@
           return{
             //绑定相应的数据信息
             fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
-            curVal:2
+            curVal:2,
+            input_interview:'',
+            input_price:'',
+            input_address:'',
+            input_name:'',
+            input_phone:'',
           }
       },
        components:{
@@ -84,7 +94,35 @@
         UploadUrl(){
 
         },
-        //功能
+        //提交到数据库添加
+        addPost(){
+          alert("添加成功");
+          const that = this;
+          //post数据整合
+          var post_data = {"basic_interviews":this.input_interview,"house_price":parseInt(this.input_price),
+          "house_position":this.input_address,"connect_phone":this.input_phone,"renter_name":this.input_name};
+          //使用axios发送
+          this.$axios(
+            {
+              url:'api/addhouse/',
+              method:'post',
+              data:JSON.stringify(post_data),
+            }
+          ).then(
+            //捕获添加房源成功信息
+            function (res) {
+              if (res.status == 201)
+              {
+                alert("添加房源成功！");
+              }
+            }
+          ).catch(
+            //捕获异常
+            function (res) {
+              alert("异常，请联系QQ:942840260");
+            }
+          )
+        }
       }
     }
 </script>

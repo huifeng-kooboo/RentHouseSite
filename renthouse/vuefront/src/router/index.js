@@ -21,7 +21,7 @@ export default new Router({
   /*定义相关路由*/
   routes: [
     {
-      /*@description:主页*/
+      /*@description:主页：自动跳转至Main*/
       path: '/',
       redirect:'/main', //添加重定向方法
     },

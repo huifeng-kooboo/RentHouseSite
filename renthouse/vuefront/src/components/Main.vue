@@ -34,7 +34,7 @@
           {
             url:"api/addhouse/", //请求的url 由于跨域
             method:'get',
-            data:JSON.stringify(get_data),
+            data:JSON.stringify(get_data), //发送请求加载相关数据
           }
         );
       },
@@ -43,6 +43,7 @@
       },
       destroyed()
       {
+
       },
       //方法类
       methods:{

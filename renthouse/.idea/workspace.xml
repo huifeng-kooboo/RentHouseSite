@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/Main.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/router/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +17,41 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/apps.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/renthouse/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-434">
+              <caret line="114" column="31" lean-forward="true" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
+              <folding>
+                <element signature="e#310#319#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="535">
+              <caret line="37" column="15" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="15" />
+              <folding>
+                <element signature="e#121#149#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -46,15 +83,15 @@
         <option value="$PROJECT_DIR$/renthouse/settings.py" />
         <option value="$PROJECT_DIR$/apps/users/models.py" />
         <option value="$PROJECT_DIR$/apps/users/admin.py" />
-        <option value="$PROJECT_DIR$/apps/users/serializers.py" />
         <option value="$PROJECT_DIR$/renthouse/urls.py" />
         <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/apps/users/serializers.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="576" />
-    <option name="y" value="273" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="818" />
+    <option name="y" value="151" />
     <option name="width" value="976" />
     <option name="height" value="698" />
   </component>
@@ -64,6 +101,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -90,7 +128,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -177,22 +214,24 @@
       <workItem from="1567473670228" duration="38000" />
       <workItem from="1567473922183" duration="600000" />
       <workItem from="1567494724288" duration="5337000" />
-      <workItem from="1567507239877" duration="2128000" />
+      <workItem from="1567507239877" duration="2833000" />
+      <workItem from="1567555593520" duration="807000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73614000" />
+    <option name="totallyTimeSpent" value="75126000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="576" y="273" width="976" height="698" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32969433" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16471216" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39539006" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39539006" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39863715" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -201,7 +240,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29545453" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.18004338" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -316,23 +355,6 @@
     <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="37" column="15" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="15" />
-          <folding>
-            <element signature="e#121#149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -346,16 +368,6 @@
     <entry file="file://$PROJECT_DIR$/apps/users/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/renthouse/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2031">
-          <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
-          <folding>
-            <element signature="e#310#319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/renthouse/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -366,13 +378,6 @@
           <folding>
             <element signature="e#35#67#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -399,6 +404,40 @@
           <caret line="36" column="42" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
           <folding>
             <element signature="e#113#124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/renthouse/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-434">
+          <caret line="114" column="31" lean-forward="true" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
+          <folding>
+            <element signature="e#310#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="37" column="15" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="15" />
+          <folding>
+            <element signature="e#121#149#0" expanded="true" />
           </folding>
         </state>
       </provider>

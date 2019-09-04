@@ -66,7 +66,7 @@
                 }
               ).catch(
                 function (res) {
-                  //处理请求异常
+                  //处理请求以长
                   if (res.response.status == 400)
                   {
                     alert(res.response.data); //弹出错误信息
