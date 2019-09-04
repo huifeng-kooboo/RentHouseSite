@@ -63,18 +63,14 @@ class LoginView(APIView):
         print(userdata.values())
         return Response(userdata.values()[0],status=status.HTTP_200_OK) #由前端做数据处理 userdata.values会直接转成json格式
 
-class AddPhotoViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
-    queryset = AddPhotoModel.objects.all()
-    serializer_class = AddPhotoModelSerializer
-
 class AddPhotoView(APIView):
     '''
-    @description: save photo
+    @description: save photo :只接受post请求
     @author: ytouch
     '''
     def post(self,request,*args,**kwargs):
-        print(request.data['file'])
         image = request.data['file']
+        print(image)
         image_data = [image.file, image.field_name, image.name, image.content_type,
                       image.size, image.charset, image.content_type_extra]
         cache_key = 'image_key'
@@ -82,6 +78,12 @@ class AddPhotoView(APIView):
         cache_data = cache.get(cache_key)
         image = InMemoryUploadedFile(*cache_data)
         AddPhotoModel(photos=image).save()
-        print(request.data)
-        return Response('get',status=status.HTTP_201_CREATED)
+        #HouseInfoModel(house_images=image).save()
+        return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
 
+
+class HouseAddViewSet(APIView):
+    def post(self,request,*args,**kwargs):
+        image = request.data['house_images']
+        HouseInfoModel(house_images=image).save()
+        return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)

@@ -21,18 +21,19 @@
       :on-remove="handleRemove"
       :on-success = 'onSuccessUpload'
       :file-list="fileList"
+      multiple
       :limit="5"
       :on-exceed="uploadExceed"
       list-type="picture">
       <el-button size="small" type="primary">上传房源图片</el-button>
-      <div slot="tip" class="el-upload__tip">格式允许jpg/png,最多允许上传5张图</div>
+      <div slot="tip" v-model="curPhoto" class="el-upload__tip">格式允许jpg/png,最多允许上传5张图</div>
     </el-upload>
     <el-input id="input_interview"  v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input>
     <el-input id="input_price"  v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input>
     <el-input id="input_address"  v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input>
     <el-input id="input_phone"  v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input>
     <el-input id="input_name"  v-model="input_name" suffix-icon="el-icon-female" placeholder = "请输入业主姓名" clearable></el-input>
-    <el-button type="primary" id="post_add" @click="addPost">添加</el-button>
+    <el-button type="primary" v-model="fileas" id="post_add" @click="addPost">添加</el-button>
   </div>
 </template>
 
@@ -50,6 +51,8 @@
             input_address:'asfsasdsf',
             input_name:'asfsasfa',
             input_phone:'13332244',
+            curPhoto:'',
+            fileas:'',
           }
       },
        components:{
@@ -65,20 +68,23 @@
           //存放各种方法类
         //此处存放上传图片各种操作
         handleRemove(file, fileList) {
-          console.log(file, fileList);
+          //console.log(file, fileList);
         },
         handlePreview(file) {
-          console.log(file);
+          //console.log(file);
+        },
+        myUpload(content){
+          console.log(typeof(content));
         },
         uploadExceed(){
           //超过5张图限制处理
           alert("上传数量超出限制，最多只允许5张图，联系QQ：942840260");
         },
         onBeforeUpload(file){
+          this.curPhoto = '/house/'+file.name;
           //上传前，检查数据类型
           const isIMAGE = file.type === 'image/jpeg'||'image/gif'||'image/png';
           const isLt1M = file.size / 1024 / 1024 < 1; //大小小于1M
-
           if (!isIMAGE) {
             alert('只允许上传图片');
           }
@@ -89,7 +95,7 @@
         },
         onSuccessUpload(file,fileList){
           alert("恭喜上传成功");
-          console.log(this.curVal);
+          //console.log(this.curVal);
         },
         UploadUrl(){
 
@@ -97,9 +103,10 @@
         //提交到数据库添加
         addPost(){
           alert("添加成功");
+          console.log(this.curPhoto);
           const that = this;
           //post数据整合
-          var post_data = {"basic_interviews":this.input_interview,"house_price":parseInt(this.input_price),
+          var post_data = {"house_images":this.curPhoto,"basic_interviews":this.input_interview,"house_price":parseInt(this.input_price),
           "house_position":this.input_address,"connect_phone":this.input_phone,"renter_name":this.input_name};
           //使用axios发送
           this.$axios(

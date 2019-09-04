@@ -41,4 +41,6 @@ class HouseInfoModel(models.Model):
         verbose_name = '房屋信息表'
 
 class AddPhotoModel(models.Model):
-    photos = models.FileField(verbose_name='当前图片',upload_to='house/')
+    #@brief: allphotos 保存所有上传的图片资源
+    photos = models.FileField(verbose_name='当前图片',upload_to='allphotos/')
+
