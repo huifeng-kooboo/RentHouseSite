@@ -8,7 +8,11 @@ from rest_framework.routers import DefaultRouter,SimpleRouter
 from rest_framework.authtoken import views
 from django.views.generic.base import TemplateView
 
+from renthouse.settings import MEDIA_ROOT
+
 import xadmin
+
+from django.views.static import serve
 
 #@comment: data view
 from users.views import UserRegisterViewSet,LoginView,AddHouseInfoViewSet
@@ -22,6 +26,7 @@ urlpatterns = [
     path('api-token-auth/',views.obtain_auth_token),
     path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),
+    url(r'media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT}),
    #
     path(r'', TemplateView.as_view(template_name="index.html")), #绑定前端，相当于与前端进行交互
     url(r'^',include(router.urls)),

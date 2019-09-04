@@ -30,7 +30,7 @@ class HouseInfoModel(models.Model):
     '''
     @brief ：添加房源信息model
     '''
-    house_images = models.ImageField(verbose_name='房屋图片',upload_to='house/',blank=False,default='') #bug 上传多图片房屋图片
+    house_images = models.FileField(verbose_name='房屋图片',upload_to='house/',blank=False,default='/house/1.png') #bug 上传多图片房屋图片
     basic_interviews = models.TextField(verbose_name='文字介绍',default='',blank=False)
     house_price = models.IntegerField(default=0,verbose_name='房屋价格',blank=False) # blank = False 表示字段不为空
     house_position = models.TextField(verbose_name='房屋地址',default='',blank=False)

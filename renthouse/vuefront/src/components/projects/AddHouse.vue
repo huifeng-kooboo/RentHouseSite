@@ -10,10 +10,11 @@
     multiple：表示允许上传多张图片
     accept:允许上传的图片类型
     :action="UploadUrl" 自定义上传，这里使用先保存全局变量的方法,原因是，没法保存图片
+          action="https://jsonplaceholder.typicode.com/posts/"
     -->
     <el-upload
       class="upload_housejpg"
-      action="https://jsonplaceholder.typicode.com/posts/"
+      action="http://127.0.0.1:8000/media/house/"
       accept="image/jpeg,image/gif,image/png"
       :before-upload="onBeforeUpload"
       :on-preview="handlePreview"
@@ -45,11 +46,11 @@
             //绑定相应的数据信息
             fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
             curVal:2,
-            input_interview:'',
-            input_price:'',
-            input_address:'',
-            input_name:'',
-            input_phone:'',
+            input_interview:'safsafsasf',
+            input_price:'1331',
+            input_address:'asfsasdsf',
+            input_name:'asfsasfa',
+            input_phone:'13332244',
           }
       },
        components:{

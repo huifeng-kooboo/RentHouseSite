@@ -67,6 +67,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+     'DEFAULT_PARSER_CLASSES': (
+    'rest_framework.parsers.JSONParser',
+    'rest_framework.parsers.FormParser',
+    'rest_framework.parsers.MultiPartParser',
+     ),
     'PAGE_SIZE': 10
 }
 
@@ -76,7 +81,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -165,5 +170,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # inherit user class
 AUTH_USER_MODEL = 'users.UserModel'
 
-#save session
+#save sessions
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
