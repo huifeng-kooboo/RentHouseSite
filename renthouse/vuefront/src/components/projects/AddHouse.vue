@@ -103,7 +103,7 @@
             {
               url:'api/addhouse/',
               method:'post',
-              data:JSON.stringify(formData),
+              data:JSON.stringify(post_data),
             }
           ).then(
             //捕获添加房源成功信息
