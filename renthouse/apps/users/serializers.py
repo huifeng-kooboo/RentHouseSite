@@ -14,6 +14,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('username','password','is_admin','phone_number','rent_address','idcard')
 
 class HouseInfoSerializer(serializers.ModelField):
+    # @bug：序列化过程中可能存在问题 待解决
     class Meta:
         model = HouseInfoModel
         fields = ('house_images','basic_interviews','house_price',

@@ -10,9 +10,6 @@
     export default {
         name: "HousesInfo",
       methods:{
-          doSomething(){
-          alert("测试看看");
-          }
       },
       mounted(){
       },

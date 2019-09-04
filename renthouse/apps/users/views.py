@@ -4,14 +4,11 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer,AddPhotoModelSerializer
+from .serializers import UserSerializer,HouseInfoSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
-import base64
-from django.db import models
 from django.core.cache import cache
-from django.http import JsonResponse
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
@@ -66,6 +63,7 @@ class LoginView(APIView):
 class AddPhotoView(APIView):
     '''
     @description: save photo :只接受post请求
+    @brief: 上传单张图片功能
     @author: ytouch
     '''
     def post(self,request,*args,**kwargs):
@@ -78,12 +76,4 @@ class AddPhotoView(APIView):
         cache_data = cache.get(cache_key)
         image = InMemoryUploadedFile(*cache_data)
         AddPhotoModel(photos=image).save()
-        #HouseInfoModel(house_images=image).save()
-        return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
-
-
-class HouseAddViewSet(APIView):
-    def post(self,request,*args,**kwargs):
-        image = request.data['house_images']
-        HouseInfoModel(house_images=image).save()
         return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
