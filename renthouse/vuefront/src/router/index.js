@@ -11,6 +11,7 @@ import ElementUI from 'element-ui'
 import Login from "../components/users/Login"
 import Register from "../components/users/Register"
 import AddHouse from "../components/projects/AddHouse";
+import ModifyPassword from "../components/users/ModifyPassword";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -48,6 +49,12 @@ export default new Router({
       path:'/addhouse',
       name:'AddHouse',
       component:AddHouse
+    },
+    {
+      /*@brief:修改密码*/
+      path:'/modifypassword',
+      name:'ModifyPassword',
+      component:ModifyPassword
     }
   ]
 })

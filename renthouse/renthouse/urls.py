@@ -20,7 +20,7 @@ router.register(r'addhouse',AddHouseInfoViewSet,base_name='addhouse')
 urlpatterns = [
     url(r'^login/',LoginView.as_view(),name='login'), #用户登录
     path('api-token-auth/',views.obtain_auth_token),
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),
    #
     path(r'', TemplateView.as_view(template_name="index.html")), #绑定前端，相当于与前端进行交互
