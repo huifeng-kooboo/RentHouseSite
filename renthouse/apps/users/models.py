@@ -32,6 +32,7 @@ class HouseInfoModel(models.Model):
     @bug:就是增加多张图片暂时还不可用，晚上解决
     '''
     house_images = models.FileField(verbose_name='房屋图片',upload_to='house/',blank=False,default='/house/1.png') #bug 上传多图片房屋图片
+    house_title = models.CharField(verbose_name='租房标题',default='',max_length=100) #此处不能相同，作为取出数据的依据,就是在post数据库中进行判断即可
     basic_interviews = models.TextField(verbose_name='文字介绍',default='',blank=False)
     house_price = models.IntegerField(default=0,verbose_name='房屋价格',blank=False) # blank = False 表示字段不为空
     house_position = models.TextField(verbose_name='房屋地址',default='',blank=False) #房屋地址
@@ -42,7 +43,9 @@ class HouseInfoModel(models.Model):
         verbose_name = '房屋信息表'
 
 class AddPhotoModel(models.Model):
-    #@brief: allphotos 保存所有上传的图片资源,主要用于房源信息的增加
+    '''
+    @brief:添加图片model
+    '''
     photos = models.FileField(verbose_name='当前图片',upload_to='allphotos/')
     class Meta:
         db_table = 'addphoto_table'

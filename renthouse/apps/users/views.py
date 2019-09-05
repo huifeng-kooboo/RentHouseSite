@@ -54,7 +54,7 @@ class LoginView(APIView):
 class AddPhotoView(APIView):
     '''
     @description: save photo :只接受post请求
-    @brief: 上传单张图片功能
+    @brief: 上传多张张图片功能
     @author: ytouch
     '''
     def post(self,request,*args,**kwargs):
@@ -72,8 +72,6 @@ class AddPhotoView(APIView):
 class AddHouseView(APIView):
     '''
     @brief :添加房源信息
-    @remark:其中ListModelMixin：可以实现get请求，返回所有数据，前端进行处理展示给用户
-    CreateModelMixin:负责post请求，创建新对象
     '''
     def post(self,request,*args,**kwargs):
         '''

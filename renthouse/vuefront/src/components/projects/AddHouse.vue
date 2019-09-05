@@ -15,6 +15,7 @@
     <el-upload
       class="upload_housejpg"
       action="/api/addphoto/"
+      :http-request="UploadSome"
       accept="image/jpeg,image/gif,image/png"
       :before-upload="onBeforeUpload"
       :on-preview="handlePreview"
@@ -28,12 +29,15 @@
       <el-button size="small" type="primary">上传房源图片</el-button>
       <div slot="tip" class="el-upload__tip">格式允许jpg/png,最多允许上传5张图</div>
     </el-upload>
-    <el-input id="input_interview"  v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input>
-    <el-input id="input_price"  v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input>
-    <el-input id="input_address"  v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input>
-    <el-input id="input_phone"  v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input>
+    <el-col :span="1">房源介绍</el-col>
+    <el-col :span="2">  <el-input id="input_interview" v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input></el-col>
+
+
+    <el-input id="input_price"   v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input>
+    <el-input id="input_address"   v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input>
+    <el-input id="input_phone"   v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input>
     <el-input id="input_name"  v-model="input_name" suffix-icon="el-icon-female" placeholder = "请输入业主姓名" clearable></el-input>
-    <el-button type="primary" v-model="fileas" id="post_add" @click="addPost">添加</el-button>
+    <el-button type="primary"  id="post_add" @click="addPost">添加</el-button>
     <input class="file" name="file" type="file" multiple accept="image/png,image/gif,image/jpeg" @change="update"/>
     <el-input id="input_file_send" type="file" multiple></el-input>
   </div>
@@ -81,6 +85,7 @@
           alert("上传数量超出限制，最多只允许5张图，联系QQ：942840260");
         },
         onBeforeUpload(file){
+          console.log(file);
           //@brief:上传前处理事件
           //上传前，检查数据类型
           const isIMAGE = file.type === 'image/jpeg'||'image/gif'||'image/png';
@@ -96,6 +101,11 @@
         onSuccessUpload(response,file,fileList){
           //上传成功处理事件
         },
+
+        UploadSome(content){
+          console.log(content.file);
+        },
+
         //提交到数据库添加
         addPost(){
           console.log(FILE_INFO);
@@ -130,7 +140,7 @@
         //update 方法测试
         update(e){
               let file = e.target.files[0];
-              let files = e.target.files;
+              let files = e.target.files[0].name;
               console.log(files);
               let param = new FormData(); //创建form对象
               param.append('file',files);//通过append向form对象添加数据
