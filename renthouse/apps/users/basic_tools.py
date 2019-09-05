@@ -31,7 +31,6 @@ def checkUserLoginInfo(username,password):
 
 
 ''' password method : 加密 or 解密 '''
-
 def generateSecurityPassword(password):
     '''
     @description: gernerate Security Word:
