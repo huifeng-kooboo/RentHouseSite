@@ -40,8 +40,10 @@
 </template>
 
 <script>
-  import Navbar from '../tools/Navbar'
+     import Navbar from '../tools/Navbar'
+    let FILE_INFO ;
     export default {
+        FILE_INFO,
         name: "AddHouse",
       data(){
           return{
@@ -68,6 +70,7 @@
           //存放各种方法类
         //此处存放上传图片各种操作
         handleRemove(file, fileList) {
+          FILE_INFO = fileList;
           //@brief :移除图片事件
         },
         handlePreview(file) {
@@ -91,10 +94,12 @@
           return isIMAGE && isLt1M;
         },
         onSuccessUpload(response,file,fileList){
+          FILE_INFO =fileList;
           //上传成功处理事件
         },
         //提交到数据库添加
         addPost(){
+          console.log(FILE_INFO);
           const that = this; //that用于重定向页面时候调用
           //post数据整合
           //bug 就是处理House_images事件
@@ -128,6 +133,7 @@
               let file = e.target.files[0];
               let param = new FormData(); //创建form对象
               param.append('file',file);//通过append向form对象添加数据
+              param.append('aa','sss');
               console.log(param.get('file')); //FormData私有类对象，访问不到，可以通过get判断值是否传进去
               let config = {
                 headers:{'Content-Type':'multipart/form-data'}
