@@ -18,15 +18,6 @@ class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
 
-class AddHouseInfoViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin,mixins.ListModelMixin):
-    '''
-    @brief :添加房源信息
-    @remark:其中ListModelMixin：可以实现get请求，返回所有数据，前端进行处理展示给用户
-    CreateModelMixin:负责post请求，创建新对象
-    '''
-    queryset = HouseInfoModel.objects.all()
-    serializer_class = HouseInfoSerializer
-
 class LoginView(APIView):
     '''
     @description: a basic method to console login page
@@ -76,3 +67,30 @@ class AddPhotoView(APIView):
         image = InMemoryUploadedFile(*cache_data)
         AddPhotoModel(photos=image).save()
         return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
+
+
+class AddHouseView(APIView):
+    '''
+    @brief :添加房源信息
+    @remark:其中ListModelMixin：可以实现get请求，返回所有数据，前端进行处理展示给用户
+    CreateModelMixin:负责post请求，创建新对象
+    '''
+    def post(self,request,*args,**kwargs):
+        '''
+        @brief:处理post请求
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        '''
+        return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
+
+    def get(self,request,*args,**kwargs):
+        '''
+
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        '''
+        return Response('处理get请求',status=status.HTTP_201_CREATED)
