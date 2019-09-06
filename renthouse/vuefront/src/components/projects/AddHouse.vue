@@ -127,33 +127,47 @@
 
         //提交到数据库添加
         addPost(){
-          console.log(FILES_LIST.length);
-          const that = this; //that用于重定向页面时候调用
-          //post数据整合
-          //bug 就是处理House_images事件
-          var post_data = {"house_images":"","basic_interviews":this.input_interview,"house_price":parseInt(this.input_price),
-          "house_position":this.input_address,"connect_phone":this.input_phone,"renter_name":this.input_name};
-          //使用axios发送
-          this.$axios(
-            {
-              url:'api/addhouse/',
-              method:'post',
-              data:JSON.stringify(post_data),
-            }
-          ).then(
-            //捕获添加房源成功信息
-            function (res) {
-              if (res.status == 201)
-              {
-                alert("添加房源成功！");
-              }
-            }
-          ).catch(
-            //捕获异常
-            function (res) {
-              alert("异常，请联系QQ:942840260");
-            }
-          )
+          console.log(FILES_LIST[0].name);
+          let params = new FormData();//创建form对象
+          params.append('file',FILES_LIST);
+          params.append('basic_interviews',this.input_interview);
+          params.append('house_price',this.input_price);
+          params.append('house_position',this.input_address);
+          params.append('connect_phone',this.input_phone);
+          params.append('renter_name',this.input_name);
+          let config = {
+            headers:{'Content-Type':'multipart/form-data'}
+          }; //添加请求头
+          this.$http.post('api/addhouse/',params,config)
+            .then(response=>{
+              console.log(response.data);
+            });
+          // const that = this; //that用于重定向页面时候调用
+          // //post数据整合
+          // //bug 就是处理House_images事件
+          // var post_data = {"house_images":"","basic_interviews":this.input_interview,"house_price":parseInt(this.input_price),
+          // "house_position":this.input_address,"connect_phone":this.input_phone,"renter_name":this.input_name};
+          // //使用axios发送
+          // this.$axios(
+          //   {
+          //     url:'api/addhouse/',
+          //     method:'post',
+          //     data:JSON.stringify(post_data),
+          //   }
+          // ).then(
+          //   //捕获添加房源成功信息
+          //   function (res) {
+          //     if (res.status == 201)
+          //     {
+          //       alert("添加房源成功！");
+          //     }
+          //   }
+          // ).catch(
+          //   //捕获异常
+          //   function (res) {
+          //     alert("异常，请联系QQ:942840260");
+          //   }
+          // )
         },
       }
     }
