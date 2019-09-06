@@ -49,7 +49,7 @@ class LoginView(APIView):
             return Response('密码错误,请重新输入',status=status.HTTP_400_BAD_REQUEST)
         request.session['login_name'] = username_str #设置登录session
         print(userdata.values())
-        return Response(userdata.values()[0],status=status.HTTP_200_OK) #由前端做数据处理 userdata.values会直接转成json格式
+        return Response(userdata.values()[0],status=status.HTTP_200_OK) #由前端做数据处理 userdata.values[0]会直接转成json格式
 
 class AddPhotoView(APIView):
     '''
@@ -83,7 +83,7 @@ class AddHouseView(APIView):
         '''
         print('post data:')
         print(request.data)
-        return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
+        return Response('上传图片文件成功!',status=status.HTTP_201_CREATED) #201表示创建
 
     def get(self,request,*args,**kwargs):
         '''
@@ -95,4 +95,4 @@ class AddHouseView(APIView):
         '''
         print('get data:')
         print(request.data)
-        return Response('处理get请求',status=status.HTTP_201_CREATED)
+        return Response('处理get请求',status=status.HTTP_200_OK)
