@@ -81,6 +81,8 @@ class AddHouseView(APIView):
         :param kwargs:
         :return:
         '''
+        print('post data:')
+        print(request.data)
         return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
 
     def get(self,request,*args,**kwargs):
@@ -91,4 +93,6 @@ class AddHouseView(APIView):
         :param kwargs:
         :return:
         '''
+        print('get data:')
+        print(request.data)
         return Response('处理get请求',status=status.HTTP_201_CREATED)

@@ -4,7 +4,6 @@
     <!--主要为添加房源功能：针对于管理者，为项目特有，故放在projects模块-->
     <!--先放置常用导航栏模块-->
     <VNavbar></VNavbar>
-    <p>上传图片</p>
     <!-- el-upload 上传
     limit:限制上传照片数量：5
     multiple：表示允许上传多张图片
@@ -12,39 +11,54 @@
     :action="UploadUrl" 自定义上传，这里使用先保存全局变量的方法,原因是，没法保存图片
           action="https://jsonplaceholder.typicode.com/posts/"
     -->
-    <el-upload
-      class="upload_housejpg"
-      action="/api/addphoto/"
-      accept="image/jpeg,image/gif,image/png"
-      :before-upload="onBeforeUpload"
-      :on-preview="handlePreview"
-      :on-remove="handleRemove"
-      :on-success = 'onSuccessUpload'
-      :file-list="fileList"
-      multiple
-      :limit="5"
-      :on-exceed="uploadExceed"
-      list-type="picture">
-      <el-button size="small" type="primary">上传房源图片</el-button>
-      <div slot="tip" class="el-upload__tip">格式允许jpg/png,最多允许上传5张图</div>
-    </el-upload>
-    <el-col :span="1">房源介绍</el-col>
-    <el-col :span="2">  <el-input id="input_interview" v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input></el-col>
-
-
-    <el-input id="input_price"   v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input>
-    <el-input id="input_address"   v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input>
-    <el-input id="input_phone"   v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input>
-    <el-input id="input_name"  v-model="input_name" suffix-icon="el-icon-female" placeholder = "请输入业主姓名" clearable></el-input>
+    <el-row :gutter="25">
+      <el-col :span="3">上传房源照片:</el-col>
+      <el-col :span="6"><el-upload
+        class="upload_housejpg"
+        action="/api/addphoto/"
+        accept="image/jpeg,image/gif,image/png"
+        :before-upload="onBeforeUpload"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :on-success = 'onSuccessUpload'
+        :on-change = 'changeUploadFile'
+        :file-list="fileList"
+        multiple
+        :limit="5"
+        :on-exceed="uploadExceed"
+        list-type="picture">
+        <el-button size="small" type="primary">上传房源图片</el-button>
+        <div slot="tip" class="el-upload__tip">格式允许jpg/png,最多允许上传5张图</div>
+      </el-upload></el-col>
+    </el-row>
+    <el-row :gutter="25">
+      <el-col :span="3">请输入房源介绍：</el-col>
+      <el-col :span="6">  <el-input id="input_interview" v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input></el-col>
+    </el-row>
+    <el-row :gutter="25">
+      <el-col :span="3">请输入房屋价格：</el-col>
+      <el-col :span="6"><el-input id="input_price"   v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input></el-col>
+    </el-row>
+    <el-row :gutter="25">
+      <el-col :span="3">请输入房屋住址：</el-col>
+     <el-col :span="6"> <el-input id="input_address"   v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input></el-col>
+    </el-row>
+    <el-row :gutter="25">
+      <el-col :span="3">请输入联系手机号：</el-col>
+      <el-col :span="6"> <el-input id="input_phone"   v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input></el-col>
+    </el-row>
+    <el-row :gutter="25">
+      <el-col :span="3">请输入业主姓名：</el-col>
+      <el-col :span="6">    <el-input id="input_name"  v-model="input_name" suffix-icon="el-icon-female" placeholder = "请输入业主姓名" clearable></el-input></el-col>
+    </el-row>
     <el-button type="primary"  id="post_add" @click="addPost">添加</el-button>
   </div>
 </template>
 
 <script>
      import Navbar from '../tools/Navbar'
-    let FILE_INFO ;
+     let FILES_LIST ;//主要是存放所有的文件列表，用于发送数据
     export default {
-        FILE_INFO,
         name: "AddHouse",
       data(){
           return{
@@ -68,23 +82,30 @@
       destroyed() {
       },
       methods:{
-          //存放各种方法类
-        //此处存放上传图片各种操作
+          /*
+          * begin
+          * @brief:存放所有的上传图片类的方法
+          *
+          * */
+          //移除方法
         handleRemove(file, fileList) {
-          FILE_INFO = fileList;
-          //@brief :移除图片事件
+          FILES_LIST = fileList;
         },
+        //@brief :点击图片事件
         handlePreview(file) {
           //@brief :前面
         },
+        //@brief :超过限制事件
         uploadExceed(){
           //超过限制张数处理事件
           alert("上传数量超出限制，最多只允许5张图，联系QQ：942840260");
         },
+        //改变移除 都会触发该事件
+        changeUploadFile(file,fileList){
+          FILES_LIST = fileList;
+        },
+        //上传前
         onBeforeUpload(file){
-          console.log(file);
-          //@brief:上传前处理事件
-          //上传前，检查数据类型
           const isIMAGE = file.type === 'image/jpeg'||'image/gif'||'image/png';
           const isLt1M = file.size / 1024 / 1024 < 1; //大小小于1M
           if (!isIMAGE) {
@@ -95,17 +116,18 @@
           }
           return isIMAGE && isLt1M;
         },
+        //上传成功
         onSuccessUpload(response,file,fileList){
+          FILES_LIST = fileList;
           //上传成功处理事件
         },
-
-        UploadSome(content){
-          console.log(content.file);
-        },
+        /*
+        * end
+        * */
 
         //提交到数据库添加
         addPost(){
-          console.log(FILE_INFO);
+          console.log(FILES_LIST.length);
           const that = this; //that用于重定向页面时候调用
           //post数据整合
           //bug 就是处理House_images事件
@@ -138,5 +160,10 @@
 </script>
 
 <style scoped>
-
+#post_add{
+  display:block;
+  position: relative;
+  top: 30px;
+  left: 100px;
+}
 </style>
