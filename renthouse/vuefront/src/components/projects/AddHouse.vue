@@ -12,7 +12,7 @@
           action="https://jsonplaceholder.typicode.com/posts/"
     -->
     <el-row :gutter="25">
-      <el-col :span="3">上传房源照片:</el-col>
+      <el-col :span="3"><p>上传房源照片:</p></el-col>
       <el-col :span="6"><el-upload
         class="upload_housejpg"
         action="/api/addphoto/"
@@ -27,29 +27,34 @@
         :limit="5"
         :on-exceed="uploadExceed"
         list-type="picture">
-        <el-button size="small" type="primary">上传房源图片</el-button>
+        <el-button size="small" style="padding: 10px" type="primary">上传房源图片</el-button>
         <div slot="tip" class="el-upload__tip">格式允许jpg/png,最多允许上传5张图</div>
       </el-upload></el-col>
     </el-row>
+
     <el-row :gutter="25">
-      <el-col :span="3">请输入房源介绍：</el-col>
-      <el-col :span="6">  <el-input id="input_interview" v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input></el-col>
+      <el-col :span="3" style="padding: 20px"><p>请输入房源名字：</p></el-col>
+      <el-col :span="6" style="padding: 10px">  <el-input id="input_title" v-model="input_title" suffix-icon="el-icon-message" placeholder = "请输入房源名字" clearable></el-input></el-col>
     </el-row>
     <el-row :gutter="25">
-      <el-col :span="3">请输入房屋价格：</el-col>
-      <el-col :span="6"><el-input id="input_price"   v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input></el-col>
+      <el-col :span="3" style="padding: 20px"><p>请输入房源介绍：</p></el-col>
+      <el-col :span="6" style="padding: 10px">  <el-input id="input_interview" v-model="input_interview" suffix-icon="el-icon-message" placeholder = "请输入房源介绍" clearable></el-input></el-col>
     </el-row>
     <el-row :gutter="25">
-      <el-col :span="3">请输入房屋住址：</el-col>
-     <el-col :span="6"> <el-input id="input_address"   v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input></el-col>
+      <el-col :span="3" style="padding: 20px">请输入房屋价格：</el-col>
+      <el-col :span="6" style="padding: 10px;"><el-input id="input_price"   v-model="input_price" suffix-icon="el-icon-user" placeholder = "请输入房屋价格" clearable></el-input></el-col>
     </el-row>
     <el-row :gutter="25">
-      <el-col :span="3">请输入联系手机号：</el-col>
-      <el-col :span="6"> <el-input id="input_phone"   v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input></el-col>
+      <el-col :span="3" style="padding: 20px;">请输入房屋住址：</el-col>
+     <el-col :span="6" style="padding: 10px;"> <el-input id="input_address"   v-model="input_address" suffix-icon="el-icon-place" placeholder = "请输入房屋住址" clearable></el-input></el-col>
     </el-row>
     <el-row :gutter="25">
-      <el-col :span="3">请输入业主姓名：</el-col>
-      <el-col :span="6">    <el-input id="input_name"  v-model="input_name" suffix-icon="el-icon-female" placeholder = "请输入业主姓名" clearable></el-input></el-col>
+      <el-col :span="3" style="padding: 20px">请输入联系手机号：</el-col>
+      <el-col :span="6" style="padding: 10px;"> <el-input id="input_phone"   v-model="input_phone" suffix-icon="el-icon-phone" placeholder = "请输入联系手机号" clearable></el-input></el-col>
+    </el-row>
+    <el-row :gutter="25">
+      <el-col :span="3" style="padding: 20px">请输入业主姓名：</el-col>
+      <el-col :span="6" style="padding: 10px">    <el-input id="input_name"  v-model="input_name" suffix-icon="el-icon-female" placeholder = "请输入业主姓名" clearable></el-input></el-col>
     </el-row>
     <el-button type="primary"  id="post_add" @click="addPost">添加</el-button>
   </div>
@@ -65,6 +70,7 @@
             //绑定相应的数据信息
             fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
            //相关需要post的参数
+            input_title :'房源名字',
             input_interview:'safsafsasf',
             input_price:'1331',
             input_address:'asfsasdsf',
@@ -103,6 +109,7 @@
         //改变移除 都会触发该事件
         changeUploadFile(file,fileList){
           FILES_LIST = fileList;
+          console.log(typeof FILES_LIST);
         },
         //上传前
         onBeforeUpload(file){
@@ -127,9 +134,11 @@
 
         //提交到数据库添加
         addPost(){
-          console.log(FILES_LIST[0].name);
+          var reader = new FileReader();
+          reader.readAsBinaryString(FILES_LIST[0]);
+          console.log(FILES_LIST[0]);
           let params = new FormData();//创建form对象
-          params.append('file',FILES_LIST);
+          params.append('file',reader.result);
           params.append('basic_interviews',this.input_interview);
           params.append('house_price',this.input_price);
           params.append('house_position',this.input_address);

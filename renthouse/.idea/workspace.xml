@@ -3,6 +3,43 @@
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_5s97svN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_6MRgqeN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_AZfzt5X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_Adj7odj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_MbRgp1Q.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_NQ4g8yy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_OIIGpIl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_PrFeJdM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_QTqbRQh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_RWMcLJv.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_TW6T1TG.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_dOzlsqc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_enx6wLy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_fvIdysz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_hm7qXFt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_kcdUNyl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_oVnkRdA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_tG82NcT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_tz6VE2j.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_ueFr3Yv.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_ySai0Y8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/1_zBSBwd4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_5cfnheh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_7o63tGy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_D3UEEFT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_NYFrqqj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_W7jAtSb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_YFCYhaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_YUoXz1H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_gFRR1ac.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_jTaek8T.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_mxlJWxc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_oUsqtpS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_ozPfYwv.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/2_usYGLBF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/allphotos/logo_kUm6WMt.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,34 +56,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="51" column="99" selection-start-line="51" selection-start-column="99" selection-end-line="51" selection-end-column="99" />
+            <state relative-caret-position="660">
+              <caret line="90" column="59" lean-forward="true" selection-start-line="90" selection-start-column="59" selection-end-line="90" selection-end-column="59" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/renthouse/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
-              <folding>
-                <element signature="e#310#319#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/users/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="912">
-              <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
-              <folding>
-                <element signature="e#121#149#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,11 +125,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="324" />
-    <option name="y" value="80" />
-    <option name="width" value="1402" />
-    <option name="height" value="1004" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="790" />
+    <option name="y" value="230" />
+    <option name="width" value="964" />
+    <option name="height" value="740" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -124,7 +137,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -152,6 +164,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -249,22 +262,23 @@
       <workItem from="1567693630620" duration="681000" />
       <workItem from="1567731547652" duration="1273000" />
       <workItem from="1567757225009" duration="1317000" />
+      <workItem from="1567761565020" duration="3501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107016000" />
+    <option name="totallyTimeSpent" value="110517000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="324" y="80" width="1402" height="1004" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16542473" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.119936034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23333333" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16052061" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39863715" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -445,36 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="51" column="99" selection-start-line="51" selection-start-column="99" selection-end-line="51" selection-end-column="99" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/renthouse/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
-          <folding>
-            <element signature="e#310#319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
-          <folding>
-            <element signature="e#121#149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -489,6 +473,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="50" column="31" lean-forward="true" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+          <folding>
+            <element signature="e#121#149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/renthouse/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+          <folding>
+            <element signature="e#310#319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="90" column="59" lean-forward="true" selection-start-line="90" selection-start-column="59" selection-end-line="90" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

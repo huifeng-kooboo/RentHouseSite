@@ -59,6 +59,8 @@ class AddPhotoView(APIView):
     '''
     def post(self,request,*args,**kwargs):
         image = request.data['file']
+        print(image.field_name)
+        print(type(image))
         image_data = [image.file, image.field_name, image.name, image.content_type,
                       image.size, image.charset, image.content_type_extra]
         cache_key = 'image_key'
@@ -81,6 +83,9 @@ class AddHouseView(APIView):
         :param kwargs:
         :return:
         '''
+        file_list = request.data['file'] #获得文件列表
+        print(file_list.field_name)
+        print(len(file_list))
         print('post data:')
         print(request.data)
         return Response('上传图片文件成功!',status=status.HTTP_201_CREATED) #201表示创建
