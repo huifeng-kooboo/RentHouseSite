@@ -27,7 +27,7 @@
     </el-submenu>
     <el-submenu index="4">
       <template slot="title">管理中心</template>
-      <el-menu-item index="4-1">租户管理</el-menu-item>
+      <el-menu-item index="4-1"><a href="/tenant">租户管理</a></el-menu-item>
       <el-menu-item index="4-2">房源管理</el-menu-item> <!--此处为房东增加房源功能-->
       <el-menu-item index="4-3"><a href="/addhouse">添加房源</a></el-menu-item> <!--此处为房东增加房源功能-->
     </el-submenu>

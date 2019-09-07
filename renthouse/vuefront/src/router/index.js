@@ -12,6 +12,7 @@ import Login from "../components/users/Login"
 import Register from "../components/users/Register"
 import AddHouse from "../components/projects/AddHouse";
 import ModifyPassword from "../components/users/ModifyPassword";
+import TenantManage from "../components/projects/TenantManage";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -55,6 +56,12 @@ export default new Router({
       path:'/modifypassword',
       name:'ModifyPassword',
       component:ModifyPassword
+    },
+    {
+      /*@brief:租户管理*/
+      path:'/tenant',
+      name:'TenantManage',
+      component:TenantManage
     }
   ]
 })
