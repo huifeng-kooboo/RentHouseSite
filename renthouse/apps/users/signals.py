@@ -19,5 +19,7 @@ def user_save(sender,instance,created=False,**kwargs):
     if created:
         password = instance.password
         instance.set_password(password) #加密
+        instance.set_cookie('is_login',True,3000) #设置cookie
+        instance.set_cookie('username',instance.username) #设置cookie
         instance.save()
 

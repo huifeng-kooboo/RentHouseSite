@@ -51,3 +51,21 @@ class AddPhotoModel(models.Model):
         db_table = 'addphoto_table'
         verbose_name = '图片保存表'
 
+class LandlordManage(models.Model):
+    '''
+    @brief：房东管理表
+    '''
+    tenant = models.CharField(verbose_name='租户姓名',max_length=100,primary_key=True,unique=True,default='') #租户
+    rental_time = models.DateField(verbose_name='出租时间')
+    rental_address = models.CharField(verbose_name='出租地址',max_length=100,default='') # 出租地址
+    rent_fee = models.IntegerField(verbose_name='房租')
+    water_fee = models.IntegerField(verbose_name='水费')
+    electric_fee = models.IntegerField(verbose_name='电费')
+    is_net = models.BooleanField(verbose_name='是否有网费',default=True)
+    net_fee = models.IntegerField(verbose_name='网费')
+    key_num = models.IntegerField(verbose_name='钥匙数量')
+    is_air = models.BooleanField(verbose_name='是否有空调',default=True)
+    is_washer = models.BooleanField(verbose_name='是否有洗衣机', default=True)
+    class Meta:
+        db_table = 'landlord_table'
+        verbose_name = '房东记录表'
