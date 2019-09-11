@@ -36,6 +36,93 @@
         </el-input>
       </el-col>
     </el-row>
+    <!--房租价格-->
+    <el-row :gutter="30">
+      <el-col :span="3">房租价格：</el-col>
+      <el-col :span="6">
+        <el-input
+          v-model="rent_price"
+          placeholder="房租价格">
+        </el-input>
+      </el-col>
+    </el-row>
+    <!--水费-->
+    <el-row :gutter="30">
+      <el-col :span="3">水费：</el-col>
+      <el-col :span="6">
+        <el-input
+          v-model="water_fee"
+          placeholder="水费">
+        </el-input>
+      </el-col>
+    </el-row>
+    <!--电费-->
+    <el-row :gutter="30">
+      <el-col :span="3">电费：</el-col>
+      <el-col :span="6">
+        <el-input
+          v-model="electric_fee"
+          placeholder="电费">
+        </el-input>
+      </el-col>
+    </el-row>
+    <!--是否有网费-->
+    <el-row :gutter="30">
+      <el-col :span="3">是否有网费：</el-col>
+      <el-col :span="6">
+        <el-switch
+          v-model="is_net"
+          active-color="#13ce66"
+          inactive-color="#ff4949">
+        </el-switch>
+      </el-col>
+    </el-row>
+    <!--网费-->
+    <el-row :gutter="30">
+      <el-col :span="3">网费：</el-col>
+      <el-col :span="6">
+        <el-input
+          v-model="net_fee"
+          placeholder="网费">
+        </el-input>
+      </el-col>
+    </el-row>
+    <!--钥匙数量-->
+    <el-row :gutter="30">
+      <el-col :span="3">钥匙数量：</el-col>
+      <el-col :span="6">
+        <el-input
+          v-model="key_num"
+          placeholder="钥匙数量">
+        </el-input>
+      </el-col>
+    </el-row>
+    <!--是否有空调-->
+    <el-row :gutter="30">
+      <el-col :span="3">是否有空调：</el-col>
+      <el-col :span="6">
+        <el-switch
+          v-model="is_air"
+          active-color="#13ce66"
+          inactive-color="#ff4949">
+        </el-switch>
+      </el-col>
+    </el-row>
+    <!--是否有洗衣机-->
+    <el-row :gutter="30">
+      <el-col :span="3">是否有洗衣机：</el-col>
+      <el-col :span="6">
+        <el-switch
+          v-model="is_washer"
+          active-color="#13ce66"
+          inactive-color="#ff4949">
+        </el-switch>
+      </el-col>
+    </el-row>
+    <!--提交按钮-->
+    <el-row :gutter="30">
+      <el-button type="primary">提交</el-button>
+    </el-row>
 
 
   </div>
@@ -66,6 +153,15 @@
                value:'',
                rent_date_value:'',
                rent_address_value:'',
+               rent_price:'',
+               water_fee:'',
+               electric_fee:'',
+               is_net:true,
+               net_fee:'',
+               key_num:'',
+               is_air:true,
+               is_washer:true,
+
            }
         }
     }
