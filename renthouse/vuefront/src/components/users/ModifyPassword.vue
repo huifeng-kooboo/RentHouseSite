@@ -20,7 +20,7 @@
           <el-input v-model="input_verify" placeholder="手机验证码"></el-input>
         </el-col>
         <el-col :span="6">
-          <el-button type="primary">发送验证码</el-button>
+          <el-button @click="postVerify" type="primary">发送验证码</el-button>
         </el-col>
       </el-row>
       <el-row>
@@ -40,7 +40,7 @@
         </el-col>
       </el-row>
       <el-row>
-        <el-button type="primary">提交</el-button>
+        <el-button type="primary" @click="postModify">提交</el-button>
       </el-row>
     </div>
 </template>
@@ -59,6 +59,16 @@
             input_newpsd:'',
             input_repsd:'',
           }
+      },
+      methods:{
+          //@brief：手机发送验证码
+        postVerify(){
+          alert("发送验证码");
+        },
+        //@brief:提交新密码
+        postModify(){
+          alert("提交新密码");
+        },
       }
     }
 </script>

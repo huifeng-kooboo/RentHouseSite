@@ -13,6 +13,7 @@ import Register from "../components/users/Register"
 import AddHouse from "../components/projects/AddHouse";
 import ModifyPassword from "../components/users/ModifyPassword";
 import TenantManage from "../components/projects/TenantManage";
+import FeeList from "../components/projects/FeeList";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -62,6 +63,12 @@ export default new Router({
       path:'/tenant',
       name:'TenantManage',
       component:TenantManage
+    },
+    {
+      /*@brief:费用清单*/
+      path:'/feelist',
+      name:'FeeList',
+      component:FeeList
     }
   ]
 })
