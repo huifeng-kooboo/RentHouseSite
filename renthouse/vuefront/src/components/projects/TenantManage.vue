@@ -1,7 +1,7 @@
 <template>
     <!--租户管理界面-->
   <div>
-    <h1>租户管理</h1>
+    <VNavbar></VNavbar>
     <el-row :gutter="30">
       <el-col :span="3">请选择租户名称：</el-col>
       <el-col :span="6">
@@ -121,7 +121,7 @@
     </el-row>
     <!--提交按钮-->
     <el-row :gutter="30">
-      <el-button type="primary">提交</el-button>
+      <el-button type="primary" @click="addpost">提交</el-button>
     </el-row>
 
 
@@ -130,8 +130,12 @@
 </template>
 
 <script>
+  import Navbar from '../tools/Navbar'
     export default {
         name: "TenantManage",
+      components:{
+          VNavbar:Navbar,
+      },
         data(){
            return{
                options: [{
@@ -163,7 +167,13 @@
                is_washer:true,
 
            }
-        }
+        },
+      methods:{
+          /*@brief：发送请求测试*/
+        addpost(){
+          alert("请求发送");
+        },
+      },
     }
 </script>
 
