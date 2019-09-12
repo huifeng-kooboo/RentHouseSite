@@ -7,7 +7,7 @@
     <el-submenu index="2">
       <template slot="title">个人中心</template>
       <el-menu-item index="2-1">个人信息设置</el-menu-item>
-      <el-menu-item index="2-2">修改密码</el-menu-item>
+      <el-menu-item index="2-2"><a id="a_modify" href="/modifypassword">修改密码</a></el-menu-item>
       <el-menu-item index="2-3"><a id="a_login" href="/login">用户登录</a></el-menu-item>
       <el-menu-item index="2-3"><a href="/register">用户注册</a></el-menu-item>
       <el-menu-item index="2-4">退出登录</el-menu-item>
