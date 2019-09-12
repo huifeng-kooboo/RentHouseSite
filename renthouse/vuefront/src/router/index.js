@@ -6,7 +6,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '@/components/Main'
+import Main from '../components/Main'
 import ElementUI from 'element-ui'
 import Login from "../components/users/Login"
 import Register from "../components/users/Register"
@@ -15,6 +15,7 @@ import ModifyPassword from "../components/users/ModifyPassword";
 import TenantManage from "../components/projects/TenantManage";
 import FeeList from "../components/projects/FeeList";
 import MyInfo from "../components/users/MyInfo";
+import HouseDetail from "../components/projects/HouseDetail";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -76,6 +77,12 @@ export default new Router({
       path:'/myinfo',
       name:'MyInfo',
       component:MyInfo
+    },
+    {
+      /*@brief:房源详情页*/
+      path:'/housedetail',
+      name:'HouseDetail',
+      component:HouseDetail,
     }
   ]
 })
