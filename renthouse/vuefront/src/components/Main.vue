@@ -3,10 +3,8 @@
     <div id = "main_page">
       <!-- VNavbar 引入导航栏模块-->
       <VNavbar></VNavbar>
-      <el-input id="username" class="username" v-model="input_username" suffix-icon="el-icon-user" placeholder = "请输入用户名"></el-input>
-
-      <!--添加走马灯，用于展示更新信息-->
-      <el-carousel trigger="click" height="150px">
+      <!--添加走马灯，用于展示最新房源信息-->
+      <el-carousel trigger="click" height="300px">
         <el-carousel-item v-for="item in 4" :key="item">
           <h3 class="small">{{ item }}</h3>
         </el-carousel-item>
@@ -28,7 +26,7 @@
       // 数据
       data(){
         return{
-          input_username:this.$route.params.phone_number, //此处可以设置 获取传值信息 直接绑定到输入框
+       //   input_username:this.$route.params.phone_number, //此处可以设置 获取传值信息 直接绑定到输入框
         }
         },
       created(){
@@ -36,6 +34,7 @@
       },
       mounted(){
           //对dom进行操作，即赋值等操作
+        //@brief:发送请求 先获取房源等信息 显示到前端去
         this.$axios.get('/api/addhouse/',{
           params:{
             "house_position":1311
