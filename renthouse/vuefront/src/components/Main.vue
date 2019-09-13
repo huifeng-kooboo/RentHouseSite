@@ -9,7 +9,6 @@
           <h3 class="small">{{ item }}</h3>
         </el-carousel-item>
       </el-carousel>
-
       <VHouse></VHouse>
     </div>
 </template>

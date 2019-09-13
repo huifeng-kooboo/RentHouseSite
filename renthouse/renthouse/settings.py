@@ -29,7 +29,7 @@ SECRET_KEY = 'o0*1mi7!go5y73_cxxgzekl!nhc5(20mg)s-j&l8d49*%=7_df'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'] #modify:允许所有ip访问
+ALLOWED_HOSTS = ['*'] #modify:允许所有ip访问 ：解决跨域访问异常的问题
 
 # 跨域问题添加
 CORS_ALLOW_CREDENTIALS = True

@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer
+from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
@@ -17,6 +17,21 @@ class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
+
+class BriefHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief: 主页房源信息展示功能
+    '''
+    queryset = HouseInfoModel.objects.all()
+    serializer_class = BriefHouseInfoSerializer #get请求返回的数据
+
+class HouseDetailInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief: 获得单个房源所有信息功能
+    '''
+    queryset = HouseInfoModel.objects.all()
+    serializer_class = HouseInfoSerializer
+
 
 class LoginView(APIView):
     '''

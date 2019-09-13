@@ -25,6 +25,14 @@ class HouseInfoSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('house_images','house_title','basic_interviews','house_price',
                   'house_position','connect_phone','renter_name')
 
+class BriefHouseInfoSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    @brief: 展示给大厅主页的房源信息内容，包括了房源图片和房源title两个内容。
+    '''
+    class Meta:
+        model = HouseInfoModel
+        fields = ('house_images','house_title')
+
 class AddPhotoModelSerializer(serializers.ModelDurationField):
     '''
     @brief: 暂时无用，日后处理

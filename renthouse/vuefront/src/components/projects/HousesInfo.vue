@@ -15,7 +15,21 @@
         name: "HousesInfo",
       methods:{
       },
+        created(){
+
+        },
       mounted(){
+            //请求api/briefhouseinfo接口get请求 获取数据 展示
+          this.$axios(
+              {
+                  url:"api/briefhouseinfo/", //请求的url 由于跨域
+                  method:'get',
+              }
+          ).then(
+              function (return_data) {
+              }
+          ).catch(
+          )
       },
       watch:{
       },
