@@ -74,8 +74,6 @@ class AddPhotoView(APIView):
     '''
     def post(self,request,*args,**kwargs):
         image = request.data['file']
-        print(image.field_name)
-        print(type(image))
         image_data = [image.file, image.field_name, image.name, image.content_type,
                       image.size, image.charset, image.content_type_extra]
         cache_key = 'image_key'
@@ -98,12 +96,26 @@ class AddHouseView(APIView):
         :param kwargs:
         :return:
         '''
-        file_list = request.data['file'] #获得文件列表
-        print(file_list.field_name)
-        print(len(file_list))
-        print('post data:')
-        print(request.data)
-        return Response('上传图片文件成功!',status=status.HTTP_201_CREATED) #201表示创建
+        image = request.data['file']
+        image_data = [image.file, image.field_name, image.name, image.content_type,
+                      image.size, image.charset, image.content_type_extra]
+        cache_key = 'image_key'
+        cache.set(cache_key, image_data, 60)
+        cache_data = cache.get(cache_key)
+        cur_image = InMemoryUploadedFile(*cache_data)
+        cur_house_title = request.data['house_title']
+        cur_basic_interviews = request.data['basic_interviews']
+        cur_house_price = request.data['house_price']
+        cur_house_position = request.data['house_position']
+        cur_connect_phone = request.data['connect_phone']
+        cur_renter_name = request.data['renter_name']
+        lendata = HouseInfoModel.objects.filter(house_title=cur_house_title)
+        # 格式信息 由前端进行判断 后端暂时不去判断
+        if len(lendata) == 1:
+            return Response('上传失败',status=status.HTTP_200_OK) #返回给前端
+        HouseInfoModel(house_images=cur_image,house_title=cur_house_title,basic_interviews=cur_basic_interviews,house_price=cur_house_price,
+                       house_position=cur_house_position,connect_phone=cur_connect_phone,renter_name=cur_renter_name).save()
+        return Response('添加成功!',status=status.HTTP_201_CREATED) #201表示创建
 
     def get(self,request,*args,**kwargs):
         '''
