@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_0b9GHtg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_10cANFy.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_7frbzJc.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_BV5hYsN.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_bCXdXxt.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_glxUhHC.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_laALEXv.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_rPYEZLg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/allphotos/png_zOMgBSl.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/house/png.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/HousesInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/HousesInfo.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +156,8 @@
       <workItem from="1568291416106" duration="3237000" />
       <workItem from="1568306460055" duration="373000" />
       <workItem from="1568347484551" duration="2621000" />
-      <workItem from="1568423035968" duration="3306000" />
+      <workItem from="1568423035968" duration="3696000" />
+      <workItem from="1568447165123" duration="2229000" />
     </task>
     <task id="LOCAL-00001" summary="添加mac虚拟环境">
       <created>1567910382647</created>

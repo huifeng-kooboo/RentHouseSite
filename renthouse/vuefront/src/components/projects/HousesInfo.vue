@@ -2,23 +2,48 @@
 <!--房源信息模块-->
   <!--Project包主要存放各种项目需要的安装模块-->
   <el-main>
-    <!--房源名-->
-    <h2>厦门第五房</h2>
-    <!--房源图片-->
-    <el-avatar shape="square" :size="size" :src="squareUrl"></el-avatar>
-    <a href="/housedetail">点击查看详情</a>
+    <el-row>
+      <el-col :span="8" v-for="(house_info, index) in house_infos" :key="o" :offset="index > 0 ? 2 : 0">
+        <el-card :body-style="{ padding: '0px' }">
+          <img v-bind:src='house_info.house_images' class="image" style="height:300px;width: 300px">
+          <div style="padding: 14px;">
+            <span>房名：{{ house_info.house_title }}</span>
+            <div class="bottom clearfix">
+              <el-button type="text" class="button" v-bind:id="index" @click="opendetail(index)" >点击查看详情</el-button>
+            </div>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
+
   </el-main>
 </template>
 
 <script>
     export default {
         name: "HousesInfo",
+        data(){
+            return{
+                squareUrl:'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
+                house_infos :[
+                    {
+                        house_images:'',
+                        house_title:'',
+                    }
+                ],
+            }
+        },
       methods:{
+            opendetail(index){
+                console.log("当前按钮的id为：");
+                console.log(index);
+            },
       },
         created(){
 
         },
-      mounted(){
+        mounted(){
+            var that = this;
             //请求api/briefhouseinfo接口get请求 获取数据 展示
           this.$axios(
               {
@@ -27,20 +52,67 @@
               }
           ).then(
               function (return_data) {
+                  let house_count = return_data.data.count; //获取总共需要展示多少数据
+                  console.log(house_count);
+                  if (house_count < 1) //说明数据库没有信息可以展示，则退出
+                  {
+                      console.log("数据库没有资源可以展示");
+                      return false;
+                  }
+                  let house_array = return_data.data.results;
+                  let i = 0;
+                  for ( ; i < house_count ; i++)
+                  {
+                      let house_images = house_array[i]['house_images'];
+                      let house_title = house_array[i]['house_title'];
+                      console.log(house_images);
+                      console.log(house_title);
+                      //i = 0时
+                      if (i == 0)
+                      {
+                          that.house_infos[i]['house_images'] =house_images ;
+                          that.house_infos[i]['house_title'] = house_title;
+                      }
+                      else{
+                          //添加数组的方式 实现不定长
+                          let add_house = {'house_images':house_images,'house_title':house_title};
+                          that.house_infos.push(add_house);
+                      }
+                  }
+
               }
           ).catch(
           )
       },
       watch:{
       },
-        data(){
-            return{
-                squareUrl:'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'
-            }
-        },
+
     }
 </script>
 
 <style scoped>
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
 
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+
+  .clearfix:after {
+    clear: both
+  }
 </style>
