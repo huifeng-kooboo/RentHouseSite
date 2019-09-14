@@ -25,6 +25,34 @@
             return{
                 squareUrl:'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
             }
+        },
+        mounted() {
+            //处理路由
+            let house_title = this.$route.params.housetitle; //获取房源名称
+            console.log(house_title);
+            let json_data = {'house_title':house_title};
+            //发送get请求
+            this.$axios.get('http://localhost:8080/api/housedetail/', {
+                params: json_data
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            //发送get请求获取所有信息
+            // this.$axios(
+            //     {
+            //         url:'http://localhost:8080/api/housedetail/',
+            //         method:'get',
+            //         params :JSON.stringify(json_data),
+            //     }
+            // ).then(
+            //     function(res){
+            //         console.log(res.data);
+            //     }
+            // );
         }
     }
 </script>

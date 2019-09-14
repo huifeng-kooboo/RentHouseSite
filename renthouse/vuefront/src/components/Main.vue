@@ -33,12 +33,6 @@
       },
       mounted(){
           //对dom进行操作，即赋值等操作
-        //@brief:发送请求 先获取房源等信息 显示到前端去
-        this.$axios.get('/api/addhouse/',{
-          params:{
-            "house_position":1311
-          }
-        }).then().catch();
       },
       watch(){
           //监听相关

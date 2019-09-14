@@ -15,8 +15,8 @@
         </el-card>
       </el-col>
     </el-row>
-
   </el-main>
+
 </template>
 
 <script>
@@ -34,9 +34,12 @@
             }
         },
       methods:{
+            //打开详情页功能
             opendetail(index){
                 console.log("当前按钮的id为：");
+                console.log(this.house_infos[index]['house_images']);
                 console.log(index);
+                window.location.href='/login';
             },
       },
         created(){

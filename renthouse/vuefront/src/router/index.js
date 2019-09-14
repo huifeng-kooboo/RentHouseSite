@@ -79,8 +79,9 @@ export default new Router({
       component:MyInfo
     },
     {
-      /*@brief:房源详情页*/
-      path:'/housedetail',
+      /*@brief:房源详情页:通过动态路由配置*/
+      /*原因：因为房屋数量太多，没法筛选*/
+      path:'/housedetail/:housetitle',
       name:'HouseDetail',
       component:HouseDetail,
     }

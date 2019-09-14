@@ -25,12 +25,23 @@ class BriefHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     queryset = HouseInfoModel.objects.all()
     serializer_class = BriefHouseInfoSerializer #get请求返回的数据
 
+
 class HouseDetailInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 获得单个房源所有信息功能
     '''
-    queryset = HouseInfoModel.objects.all()
+   # queryset = HouseInfoModel.objects.all()
     serializer_class = HouseInfoSerializer
+    def get_queryset(self):
+        '''
+        @brief:设置过滤条件
+        '''
+        print('see')
+        send_params = self.request.query_params
+        cur_title = send_params['house_title']
+        print(cur_title)
+        #进行过滤
+        return HouseInfoModel.objects.filter(house_title = cur_title)
 
 
 class LoginView(APIView):
