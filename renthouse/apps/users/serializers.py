@@ -55,4 +55,14 @@ class LandloadManageSerializer(serializers.HyperlinkedModelSerializer):
     '''
     class Meta:
         model = LandlordManage
-        fields = ('tenant','rental_time','rental_address','rent_fee','water_fee','electric_fee','is_net','net_fee','key_num','is_air','is_washer') #设置需要保存的字段
+        fields = ('tenant','rental_time','rental_address','rent_fee',
+                  'water_fee','electric_fee','is_net','net_fee','key_num',
+                  'is_air','is_washer') #设置需要保存的字段
+
+class FeeListSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    @brief:租户需要缴费的费用清单
+    '''
+    class Meta:
+        model = LandlordManage
+        fields = ('rent_fee','water_fee','electric_fee','net_fee')

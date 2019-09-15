@@ -67,8 +67,9 @@ export default new Router({
       component:TenantManage
     },
     {
-      /*@brief:费用清单*/
-      path:'/feelist',
+      /*@brief:费用清单: tenant:表示租户姓名*/
+      /*此处处理逻辑为绑定用户登陆信息*/
+      path:'/feelist/:tenant',
       name:'FeeList',
       component:FeeList
     },

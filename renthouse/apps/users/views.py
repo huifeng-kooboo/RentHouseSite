@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer,RenterBriefInfoSerializer,LandloadManageSerializer
+from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer,RenterBriefInfoSerializer,LandloadManageSerializer,FeeListSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
@@ -155,3 +155,14 @@ class LandloadManageViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
     queryset = LandlordManage.objects.all()
     serializer_class = LandloadManageSerializer
+
+class FeelistViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief:费用清单展示get请求
+    '''
+    serializer_class = FeeListSerializer
+    def get_queryset(self):
+        '''
+        @brief:设置过滤条件
+        '''
+        return LandlordManage.objects.filter(tenant= self.request.query_params['tenant'])#租户作为过滤条件

@@ -5,7 +5,7 @@
     <el-row :gutter="30">
       <el-col :span="3">请选择租户名称：</el-col>
       <el-col :span="6">
-        <el-select v-model="value" filterable placeholder="请选择租户名称：">
+        <el-select v-model="tenant" filterable placeholder="请选择租户名称：">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -20,7 +20,9 @@
       <el-col :span="3">租房时间：</el-col>
       <el-col :span="6">
         <el-date-picker
-          v-model="rent_date_value"
+          v-model="rental_time"
+          format="yyyy-MM-dd"
+          value-format="yyyy-MM-dd"
           type="date"
           placeholder="选择日期">
         </el-date-picker>
@@ -31,7 +33,7 @@
       <el-col :span="3">租房地址：</el-col>
       <el-col :span="6">
         <el-input
-          v-model="rent_address_value"
+          v-model="rental_address"
           placeholder="租房地址">
         </el-input>
       </el-col>
@@ -41,7 +43,7 @@
       <el-col :span="3">房租价格：</el-col>
       <el-col :span="6">
         <el-input
-          v-model="rent_price"
+          v-model="rent_fee"
           placeholder="房租价格">
         </el-input>
       </el-col>
@@ -136,28 +138,41 @@
       components:{
           VNavbar:Navbar,
       },
+        created(){},
+        //渲染数据
+        mounted(){
+            let that = this;
+            this.$axios.get('api/briefuser/').then(function (response) {
+                if (response.status == 200)
+                {
+                    console.log("数据为：");
+                    let data_count =response.data['count'];
+                    if (data_count < 1)
+                    {
+                        return false;
+                    }
+                    let i = 0;
+                    for (;i< data_count; i++)
+                    {
+                        //console.log(response.data['results'][i]);
+                        let add_vals = {'value':response.data['results'][i]['username'],'label':response.data['results'][i]['username']};
+                        that.options.push(add_vals);
+                    }
+                    that.options.shift();//剔除第一个范例数据
+                }
+            }).catch();
+        },
+        //数据部分
         data(){
            return{
                options: [{
-                   value: '选项1',
-                   label: '黄金糕'
-               }, {
-                   value: '选项2',
-                   label: '双皮奶'
-               }, {
-                   value: '选项3',
-                   label: '蚵仔煎'
-               }, {
-                   value: '选项4',
-                   label: '龙须面'
-               }, {
-                   value: '选项5',
-                   label: '北京烤鸭'
+                   value: '',
+                   label: ''
                }],
-               value:'',
-               rent_date_value:'',
-               rent_address_value:'',
-               rent_price:'',
+               tenant:'',
+               rental_time:'',
+               rental_address:'',
+               rent_fee:'',
                water_fee:'',
                electric_fee:'',
                is_net:true,
@@ -171,7 +186,37 @@
       methods:{
           /*@brief：发送请求测试*/
         addpost(){
-          alert("请求发送");
+          //发送post请求去增加数据
+            //请求url：'/api/addland'
+            console.log(this.rental_time);
+            let json_data = {'tenant':this.tenant,'rental_time':this.rental_time,
+            'rental_address':this.rental_address,'rent_fee':this.rent_fee,
+            'water_fee':this.water_fee,'electric_fee':this.electric_fee,
+            'is_net':this.is_net,'net_fee':this.net_fee,
+            'key_num':this.key_num,'is_air':this.is_air,
+            'is_washer':this.is_washer};
+            this.$axios(
+                {
+                    url:'api/addland/',
+                    method:'post',
+                    data:JSON.stringify(json_data),
+                }
+            ).then(
+                function (response) {
+                    //201表示创建
+                    if (response.status == 201){
+                        alert("租户设置成功！");
+                    }
+                    else
+                    {
+                        alert(response.data);
+                    }
+                }
+            ).catch(function (response) {
+                //弹出错误原因
+                alert(response.data);
+            });
+
         },
       },
     }
