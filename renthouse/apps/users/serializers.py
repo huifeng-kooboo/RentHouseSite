@@ -5,7 +5,7 @@
 # version: v1.0.0
 # update info:
 
-from .models import UserModel,HouseInfoModel,AddPhotoModel
+from .models import UserModel,HouseInfoModel,AddPhotoModel,LandlordManage
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -40,3 +40,19 @@ class AddPhotoModelSerializer(serializers.ModelDurationField):
     class Meta:
         model = AddPhotoModel
         fields = ('photos')
+
+class RenterBriefInfoSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    @brief:租户管理中显示租户姓名使用
+    '''
+    class Meta:
+        model = UserModel
+        fields = ('username','is_admin')
+
+class LandloadManageSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    @brief:房东设置的租户信息保存序列化
+    '''
+    class Meta:
+        model = LandlordManage
+        fields = ('tenant','rental_time','rental_address','rent_fee','water_fee','electric_fee','is_net','net_fee','key_num','is_air','is_washer') #设置需要保存的字段

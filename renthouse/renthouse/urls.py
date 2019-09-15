@@ -15,12 +15,16 @@ import xadmin
 from django.views.static import serve
 
 #@comment: data view
-from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet
+from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet,RenterBriefInfoViewSet,LandloadManageViewSet
 
 router = DefaultRouter()
 router.register(r'register',UserRegisterViewSet,base_name='register') #用户注册
 router.register(r'briefhouseinfo',BriefHouseInfoViewSet,base_name='briefhouseinfo') # 简单的主页信息展示
 router.register(r'housedetail',HouseDetailInfoViewSet,base_name='housedetail') #获取单个房源所有信息
+router.register(r'briefuser',RenterBriefInfoViewSet,base_name='briefuser') # 显示所有租户的信息：备注：只能通过get请求
+router.register(r'addland',LandloadManageViewSet,base_name='addland') #添加到租户管理部分 只处理post请求
+
+
 #router.register(r'addhouse',AddHouseInfoViewSet,base_name='addhouse')
 #router.register(r'addphoto',AddPhotoViewSet,base_name='addphoto')
 

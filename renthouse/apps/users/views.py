@@ -1,10 +1,10 @@
 from rest_framework import viewsets,mixins
-from .models import UserModel,HouseInfoModel,AddPhotoModel
+from .models import UserModel,HouseInfoModel,AddPhotoModel,LandlordManage
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer
+from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer,RenterBriefInfoSerializer,LandloadManageSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
@@ -25,7 +25,6 @@ class BriefHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     queryset = HouseInfoModel.objects.all()
     serializer_class = BriefHouseInfoSerializer #get请求返回的数据
 
-
 class HouseDetailInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 获得单个房源所有信息功能
@@ -42,7 +41,6 @@ class HouseDetailInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
         print(cur_title)
         #进行过滤
         return HouseInfoModel.objects.filter(house_title = cur_title)
-
 
 class LoginView(APIView):
     '''
@@ -94,7 +92,6 @@ class AddPhotoView(APIView):
         AddPhotoModel(photos=image).save()
         return Response('上传图片文件成功!',status=status.HTTP_201_CREATED)
 
-
 class AddHouseView(APIView):
     '''
     @brief :添加房源信息
@@ -139,3 +136,22 @@ class AddHouseView(APIView):
         print('get data:')
         print(request.data)
         return Response('处理get请求',status=status.HTTP_200_OK)
+
+class RenterBriefInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief:租户管理中使用
+    '''
+    serializer_class = RenterBriefInfoSerializer
+    def get_queryset(self):
+        '''
+        @brief:设置过滤条件
+        '''
+        #逻辑： 默认情况下，非管理员 is_admin = False 则为租户
+        return UserModel.objects.filter(is_admin=False)
+
+class LandloadManageViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
+    '''
+    @brief:创建租户管理类
+    '''
+    queryset = LandlordManage.objects.all()
+    serializer_class = LandloadManageSerializer

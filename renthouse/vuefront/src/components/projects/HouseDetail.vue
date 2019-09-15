@@ -1,7 +1,6 @@
 <template>
   <div>
     <VNavbar></VNavbar>
-
     <div id="div_brief">
       <el-tag >房屋名称：</el-tag>
       <el-tag type="success">{{ house_title }}</el-tag>
@@ -39,7 +38,6 @@
         },
         data(){
             return{
-                squareUrl:'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
                 house_title:'',
                 house_images:'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
                 basic_interviews:'',
@@ -63,6 +61,7 @@
                 .then(function (response) {
                     if (response.status == 200)
                     {
+                        //获取数据显示到前端
                         that.house_images = response.data['results'][0]['house_images'];
                         that.basic_interviews = response.data['results'][0]['basic_interviews'];
                         that.house_price = response.data['results'][0]['house_price'];
