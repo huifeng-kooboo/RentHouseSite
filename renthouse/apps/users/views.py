@@ -10,11 +10,15 @@ from .signals import user_save
 import json
 from django.core.cache import cache
 from django.core.files.uploadedfile import InMemoryUploadedFile
+from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework.permissions import IsAuthenticated
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
     @description:用户注册功能
     '''
+    authentication_classes = ()
+    permission_classes = ()
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
 
@@ -22,6 +26,8 @@ class BriefHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 主页房源信息展示功能
     '''
+    authentication_classes = ()
+    permission_classes = ()
     queryset = HouseInfoModel.objects.all()
     serializer_class = BriefHouseInfoSerializer #get请求返回的数据
 
@@ -47,6 +53,8 @@ class LoginView(APIView):
     @description: a basic method to console login page
     @author: ytouch
     '''
+    permission_classes = ()
+    authentication_classes = ()
     def post(self,request,*args,**kwargs):
         '''
         :param request:
@@ -81,6 +89,8 @@ class AddPhotoView(APIView):
     @brief: 上传多张张图片功能
     @author: ytouch
     '''
+    authentication_classes = ()
+    permission_classes = ()
     def post(self,request,*args,**kwargs):
         image = request.data['file']
         image_data = [image.file, image.field_name, image.name, image.content_type,
@@ -96,6 +106,8 @@ class AddHouseView(APIView):
     '''
     @brief :添加房源信息
     '''
+    authentication_classes = ()
+    permission_classes = ()
     def post(self,request,*args,**kwargs):
         '''
         @brief:处理post请求
@@ -153,6 +165,8 @@ class LandloadManageViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
     @brief:创建租户管理类
     '''
+    authentication_classes = ()
+    permission_classes = (IsAuthenticated,)
     queryset = LandlordManage.objects.all()
     serializer_class = LandloadManageSerializer
 
@@ -160,6 +174,8 @@ class FeelistViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief:费用清单展示get请求
     '''
+    authentication_classes = ()
+    permission_classes = ()
     serializer_class = FeeListSerializer
     def get_queryset(self):
         '''

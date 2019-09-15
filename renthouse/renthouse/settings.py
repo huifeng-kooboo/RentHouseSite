@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import sys
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -64,9 +65,18 @@ INSTALLED_APPS = [
 # config RestFramework
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    #设置权限认证功能
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
+        #'rest_framework.permissions.IsAuthenticated'
     ],
+    #设置身份认证
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+    # 默认的序列化方式
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
      'DEFAULT_PARSER_CLASSES': (
     'rest_framework.parsers.JSONParser',
@@ -173,3 +183,8 @@ AUTH_USER_MODEL = 'users.UserModel'
 
 #save sessions
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# 指明token的有效期
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),  # 指明token的有效期
+}

@@ -195,11 +195,13 @@
             'is_net':this.is_net,'net_fee':this.net_fee,
             'key_num':this.key_num,'is_air':this.is_air,
             'is_washer':this.is_washer};
+            let cur_headers = {'Authorization':"JWT " + localStorage.token};//添加请求头认证内容
             this.$axios(
                 {
                     url:'api/addland/',
                     method:'post',
                     data:JSON.stringify(json_data),
+                    headers:cur_headers,
                 }
             ).then(
                 function (response) {

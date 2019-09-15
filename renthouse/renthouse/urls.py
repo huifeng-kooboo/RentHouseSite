@@ -7,7 +7,7 @@ from django.conf.urls import url,include
 from rest_framework.routers import DefaultRouter,SimpleRouter
 from rest_framework.authtoken import views
 from django.views.generic.base import TemplateView
-
+from rest_framework_jwt.views import obtain_jwt_token,verify_jwt_token
 from renthouse.settings import MEDIA_ROOT
 
 import xadmin
@@ -29,6 +29,8 @@ router.register(r'feelist',FeelistViewSet,base_name='feelist')#费用清单
 #router.register(r'addphoto',AddPhotoViewSet,base_name='addphoto')
 
 urlpatterns = [
+    url(r'^api-token-auth/', obtain_jwt_token),
+    url(r'^verifytoken/',verify_jwt_token),
     url(r'^addhouse/',AddHouseView.as_view(),name='addhouse'),# 添加房源请求
     url(r'^login/',LoginView.as_view(),name='login'), #用户登录
     url(r'^addphoto/',AddPhotoView.as_view(),name='addphoto'), #保存所有上传的图片资源

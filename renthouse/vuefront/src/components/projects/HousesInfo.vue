@@ -24,7 +24,6 @@
         name: "HousesInfo",
         data(){
             return{
-                squareUrl:'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
                 house_infos :[
                     {
                         house_images:'',
@@ -47,11 +46,13 @@
         },
         mounted(){
             var that = this;
+           // let cur_headers = {'Authorization':"JWT " + localStorage.token};//添加请求头认证内容,ji
             //请求api/briefhouseinfo接口get请求 获取数据 展示
           this.$axios(
               {
                   url:"api/briefhouseinfo/", //请求的url 由于跨域
                   method:'get',
+                 // headers:cur_headers,
               }
           ).then(
               function (return_data) {
