@@ -11,7 +11,7 @@ import json
 from django.core.cache import cache
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from rest_framework_jwt.views import obtain_jwt_token
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
@@ -26,8 +26,9 @@ class BriefHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 主页房源信息展示功能
     '''
-    authentication_classes = ()
-    permission_classes = ()
+    #authentication_classes = (IsAuthenticated,)
+    # is_staff字段对应管理员权限
+    permission_classes = [IsAdminUser]
     queryset = HouseInfoModel.objects.all()
     serializer_class = BriefHouseInfoSerializer #get请求返回的数据
 
@@ -35,7 +36,6 @@ class HouseDetailInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 获得单个房源所有信息功能
     '''
-   # queryset = HouseInfoModel.objects.all()
     serializer_class = HouseInfoSerializer
     def get_queryset(self):
         '''
@@ -89,8 +89,8 @@ class AddPhotoView(APIView):
     @brief: 上传多张张图片功能
     @author: ytouch
     '''
-    authentication_classes = ()
-    permission_classes = ()
+    #authentication_classes = ()
+    permission_classes = [IsAuthenticated]
     def post(self,request,*args,**kwargs):
         image = request.data['file']
         image_data = [image.file, image.field_name, image.name, image.content_type,
@@ -106,8 +106,8 @@ class AddHouseView(APIView):
     '''
     @brief :添加房源信息
     '''
-    authentication_classes = ()
-    permission_classes = ()
+    #authentication_classes = ()
+    permission_classes = [IsAuthenticated]
     def post(self,request,*args,**kwargs):
         '''
         @brief:处理post请求
@@ -153,6 +153,7 @@ class RenterBriefInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief:租户管理中使用
     '''
+    permission_classes = [IsAuthenticated]
     serializer_class = RenterBriefInfoSerializer
     def get_queryset(self):
         '''
@@ -165,8 +166,7 @@ class LandloadManageViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
     @brief:创建租户管理类
     '''
-    authentication_classes = ()
-    permission_classes = (IsAuthenticated,)
+    permission_classes = [IsAuthenticated]
     queryset = LandlordManage.objects.all()
     serializer_class = LandloadManageSerializer
 
@@ -175,7 +175,7 @@ class FeelistViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     @brief:费用清单展示get请求
     '''
     authentication_classes = ()
-    permission_classes = ()
+    permission_classes = [IsAdminUser]
     serializer_class = FeeListSerializer
     def get_queryset(self):
         '''

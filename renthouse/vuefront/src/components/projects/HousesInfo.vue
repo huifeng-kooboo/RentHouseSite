@@ -46,13 +46,13 @@
         },
         mounted(){
             var that = this;
-           // let cur_headers = {'Authorization':"JWT " + localStorage.token};//添加请求头认证内容,ji
+           let cur_headers = {'Authorization':"JWT " + localStorage.getItem('token')};//添加请求头认证内容,ji
             //请求api/briefhouseinfo接口get请求 获取数据 展示
           this.$axios(
               {
                   url:"api/briefhouseinfo/", //请求的url 由于跨域
                   method:'get',
-                 // headers:cur_headers,
+                  headers:cur_headers,
               }
           ).then(
               function (return_data) {

@@ -36,6 +36,13 @@
           sendLoginPost(){
             const that = this; //解决无法跳转的问题
             //设置规则 用户名和密码大小不能小于6
+            let cur_token = localStorage.getItem('token');
+            //先判断是否有token 有的话 先尝试用token进行登录
+            if (cur_token == null)
+            {
+              alert("token为空");
+            }
+            localStorage.removeItem('token');
             //js中对字符串求长度的方法
             if (this.input_username.length < 6)
             {
@@ -47,6 +54,21 @@
             }
             else {
               var post_data = {"username":this.input_username,"password":this.input_password};/*需要post的数据*/
+              this.$axios(
+                {
+                  url:'api/gettoken/',
+                  method:'post',
+                  data:JSON.stringify(post_data),
+                }
+              ).then(
+                function (res) {
+                  if (res.status == 200)
+                  {
+                    localStorage.setItem('token',res.data.token); //保存前端的token
+                  }
+                }
+              );
+
               this.$axios(
                 {
                   url:"api/login/", //请求的url 由于跨域

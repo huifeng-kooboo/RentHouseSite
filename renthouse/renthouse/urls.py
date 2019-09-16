@@ -29,7 +29,7 @@ router.register(r'feelist',FeelistViewSet,base_name='feelist')#费用清单
 #router.register(r'addphoto',AddPhotoViewSet,base_name='addphoto')
 
 urlpatterns = [
-    url(r'^api-token-auth/', obtain_jwt_token),
+    url(r'^gettoken/', obtain_jwt_token),
     url(r'^verifytoken/',verify_jwt_token),
     url(r'^addhouse/',AddHouseView.as_view(),name='addhouse'),# 添加房源请求
     url(r'^login/',LoginView.as_view(),name='login'), #用户登录
