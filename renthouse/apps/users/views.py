@@ -28,7 +28,7 @@ class BriefHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     #authentication_classes = (IsAuthenticated,)
     # is_staff字段对应管理员权限
-    permission_classes = [IsAdminUser]
+    permission_classes = () # 这个表示所有权限
     queryset = HouseInfoModel.objects.all()
     serializer_class = BriefHouseInfoSerializer #get请求返回的数据
 
@@ -36,15 +36,14 @@ class HouseDetailInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 获得单个房源所有信息功能
     '''
+    permission_classes = () #所有都可以访问
     serializer_class = HouseInfoSerializer
     def get_queryset(self):
         '''
         @brief:设置过滤条件
         '''
-        print('see')
         send_params = self.request.query_params
         cur_title = send_params['house_title']
-        print(cur_title)
         #进行过滤
         return HouseInfoModel.objects.filter(house_title = cur_title)
 
@@ -90,7 +89,7 @@ class AddPhotoView(APIView):
     @author: ytouch
     '''
     #authentication_classes = ()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser] #只限制管理员可以访问
     def post(self,request,*args,**kwargs):
         image = request.data['file']
         image_data = [image.file, image.field_name, image.name, image.content_type,
@@ -107,7 +106,7 @@ class AddHouseView(APIView):
     @brief :添加房源信息
     '''
     #authentication_classes = ()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser] # 管理员
     def post(self,request,*args,**kwargs):
         '''
         @brief:处理post请求
@@ -153,7 +152,7 @@ class RenterBriefInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief:租户管理中使用
     '''
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser] #管理员权限
     serializer_class = RenterBriefInfoSerializer
     def get_queryset(self):
         '''
@@ -166,7 +165,7 @@ class LandloadManageViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
     @brief:创建租户管理类
     '''
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser] #只展示给管理员
     queryset = LandlordManage.objects.all()
     serializer_class = LandloadManageSerializer
 
@@ -175,7 +174,7 @@ class FeelistViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     @brief:费用清单展示get请求
     '''
     authentication_classes = ()
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated] #展示给租户 所以只要是登陆 都可以访问
     serializer_class = FeeListSerializer
     def get_queryset(self):
         '''
