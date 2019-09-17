@@ -4,13 +4,6 @@
     <!--主要为添加房源功能：针对于管理者，为项目特有，故放在projects模块-->
     <!--先放置常用导航栏模块-->
     <VNavbar></VNavbar>
-    <!-- el-upload 上传
-    limit:限制上传照片数量：5
-    multiple：表示允许上传多张图片
-    accept:允许上传的图片类型
-    :action="UploadUrl" 自定义上传，这里使用先保存全局变量的方法,原因是，没法保存图片
-          action="https://jsonplaceholder.typicode.com/posts/"
-    -->
     <el-row :gutter="25">
       <el-col :span="3"> <p>  上传房源照片:</p></el-col>
       <!--限制只能传一张 保证不乱-->
@@ -126,6 +119,7 @@
           }
 
           //进行上传的功能
+          //添加token
             let params = new FormData();//创建form对象
             params.append('file',file);
             params.append('house_title',this.input_title); //房源名字
@@ -135,7 +129,7 @@
             params.append('connect_phone',this.input_phone); //联系电话
             params.append('renter_name',this.input_name); //房东
             let config = {
-                headers:{'Content-Type':'multipart/form-data'}
+                headers:{'Content-Type':'multipart/form-data','Authorization':"JWT " + localStorage.getItem('token')}
             }; //添加请求头
             this.$http.post('api/addhouse/',params,config)
                 .then(response=>{

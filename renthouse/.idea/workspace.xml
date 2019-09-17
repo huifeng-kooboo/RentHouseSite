@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/tools/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/tools/LoginForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/tools/RegisterForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/tools/RegisterForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/AddHouse.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/TenantManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/TenantManage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/tools/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/tools/Navbar.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +269,7 @@
       <workItem from="1568630897981" duration="3369000" />
       <workItem from="1568643629287" duration="1147000" />
       <workItem from="1568681197251" duration="1512000" />
-      <workItem from="1568702778551" duration="3652000" />
+      <workItem from="1568702778551" duration="3670000" />
     </task>
     <task id="LOCAL-00001" summary="添加mac虚拟环境">
       <created>1567910382647</created>
@@ -281,7 +282,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5164000" />
+    <option name="totallyTimeSpent" value="5182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="862" y="203" width="964" height="740" extended-state="1" />

@@ -139,10 +139,48 @@
           VNavbar:Navbar,
       },
         created(){},
+        //
         //渲染数据
         mounted(){
             let that = this;
-            this.$axios.get('api/briefuser/').then(function (response) {
+          //先判断是否已经登录 已登录则跳转到主页 并提示用户
+          let token_data = localStorage.getItem('token');
+          //先判断是否有token 有的话 先尝试用token进行登录
+          if (token_data == null)
+          {
+            //为空，则说明未登录 允许登录
+            return;
+          }
+          //不为空时，判断是否过期
+          //token存在 请求获取用户信息及权限
+          let json_token = {'token':token_data};
+          this.$axios(
+            {
+              url:'api/anatoken/',
+              method: 'post',
+              data:JSON.stringify(json_token),
+            }
+          ).then(
+            function (res) {
+              let permission = res.data['permission'];
+              console.log(permission);
+              if(permission == "admin")
+              {
+              }
+              else if(permission == "visitor")
+              {
+                alert("您还没有登录，没有访问权限");
+                window.location.href='/main';//调回主页
+                return;
+              }
+              else{
+                alert("您没有该访问权限");
+                window.location.href='/main';//调回主页
+              }
+            }
+          );
+
+          this.$axios.get('api/briefuser/').then(function (response) {
                 if (response.status == 200)
                 {
                     console.log("数据为：");
@@ -195,7 +233,7 @@
             'is_net':this.is_net,'net_fee':this.net_fee,
             'key_num':this.key_num,'is_air':this.is_air,
             'is_washer':this.is_washer};
-            let cur_headers = {'Authorization':"JWT " + localStorage.token};//添加请求头认证内容
+            let cur_headers = {'Authorization':"JWT " + localStorage.getItem('token')};//添加请求头认证内容
             this.$axios(
                 {
                     url:'api/addland/',
@@ -218,7 +256,6 @@
                 //弹出错误原因
                 alert(response.data);
             });
-
         },
       },
     }

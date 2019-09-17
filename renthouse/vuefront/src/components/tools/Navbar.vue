@@ -58,7 +58,7 @@
       },
       mounted(){
           //发送请求 判断等级
-        let that = this;
+         let that = this;
           let token_data = localStorage.getItem('token'); //判断是否有token数据
         //token为空 说明是未登录状态 展示游客菜单栏
          if (token_data == null)
@@ -70,7 +70,7 @@
          let json_token = {'token':token_data};
          this.$axios(
            {
-             url:'api/anatoken/',
+             url:'http://localhost:8080/api/anatoken/', //解决housedetail问题
              method: 'post',
              data:JSON.stringify(json_token),
            }
