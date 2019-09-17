@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer,RenterBriefInfoSerializer,LandloadManageSerializer,FeeListSerializer
+from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer,RenterBriefInfoSerializer,LandloadManageSerializer,FeeListSerializer,MyInfoSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
@@ -87,7 +87,7 @@ class LoginView(APIView):
 class AddPhotoView(APIView):
     '''
     @description: save photo :只接受post请求
-    @brief: 上传多张张图片功能
+    @brief: 上传单张图片功能
     @author: ytouch
     '''
     #authentication_classes = ()
@@ -107,7 +107,6 @@ class AddHouseView(APIView):
     '''
     @brief :添加房源信息
     '''
-    #authentication_classes = ()
     permission_classes = [IsAdminUser] # 管理员
     def post(self,request,*args,**kwargs):
         '''
@@ -152,7 +151,7 @@ class AddHouseView(APIView):
 
 class RenterBriefInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
-    @brief:租户管理中使用:显示有的租户
+    @brief:租户管理中使用:显示租户姓名
     '''
     permission_classes = [IsAdminUser] #管理员权限
     serializer_class = RenterBriefInfoSerializer
@@ -223,3 +222,15 @@ class AnalysisToken(APIView):
         if is_Staff == True:
             return Response(res_data_admin,status = status.HTTP_200_OK)
         return Response(res_data,status=status.HTTP_200_OK)
+
+class MyInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief:提供给前端个人信息
+    '''
+    permission_classes = [IsAuthenticated] #对于所有用户都开放
+    serializer_class = MyInfoSerializer
+    def get_queryset(self):
+        '''
+        @brief: get请求，只需要一个用户名就行
+        '''
+        return UserModel.objects.filter(username=self.request.query_params['username'])

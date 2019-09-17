@@ -69,6 +69,13 @@
             input_phone:'1322222',
             input_idcard:'3501811111111',
           }
+      },
+      //方法:
+      methods:{
+
+      },
+      //前期准备
+      mounted() {
       }
     }
 </script>

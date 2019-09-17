@@ -66,3 +66,11 @@ class FeeListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = LandlordManage
         fields = ('rent_fee','water_fee','electric_fee','net_fee')
+
+class MyInfoSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    @brief:个人信息设置，包含需要展示给前端的东西,个人头像等后期再添加，也很简单
+    '''
+    class Meta:
+        model = UserModel
+        fields = ('username','phone_number','rent_address','idcard')
