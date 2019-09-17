@@ -15,7 +15,7 @@ import xadmin
 from django.views.static import serve
 
 #@comment: data view
-from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet,RenterBriefInfoViewSet,LandloadManageViewSet,FeelistViewSet
+from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet,RenterBriefInfoViewSet,LandloadManageViewSet,FeelistViewSet,AnalysisToken
 
 router = DefaultRouter()
 router.register(r'register',UserRegisterViewSet,base_name='register') #用户注册
@@ -29,11 +29,14 @@ router.register(r'feelist',FeelistViewSet,base_name='feelist')#费用清单
 #router.register(r'addphoto',AddPhotoViewSet,base_name='addphoto')
 
 urlpatterns = [
-    url(r'^gettoken/', obtain_jwt_token),
-    url(r'^verifytoken/',verify_jwt_token),
+    url(r'^gettoken/', obtain_jwt_token), #登录获取token
     url(r'^addhouse/',AddHouseView.as_view(),name='addhouse'),# 添加房源请求
     url(r'^login/',LoginView.as_view(),name='login'), #用户登录
     url(r'^addphoto/',AddPhotoView.as_view(),name='addphoto'), #保存所有上传的图片资源
+
+    #解析token类
+    url(r'^anatoken/',AnalysisToken.as_view(),name='anatoken'),
+
     path('api-token-auth/',views.obtain_auth_token),
     path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),

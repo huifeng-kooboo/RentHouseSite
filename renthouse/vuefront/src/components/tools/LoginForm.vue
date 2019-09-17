@@ -42,7 +42,7 @@
             {
               alert("token为空");
             }
-            localStorage.removeItem('token');
+           // localStorage.removeItem('token');
             //js中对字符串求长度的方法
             if (this.input_username.length < 6)
             {
@@ -59,6 +59,23 @@
                   url:'api/gettoken/',
                   method:'post',
                   data:JSON.stringify(post_data),
+                }
+              ).then(
+                function (res) {
+                  if (res.status == 200)
+                  {
+                    localStorage.setItem('token',res.data.token); //保存前端的token
+                  }
+                }
+              );
+
+              //验证token
+              let token_data = {'token':localStorage.getItem('token')};
+              this.$axios(
+                {
+                  url:'api/anatoken/',
+                  method:'post',
+                  data:JSON.stringify(token_data),
                 }
               ).then(
                 function (res) {

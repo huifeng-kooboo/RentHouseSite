@@ -12,6 +12,7 @@ from django.core.cache import cache
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
+from rest_framework_jwt.utils import jwt_decode_handler
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
@@ -181,3 +182,25 @@ class FeelistViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
         @brief:设置过滤条件
         '''
         return LandlordManage.objects.filter(tenant= self.request.query_params['tenant'])#租户作为过滤条件
+
+class AnalysisToken(APIView):
+    '''
+    @brief:解析Token字符串类，用于提取用户信息
+    @remark:仅限所有已登录用户获取信息
+    '''
+    authentication_classes = ()
+    permission_classes = () #允许所有用户使用
+    def post(self,request,*args,**kwargs):
+        '''
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        '''
+        token_value = request.data['token']
+        print(token_value)
+        user_dict = jwt_decode_handler(token=token_value)
+        print(user_dict['username'])
+        print(user_dict)
+        res_data = {'username':user_dict}
+        return Response(res_data,status=status.HTTP_200_OK)
