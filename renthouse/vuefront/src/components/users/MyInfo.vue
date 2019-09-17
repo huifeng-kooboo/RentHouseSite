@@ -77,9 +77,25 @@
       },
       //方法:
       methods:{
-          //
+          ///
         confirmInfo(){
-          this.$alert("确认信息");
+            let curHeaders = {'Authorization':"JWT " + localStorage.getItem('token')};//
+            let json_put_data = {'rent_address':this.input_address,'phone_number':this.input_phone,
+                'idcard':this.input_idcard};
+            this.$axios(
+                {
+                    url:'api/myinfo/',
+                    method:'put',
+                    //data:JSON.stringify(json_put_data),
+                    data:json_put_data,
+                    headers:curHeaders,
+                }
+            ).then(function (res) {
+                console.log(res.data);
+            }).catch(function (res) {
+                //此处为异常处理
+            //更新视图信息 使用put方法
+            });
         }
 
       },

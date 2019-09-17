@@ -44,7 +44,6 @@
                 house_price:'',
                 house_position:'',
                 connect_phone:'',
-
             }
         },
         mounted() {

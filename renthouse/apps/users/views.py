@@ -206,7 +206,7 @@ class AnalysisToken(APIView):
         #捕获异常：有可能过期：
         try:
             user_dict = jwt_decode_handler(token=token_value)
-        except DecodeError:
+        except DecodeError: #存在一个小bug 就是还有几个error没有判断
             #此处则说明过期或者无效
             return Response(expired_response,status=status.HTTP_200_OK)
         else:
@@ -225,7 +225,7 @@ class AnalysisToken(APIView):
 
 class MyInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
-    @brief:提供给前端个人信息
+    @brief:提供给前端个人信息,并允许用户进行更新操作,前端使用put方法 实现更新
     '''
     permission_classes = [IsAuthenticated] #对于所有用户都开放
     serializer_class = MyInfoSerializer
