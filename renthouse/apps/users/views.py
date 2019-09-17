@@ -13,6 +13,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework_jwt.utils import jwt_decode_handler
+from jwt.exceptions import DecodeError
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
@@ -27,8 +28,8 @@ class BriefHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 主页房源信息展示功能
     '''
-    #authentication_classes = (IsAuthenticated,)
     # is_staff字段对应管理员权限
+    authentication_classes = ()
     permission_classes = () # 这个表示所有权限
     queryset = HouseInfoModel.objects.all()
     serializer_class = BriefHouseInfoSerializer #get请求返回的数据
@@ -187,6 +188,9 @@ class AnalysisToken(APIView):
     '''
     @brief:解析Token字符串类，用于提取用户信息
     @remark:仅限所有已登录用户获取信息
+    @url:'api/anatoken/'
+    @return: 返回用户名和权限级别 ：1.游客权限 2.管理员权限 3.普通租户权限
+    其中token为游客权限 说明已过期token或者token错误
     '''
     authentication_classes = ()
     permission_classes = () #允许所有用户使用
@@ -197,10 +201,25 @@ class AnalysisToken(APIView):
         :param kwargs:
         :return:
         '''
-        token_value = request.data['token']
-        print(token_value)
-        user_dict = jwt_decode_handler(token=token_value)
-        print(user_dict['username'])
-        print(user_dict)
-        res_data = {'username':user_dict}
+        token_value = request.data['token'] #获得前端传来的token值
+        expired_response = {'username':'','permission':'visitor'} #过期数据返回该json
+        #进行解析
+        #捕获异常：有可能过期：
+        try:
+            user_dict = jwt_decode_handler(token=token_value)
+        except DecodeError:
+            #此处则说明过期或者无效
+            return Response(expired_response,status=status.HTTP_200_OK)
+        else:
+            print('进行接下来的步骤')
+        if user_dict == None:
+            return Response(expired_response,status=status.HTTP_200_OK)
+        str_username = user_dict['username']
+        print(str_username)
+        record_Users = UserModel.objects.filter(username=str_username)
+        is_Staff = record_Users[0].is_staff #获取是否为管理员
+        res_data_admin = {'username': user_dict['username'], 'permission': 'admin'}
+        res_data = {'username': user_dict['username'], 'permission': 'normal'}
+        if is_Staff == True:
+            return Response(res_data_admin,status = status.HTTP_200_OK)
         return Response(res_data,status=status.HTTP_200_OK)

@@ -4,7 +4,7 @@
   <div id="div_navbar_person">
 
     <!--普通租户展示的导航栏-->
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" >
+  <el-menu id="nav_normal" v-if="showNormal" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" >
     <el-menu-item index="1"><a href="/main" target="blank">主页</a></el-menu-item>
     <el-submenu index="2">
       <template slot="title">个人中心</template>
@@ -20,20 +20,20 @@
   </el-menu>
 
     <!--游客专用导航栏-->
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" hidden>
+    <el-menu id="nav_visitor" v-if="showVisitor" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="1"><a href="/main" target="blank">主页</a></el-menu-item>
       <el-link type="primary" href="/login" id="link_login">用户登录</el-link>
       <el-link type="success" href="/register" id="link_register">用户注册</el-link>
     </el-menu>
 
     <!--管理员导航栏-->
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" hidden>
+    <el-menu id="nav_admin" v-if="showAdmin" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" >
       <el-menu-item index="1"><a href="/main" target="blank">主页</a></el-menu-item>
       <el-submenu index="2">
         <template slot="title">个人中心</template>
         <el-menu-item index="2-1"><a id="a_myinfo" href="/myinfo">个人信息设置</a></el-menu-item>
         <el-menu-item index="2-2"><a id="a_modify" href="/modifypassword">修改密码</a></el-menu-item>
-        <el-menu-item index="2-3"><a href="/logout">注销</a></el-menu-item>
+        <el-menu-item index="2-3" @click="clearToken">注销</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title">管理中心</template>
@@ -51,7 +51,46 @@
       data() {
         return {
           activeIndex: '1',
+          showNormal:false,
+          showVisitor:false,
+          showAdmin:false,
         };
+      },
+      mounted(){
+          //发送请求 判断等级
+        let that = this;
+          let token_data = localStorage.getItem('token'); //判断是否有token数据
+        //token为空 说明是未登录状态 展示游客菜单栏
+         if (token_data == null)
+         {
+           this.showVisitor = true; //展示游客模式
+           return;
+         }
+         //token存在 请求获取用户信息及权限
+         let json_token = {'token':token_data};
+         this.$axios(
+           {
+             url:'api/anatoken/',
+             method: 'post',
+             data:JSON.stringify(json_token),
+           }
+         ).then(
+           function (res) {
+            let permission = res.data['permission'];
+            console.log(permission);
+             if(permission == "admin")
+             {
+              that.showAdmin = true;
+             }
+             else if(permission == "visitor")
+             {
+               that.showVisitor = true;
+             }
+             else{
+               that.showNormal = true;
+             }
+           }
+         );
       },
       methods:{
           handleSelect(){
@@ -62,7 +101,7 @@
             localStorage.removeItem('token'); //清除token；
             window.location.href='/main'; //重新返回主页
           }
-      }
+      },
     }
 </script>
 

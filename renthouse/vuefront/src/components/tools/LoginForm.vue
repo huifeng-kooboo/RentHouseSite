@@ -38,9 +38,9 @@
             //设置规则 用户名和密码大小不能小于6
             let cur_token = localStorage.getItem('token');
             //先判断是否有token 有的话 先尝试用token进行登录
-            if (cur_token == null)
+            if (cur_token != null)
             {
-              alert("token为空");
+              //不为空时，使用cur_token进行登录
             }
            // localStorage.removeItem('token');
             //js中对字符串求长度的方法
