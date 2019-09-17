@@ -29,6 +29,45 @@
             input_password:'',
           }
       },
+      mounted(){
+          let that = this;
+        //先判断是否已经登录 已登录则跳转到主页 并提示用户
+        let token_data = localStorage.getItem('token');
+        //先判断是否有token 有的话 先尝试用token进行登录
+        if (token_data == null)
+        {
+          //为空，则说明未登录 允许登录
+          return;
+        }
+        //不为空时，判断是否过期
+        //token存在 请求获取用户信息及权限
+        let json_token = {'token':token_data};
+        this.$axios(
+          {
+            url:'api/anatoken/',
+            method: 'post',
+            data:JSON.stringify(json_token),
+          }
+        ).then(
+          function (res) {
+            let permission = res.data['permission'];
+            console.log(permission);
+            if(permission == "admin")
+            {
+              alert("您已登录,如需重新登录，请在个人中心--》注销后再次登录即可");
+              window.location.href='/main';//调回主页
+            }
+            else if(permission == "visitor")
+            {
+              return;
+            }
+            else{
+              alert("您已登录,如需重新登录，请在个人中心--》注销后再次登录即可");
+              window.location.href='/main';//调回主页
+            }
+          }
+        );
+      },
       methods:{
           /*
           * @brief: 发送登录请求到服务器
@@ -36,13 +75,7 @@
           sendLoginPost(){
             const that = this; //解决无法跳转的问题
             //设置规则 用户名和密码大小不能小于6
-            let cur_token = localStorage.getItem('token');
             //先判断是否有token 有的话 先尝试用token进行登录
-            if (cur_token != null)
-            {
-              //不为空时，使用cur_token进行登录
-            }
-           // localStorage.removeItem('token');
             //js中对字符串求长度的方法
             if (this.input_username.length < 6)
             {
@@ -59,23 +92,6 @@
                   url:'api/gettoken/',
                   method:'post',
                   data:JSON.stringify(post_data),
-                }
-              ).then(
-                function (res) {
-                  if (res.status == 200)
-                  {
-                    localStorage.setItem('token',res.data.token); //保存前端的token
-                  }
-                }
-              );
-
-              //验证token
-              let token_data = {'token':localStorage.getItem('token')};
-              this.$axios(
-                {
-                  url:'api/anatoken/',
-                  method:'post',
-                  data:JSON.stringify(token_data),
                 }
               ).then(
                 function (res) {

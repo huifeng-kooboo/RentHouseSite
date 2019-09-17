@@ -87,7 +87,7 @@
                   if (return_data.status == 201){
                     //跳转url，并传递数据：跳转到主页面，自动完成登录
                     alert("租户注册成功！");
-                    that.$router.push({name:'Main',params:return_data.data});
+                    that.$router.push({name:'Main',params:return_data.data}); //返回首页
                   }
                 }
               ).catch(
