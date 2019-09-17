@@ -69,7 +69,7 @@ export default new Router({
     {
       /*@brief:费用清单: tenant:表示租户姓名*/
       /*此处处理逻辑为绑定用户登陆信息*/
-      path:'/feelist/:tenant',
+      path:'/feelist',
       name:'FeeList',
       component:FeeList
     },

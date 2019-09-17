@@ -22,7 +22,7 @@
       <el-tag> 业主姓名：</el-tag>
       <el-tag type="success">{{ renter_name }}</el-tag>
       <el-divider></el-divider>
-      <el-button type="primary">立即联系</el-button>
+      <el-button type="primary" @click="phoneUp">立即联系</el-button>
     </div>
 
   </div>
@@ -73,7 +73,23 @@
                 .catch(function (error) {
                     console.log(error);
                 });
-        }
+        },
+       //
+      methods:{
+          //立即联系功能
+          phoneUp(){
+            let str_content = "请拨打该电话:" + this.connect_phone +"\n"+"进行咨询";
+            this.$alert(str_content, '请拨打', {
+              confirmButtonText: '确定',
+              callback: action => {
+                this.$message({
+                  type: 'info',
+                  message: `action: ${ action }`
+                });
+              }
+            });
+          }
+      },
     }
 </script>
 

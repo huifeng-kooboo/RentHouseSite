@@ -152,7 +152,7 @@ class AddHouseView(APIView):
 
 class RenterBriefInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
-    @brief:租户管理中使用
+    @brief:租户管理中使用:显示有的租户
     '''
     permission_classes = [IsAdminUser] #管理员权限
     serializer_class = RenterBriefInfoSerializer
@@ -161,7 +161,7 @@ class RenterBriefInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
         @brief:设置过滤条件
         '''
         #逻辑： 默认情况下，非管理员 is_admin = False 则为租户
-        return UserModel.objects.filter(is_admin=False)
+        return UserModel.objects.filter(is_staff=False) #非管理员均为租户
 
 class LandloadManageViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
@@ -175,14 +175,14 @@ class FeelistViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief:费用清单展示get请求
     '''
-    authentication_classes = ()
     permission_classes = [IsAuthenticated] #展示给租户 所以只要是登陆 都可以访问
     serializer_class = FeeListSerializer
     def get_queryset(self):
         '''
-        @brief:设置过滤条件
+        @brief:设置过滤条件 get条件
         '''
-        return LandlordManage.objects.filter(tenant= self.request.query_params['tenant'])#租户作为过滤条件
+        print(self.request.query_params)
+        return LandlordManage.objects.filter(tenant=self.request.query_params['tenant'])#租户作为过滤条件
 
 class AnalysisToken(APIView):
     '''

@@ -158,7 +158,7 @@
             {
               url:'api/anatoken/',
               method: 'post',
-              data:JSON.stringify(json_token),
+              data:JSON.stringify(json_token)
             }
           ).then(
             function (res) {
@@ -179,8 +179,12 @@
               }
             }
           );
+          //添加token头
+          let curjson_headers = {'Authorization':"JWT " + localStorage.getItem('token')};
 
-          this.$axios.get('api/briefuser/').then(function (response) {
+          this.$axios.get('api/briefuser/',{
+            headers: curjson_headers
+          }).then(function (response) {
                 if (response.status == 200)
                 {
                     console.log("数据为：");

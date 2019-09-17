@@ -69,8 +69,6 @@
                   {
                       let house_images = house_array[i]['house_images'];
                       let house_title = house_array[i]['house_title'];
-                      console.log(house_images);
-                      console.log(house_title);
                       //i = 0时
                       if (i == 0)
                       {
