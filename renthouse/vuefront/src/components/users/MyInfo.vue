@@ -2,7 +2,8 @@
     <!--个人信息设置通用模板-->
   <div id="div_myinfo">
     <VNavbar></VNavbar>
-    <!--头像 ：可更改-->
+
+    <!--头像 ：可更改:后期功能做完再完善头像-->
     <el-row :gutter="70">
       <el-col :span="3">
         个人头像：
@@ -20,9 +21,10 @@
       </el-col>
       <el-col :span="6">
         <!--circleUrl:测试头像url-->
-        ytouch<!--测试用-->
+        <el-tag>{{ input_username }}</el-tag>
       </el-col>
     </el-row>
+
     <!--用户住址：可更改-->
     <el-row :gutter="70">
       <el-col :span="3">
@@ -32,7 +34,8 @@
         <el-input placeholder="个人地址" v-model="input_address"></el-input>
       </el-col>
     </el-row>
-    <!--用户住址：可更改-->
+
+    <!--用户手机号：可更改-->
     <el-row :gutter="70">
       <el-col :span="3">
         手机号：
@@ -41,7 +44,8 @@
         <el-input placeholder="个人手机号" v-model="input_phone"></el-input>
       </el-col>
     </el-row>
-    <!--用户住址：可更改-->
+
+    <!-- 身份证：不可更改-->
     <el-row :gutter="70">
       <el-col :span="3">
         身份证：
@@ -50,7 +54,7 @@
         <el-input placeholder="身份证号" v-model="input_idcard"></el-input>
       </el-col>
     </el-row>
-    <el-button type="primary">确认信息</el-button>
+    <el-button type="primary" @click="confirmInfo">确认信息</el-button>
 
   </div>
 </template>
@@ -68,14 +72,63 @@
             input_address :'广东省',
             input_phone:'1322222',
             input_idcard:'3501811111111',
+            input_username:'',
           }
       },
       //方法:
       methods:{
+          //
+        confirmInfo(){
+          this.$alert("确认信息");
+        }
 
       },
       //前期准备
       mounted() {
+        //步骤：
+        //* 1.先判断TOKEN
+        //* 2. 获取用户名 'api/anatoken'
+        //* 3. 发送get请求到 'api/myinfo' 获取全部信息
+        let that = this;
+        let cur_token = localStorage.getItem('token');
+        if (cur_token == null)
+        {
+          alert("请先登录!");
+          window.location.href = '/login';
+          return;
+        }
+        let token_data = {'token':cur_token};
+         this.$axios(
+          {
+            url:'api/anatoken/',
+            method: 'post',
+            data:JSON.stringify(token_data),
+          }
+        ).then(
+          function (res) {
+            let str_username = res.data['username'];
+            let get_data = {'username':str_username};
+            let token_datas = {'Authorization':"JWT " + localStorage.getItem('token')};//
+            that.$axios(
+              {
+                url:'api/myinfo/',
+                method:'get',
+                params:get_data,
+                headers:token_datas
+              }).then(
+                function (res) {
+                  console.log(res.data);
+                  that.input_idcard = res.data['results'][0]['idcard'];
+                  that.input_address = res.data['results'][0]['rent_address'];
+                  that.input_phone = res.data['results'][0]['phone_number'];
+                  that.input_username = res.data['results'][0]['username'];
+                }
+            )
+          }
+        ).catch(
+          function (res) {
+          }
+        );
       }
     }
 </script>
