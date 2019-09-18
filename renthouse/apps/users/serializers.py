@@ -74,3 +74,4 @@ class MyInfoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UserModel
         fields = ('username','phone_number','rent_address','idcard')
+

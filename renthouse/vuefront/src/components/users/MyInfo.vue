@@ -51,8 +51,9 @@
         身份证：
       </el-col>
       <el-col :span="6">
-        <el-input placeholder="身份证号" v-model="input_idcard"></el-input>
+        <el-input placeholder="身份证号" v-model="input_idcard" :disabled="true"></el-input>
       </el-col>
+      <el-tag type="danger">tip:身份证号不可更改</el-tag>
     </el-row>
     <el-button type="primary" @click="confirmInfo">确认信息</el-button>
 
@@ -77,21 +78,23 @@
       },
       //方法:
       methods:{
-          ///
+          //更新视图数据 用put方法 难！
         confirmInfo(){
+          let  that = this;
             let curHeaders = {'Authorization':"JWT " + localStorage.getItem('token')};//
-            let json_put_data = {'rent_address':this.input_address,'phone_number':this.input_phone,
+            let json_put_data = {'username':this.input_username,'rent_address':this.input_address,'phone_number':this.input_phone,
                 'idcard':this.input_idcard};
+            let address_data = {'rent_address':this.input_address};
             this.$axios(
                 {
                     url:'api/myinfo/',
                     method:'put',
-                    //data:JSON.stringify(json_put_data),
                     data:json_put_data,
                     headers:curHeaders,
                 }
             ).then(function (res) {
                 console.log(res.data);
+               that.$alert('修改成功！');
             }).catch(function (res) {
                 //此处为异常处理
             //更新视图信息 使用put方法

@@ -1,4 +1,4 @@
-from rest_framework import viewsets,mixins
+from rest_framework import viewsets,mixins,generics
 from .models import UserModel,HouseInfoModel,AddPhotoModel,LandlordManage
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
@@ -234,3 +234,13 @@ class MyInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
         @brief: get请求，只需要一个用户名就行
         '''
         return UserModel.objects.filter(username=self.request.query_params['username'])
+    def put(self,request):
+        '''
+        @brief:修改更新数据
+        '''
+        str_username = request.data['username']
+        str_address = request.data['rent_address']
+        str_idcard = request.data['idcard']
+        str_phone = request.data['phone_number']
+        UserModel.objects.filter(username=str_username).update(rent_address=str_address,idcard=str_idcard,phone_number=str_phone)
+        return Response('更新成功',status=status.HTTP_200_OK)

@@ -26,8 +26,6 @@ router.register(r'addland',LandloadManageViewSet,base_name='addland') #添加到
 router.register(r'feelist',FeelistViewSet,base_name='feelist')#费用清单
 router.register(r'myinfo',MyInfoViewSet,base_name='myinfo') #个人信息设置部分
 
-#router.register(r'addhouse',AddHouseInfoViewSet,base_name='addhouse')
-#router.register(r'addphoto',AddPhotoViewSet,base_name='addphoto')
 
 urlpatterns = [
     url(r'^gettoken/', obtain_jwt_token), #登录获取token
