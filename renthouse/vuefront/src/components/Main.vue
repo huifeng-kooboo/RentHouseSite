@@ -5,8 +5,10 @@
       <VNavbar></VNavbar>
       <!--添加走马灯，用于展示最新房源信息-->
       <el-carousel trigger="click" height="300px">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <h3 class="small">{{ item }}</h3>
+        <el-carousel-item v-for="(jpgurl,index) in jpgurls" :key="jpgurl">
+          <el-image
+            :src="jpgurl.cur_url"
+            :fit="cover"></el-image>
         </el-carousel-item>
       </el-carousel>
       <VHouse></VHouse>
@@ -25,6 +27,11 @@
       // 数据
       data(){
         return{
+            jpgurls:[
+                {
+                    cur_url:'',
+                }
+            ],
        //   input_username:this.$route.params.phone_number, //此处可以设置 获取传值信息 直接绑定到输入框
         }
         },
@@ -32,7 +39,30 @@
           //渲染模板前进行操作
       },
       mounted(){
+            let that = this;
+            //尽量都添加token
+          let cur_headers = {'Authorization':"JWT " + localStorage.getItem('token')};//暂时不加 主要是用于游客访问 怕有bug
           //对dom进行操作，即赋值等操作
+          this.$axios({
+              url:'api/ads/',
+              method:'get',
+          }).then(
+              function (res) {
+                  let cur_count = res.data['count'];
+                  console.log(res.data['results']);
+                  let i = 0;
+                  for (;i<cur_count;i++)
+                  {
+                      let push_data = {'cur_url':res.data['results'][i]['adphoto']};
+                      that.jpgurls.unshift(push_data);
+                  }
+                  that.jpgurls.pop();
+              }
+          ).catch(
+              function (res) {
+                  //异常处理
+              }
+          )
       },
       watch(){
           //监听相关

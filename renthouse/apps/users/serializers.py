@@ -5,7 +5,7 @@
 # version: v1.0.0
 # update info:
 
-from .models import UserModel,HouseInfoModel,AddPhotoModel,LandlordManage
+from .models import UserModel,HouseInfoModel,AddPhotoModel,LandlordManage,AdInfoModel
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -75,3 +75,10 @@ class MyInfoSerializer(serializers.HyperlinkedModelSerializer):
         model = UserModel
         fields = ('username','phone_number','rent_address','idcard')
 
+class AdPhotoSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    @brief:广告数据库序列化字段
+    '''
+    class Meta:
+        model = AdInfoModel
+        fields = ('adphoto','id')

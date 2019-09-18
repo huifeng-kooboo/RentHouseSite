@@ -15,7 +15,7 @@ import xadmin
 from django.views.static import serve
 
 #@comment: data view
-from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet,RenterBriefInfoViewSet,LandloadManageViewSet,FeelistViewSet,AnalysisToken,MyInfoViewSet
+from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet,RenterBriefInfoViewSet,LandloadManageViewSet,FeelistViewSet,AnalysisToken,MyInfoViewSet,AdViewSet
 
 router = DefaultRouter()
 router.register(r'register',UserRegisterViewSet,base_name='register') #用户注册
@@ -25,6 +25,7 @@ router.register(r'briefuser',RenterBriefInfoViewSet,base_name='briefuser') # 显
 router.register(r'addland',LandloadManageViewSet,base_name='addland') #添加到租户管理部分 只处理post请求
 router.register(r'feelist',FeelistViewSet,base_name='feelist')#费用清单
 router.register(r'myinfo',MyInfoViewSet,base_name='myinfo') #个人信息设置部分 get获取数据 更新数据
+router.register(r'ads',AdViewSet,base_name='ad') #首页走马车的广告栏
 
 
 urlpatterns = [

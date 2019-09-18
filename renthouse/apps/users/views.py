@@ -1,10 +1,10 @@
 from rest_framework import viewsets,mixins,generics
-from .models import UserModel,HouseInfoModel,AddPhotoModel,LandlordManage
+from .models import UserModel,HouseInfoModel,AddPhotoModel,LandlordManage,AdInfoModel
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import  status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer,RenterBriefInfoSerializer,LandloadManageSerializer,FeeListSerializer,MyInfoSerializer
+from .serializers import UserSerializer,HouseInfoSerializer,BriefHouseInfoSerializer,RenterBriefInfoSerializer,LandloadManageSerializer,FeeListSerializer,MyInfoSerializer,AdPhotoSerializer
 from .basic_tools import checkUserLoginInfo,checkSecurityPassword
 from .signals import user_save
 import json
@@ -13,7 +13,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework_jwt.utils import jwt_decode_handler
-from jwt.exceptions import DecodeError
+from jwt.exceptions import DecodeError,ExpiredSignatureError
 
 class UserRegisterViewSet(viewsets.GenericViewSet,mixins.CreateModelMixin):
     '''
@@ -209,6 +209,8 @@ class AnalysisToken(APIView):
         except DecodeError: #存在一个小bug 就是还有几个error没有判断
             #此处则说明过期或者无效
             return Response(expired_response,status=status.HTTP_200_OK)
+        except ExpiredSignatureError:
+            return Response(expired_response,status=status.HTTP_200_OK)
         else:
             print('进行接下来的步骤')
         if user_dict == None:
@@ -244,3 +246,11 @@ class MyInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
         str_phone = request.data['phone_number']
         UserModel.objects.filter(username=str_username).update(rent_address=str_address,idcard=str_idcard,phone_number=str_phone)
         return Response('更新成功',status=status.HTTP_200_OK)
+
+class AdViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief:首页广告请求：使用get请求获取
+    '''
+    permission_classes = ()
+    serializer_class = AdPhotoSerializer
+    queryset = AdInfoModel.objects.all()
