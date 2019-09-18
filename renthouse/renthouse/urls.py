@@ -24,7 +24,7 @@ router.register(r'housedetail',HouseDetailInfoViewSet,base_name='housedetail') #
 router.register(r'briefuser',RenterBriefInfoViewSet,base_name='briefuser') # 显示所有租户的信息：备注：只能通过get请求
 router.register(r'addland',LandloadManageViewSet,base_name='addland') #添加到租户管理部分 只处理post请求
 router.register(r'feelist',FeelistViewSet,base_name='feelist')#费用清单
-router.register(r'myinfo',MyInfoViewSet,base_name='myinfo') #个人信息设置部分
+router.register(r'myinfo',MyInfoViewSet,base_name='myinfo') #个人信息设置部分 get获取数据 更新数据
 
 
 urlpatterns = [
@@ -40,7 +40,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),
     url(r'media/(?P<path>.*)/$', serve, {'document_root': MEDIA_ROOT}),
-   #
+
     path(r'', TemplateView.as_view(template_name="index.html")), #绑定前端，相当于与前端进行交互
     url(r'^',include(router.urls)),
     url(r'^api-auth/',include('rest_framework.urls',namespace='rest_framework'))
