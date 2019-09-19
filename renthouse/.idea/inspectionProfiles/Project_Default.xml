@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="37">
+          <list size="62">
             <item index="0" class="java.lang.String" itemvalue="Automat" />
             <item index="1" class="java.lang.String" itemvalue="queuelib" />
             <item index="2" class="java.lang.String" itemvalue="cffi" />
@@ -42,6 +42,31 @@
             <item index="34" class="java.lang.String" itemvalue="pytz" />
             <item index="35" class="java.lang.String" itemvalue="Pillow" />
             <item index="36" class="java.lang.String" itemvalue="Twisted" />
+            <item index="37" class="java.lang.String" itemvalue="protobuf" />
+            <item index="38" class="java.lang.String" itemvalue="Click" />
+            <item index="39" class="java.lang.String" itemvalue="astroid" />
+            <item index="40" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="41" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="42" class="java.lang.String" itemvalue="mysql-connector-python" />
+            <item index="43" class="java.lang.String" itemvalue="coreschema" />
+            <item index="44" class="java.lang.String" itemvalue="selenium" />
+            <item index="45" class="java.lang.String" itemvalue="mccabe" />
+            <item index="46" class="java.lang.String" itemvalue="mysql" />
+            <item index="47" class="java.lang.String" itemvalue="comtypes" />
+            <item index="48" class="java.lang.String" itemvalue="itsdangerous" />
+            <item index="49" class="java.lang.String" itemvalue="uritemplate" />
+            <item index="50" class="java.lang.String" itemvalue="Werkzeug" />
+            <item index="51" class="java.lang.String" itemvalue="wrapt" />
+            <item index="52" class="java.lang.String" itemvalue="jmespath" />
+            <item index="53" class="java.lang.String" itemvalue="pafy" />
+            <item index="54" class="java.lang.String" itemvalue="lazy-object-proxy" />
+            <item index="55" class="java.lang.String" itemvalue="coreapi" />
+            <item index="56" class="java.lang.String" itemvalue="drf-extensions" />
+            <item index="57" class="java.lang.String" itemvalue="django-guardian" />
+            <item index="58" class="java.lang.String" itemvalue="pylint" />
+            <item index="59" class="java.lang.String" itemvalue="itypes" />
+            <item index="60" class="java.lang.String" itemvalue="isort" />
+            <item index="61" class="java.lang.String" itemvalue="unicodecsv" />
           </list>
         </value>
       </option>
