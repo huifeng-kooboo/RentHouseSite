@@ -13,7 +13,7 @@
         <el-avatar :size="70" :src="circleUrl"></el-avatar>
       </el-col>
     </el-row>
-
+    <el-divider></el-divider>
     <!--用户名：不可更改-->
     <el-row :gutter="70">
       <el-col :span="3">
@@ -24,7 +24,7 @@
         <el-tag>{{ input_username }}</el-tag>
       </el-col>
     </el-row>
-
+    <el-divider></el-divider>
     <!--用户住址：可更改-->
     <el-row :gutter="70">
       <el-col :span="3">
@@ -34,7 +34,7 @@
         <el-input placeholder="个人地址" v-model="input_address"></el-input>
       </el-col>
     </el-row>
-
+    <el-divider></el-divider>
     <!--用户手机号：可更改-->
     <el-row :gutter="70">
       <el-col :span="3">
@@ -44,7 +44,7 @@
         <el-input placeholder="个人手机号" v-model="input_phone"></el-input>
       </el-col>
     </el-row>
-
+    <el-divider></el-divider>
     <!-- 身份证：不可更改-->
     <el-row :gutter="70">
       <el-col :span="3">

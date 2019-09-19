@@ -83,6 +83,9 @@
                 that.tableData.unshift(water_fee_table);
                 that.tableData.unshift(electric_fee_table);
                 that.tableData.unshift(net_fee_table);
+                let all_fees = that.rent_fee + that.electric_fee + that.water_fee + that.net_fee; //总费用
+                that.tableData.pop();
+                that.tableData.push({'price_type':'总计','price':all_fees});
                 console.log(res.data['results'][0]['rent_fee']);
                 console.log(res.data['count']);
               }

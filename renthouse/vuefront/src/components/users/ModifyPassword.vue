@@ -28,7 +28,7 @@
           请输入新密码：
         </el-col>
         <el-col :span="6">
-          <el-input v-model="input_newpsd" placeholder="请输入新密码"></el-input>
+          <el-input v-model="input_newpsd" type="password" placeholder="请输入新密码"></el-input>
         </el-col>
       </el-row>
       <el-row>
@@ -36,7 +36,7 @@
           请确认新密码：
         </el-col>
         <el-col :span="6">
-          <el-input v-model="input_repsd" placeholder="请确认新密码"></el-input>
+          <el-input v-model="input_repsd" type="password" placeholder="请确认新密码"></el-input>
         </el-col>
       </el-row>
       <el-row>
@@ -67,7 +67,26 @@
         },
         //@brief:提交新密码
         postModify(){
-          alert("提交新密码");
+          if (this.input_newpsd != this.input_repsd)
+          {
+            this.$alert('密码错误，请重新输入!');
+            return;
+          }
+          //绑定相关数据
+          let verify_data = {'phone_number':this.input_phone,'password':this.input_newpsd,'verify_code':this.input_verify};
+          this.$axios(
+            {
+              url:'api/modifypassword/',
+              method:'post',
+              data:JSON.stringify(verify_data),
+            }
+          ).then(function (res) {
+            console.log(res.data);
+          }).catch(
+            function (res) {
+              //异常处理
+            }
+          );
         },
       }
     }
