@@ -254,3 +254,12 @@ class AdViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     permission_classes = ()
     serializer_class = AdPhotoSerializer
     queryset = AdInfoModel.objects.all()
+
+class AllRenterHouseViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief:所有租户房源集合：使用get请求获取
+    @remark:权限仅限管理员（房东）
+    '''
+    permission_classes = [IsAdminUser]
+    serializer_class = LandloadManageSerializer
+    queryset = LandlordManage.objects.all() # 显示所有的

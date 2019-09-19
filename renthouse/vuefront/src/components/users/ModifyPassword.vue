@@ -12,6 +12,7 @@
           <el-input v-model="input_phone" placeholder="手机号"></el-input>
         </el-col>
       </el-row>
+      <el-divider></el-divider>
       <el-row>
         <el-col :span="3">
           请输入手机验证码：
@@ -23,6 +24,7 @@
           <el-button @click="postVerify" type="primary">发送验证码</el-button>
         </el-col>
       </el-row>
+      <el-divider></el-divider>
       <el-row>
         <el-col :span="3">
           请输入新密码：
@@ -31,6 +33,7 @@
           <el-input v-model="input_newpsd" type="password" placeholder="请输入新密码"></el-input>
         </el-col>
       </el-row>
+      <el-divider></el-divider>
       <el-row>
         <el-col :span="3">
           请确认新密码：
@@ -39,6 +42,7 @@
           <el-input v-model="input_repsd" type="password" placeholder="请确认新密码"></el-input>
         </el-col>
       </el-row>
+      <el-divider></el-divider>
       <el-row>
         <el-button type="primary" @click="postModify">提交</el-button>
       </el-row>

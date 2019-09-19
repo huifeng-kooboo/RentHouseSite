@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/FeeList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/FeeList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/users/ModifyPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/users/ModifyPassword.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuefront/src/components/users/MyInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/users/MyInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renthouse/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/renthouse/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/TenantManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/TenantManage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/components/tools/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/tools/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuefront/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/router/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +34,37 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="247">
+              <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+              <folding>
+                <element signature="e#35#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-917" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-912" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="257" column="27" selection-start-line="257" selection-start-column="6" selection-end-line="257" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,12 +89,14 @@
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/winvenv/pyvenv.cfg" />
+        <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/renthouse/urls.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="297" />
-    <option name="y" value="129" />
+    <option name="x" value="298" />
+    <option name="y" value="162" />
     <option name="width" value="1404" />
     <option name="height" value="823" />
   </component>
@@ -82,6 +115,17 @@
             <path>
               <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
               <item name="renthouse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="renthouse" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="renthouse" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
@@ -253,7 +297,7 @@
       <workItem from="1568870884764" duration="170000" />
       <workItem from="1568871070521" duration="208000" />
       <workItem from="1568889969491" duration="622000" />
-      <workItem from="1568892404287" duration="1066000" />
+      <workItem from="1568892404287" duration="3386000" />
     </task>
     <task id="LOCAL-00001" summary="添加mac虚拟环境">
       <created>1567910382647</created>
@@ -266,10 +310,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3542000" />
+    <option name="totallyTimeSpent" value="5862000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="297" y="129" width="1404" height="823" extended-state="1" />
+    <frame x="298" y="162" width="1404" height="823" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26488096" />
@@ -372,10 +416,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-912" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-917" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="257" column="27" selection-start-line="257" selection-start-column="6" selection-end-line="257" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="247">
+          <caret line="40" column="36" lean-forward="true" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+          <folding>
+            <element signature="e#35#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

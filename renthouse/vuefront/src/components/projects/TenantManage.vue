@@ -15,6 +15,7 @@
         </el-select>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--租房时间-->
     <el-row :gutter="30">
       <el-col :span="3">租房时间：</el-col>
@@ -28,6 +29,7 @@
         </el-date-picker>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--租户地址-->
     <el-row :gutter="30">
       <el-col :span="3">租房地址：</el-col>
@@ -38,6 +40,7 @@
         </el-input>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--房租价格-->
     <el-row :gutter="30">
       <el-col :span="3">房租价格：</el-col>
@@ -48,6 +51,7 @@
         </el-input>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--水费-->
     <el-row :gutter="30">
       <el-col :span="3">水费：</el-col>
@@ -58,6 +62,7 @@
         </el-input>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--电费-->
     <el-row :gutter="30">
       <el-col :span="3">电费：</el-col>
@@ -68,6 +73,7 @@
         </el-input>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--是否有网费-->
     <el-row :gutter="30">
       <el-col :span="3">是否有网费：</el-col>
@@ -79,6 +85,7 @@
         </el-switch>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--网费-->
     <el-row :gutter="30">
       <el-col :span="3">网费：</el-col>
@@ -89,6 +96,7 @@
         </el-input>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--钥匙数量-->
     <el-row :gutter="30">
       <el-col :span="3">钥匙数量：</el-col>
@@ -99,6 +107,7 @@
         </el-input>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--是否有空调-->
     <el-row :gutter="30">
       <el-col :span="3">是否有空调：</el-col>
@@ -110,6 +119,7 @@
         </el-switch>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--是否有洗衣机-->
     <el-row :gutter="30">
       <el-col :span="3">是否有洗衣机：</el-col>
@@ -121,14 +131,12 @@
         </el-switch>
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--提交按钮-->
     <el-row :gutter="30">
       <el-button type="primary" @click="addpost">提交</el-button>
     </el-row>
-
-
   </div>
-
 </template>
 
 <script>
