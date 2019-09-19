@@ -1,13 +1,16 @@
 <template>
 <!--房源信息模块-->
   <!--Project包主要存放各种项目需要的安装模块-->
+  <div>
+
+
   <el-main>
-    <el-row>
-      <el-col :span="8" v-for="(house_info, index) in house_infos" :key="o" :offset="index > 0 ? 2 : 0">
-        <el-card :body-style="{ padding: '0px' }">
-          <img v-bind:src='house_info.house_images' class="image" style="height:300px;width: 300px">
-          <div style="padding: 14px;">
-            <span>房名：{{ house_info.house_title }}</span>
+    <el-row >
+      <el-col :span="8" v-for="(house_info, index) in house_infos" :key="o">
+        <el-card shadow="always">
+          <img v-bind:src='house_info.house_images' class="image" style="height:300px;width: 400px">
+          <div style="padding: 10px;">
+            <span>房名：<el-link type="primary"  @click="opendetail(index)">{{ house_info.house_title }} </el-link></span>
             <div class="bottom clearfix">
               <el-button type="text" class="button" v-bind:id="index" @click="opendetail(index)" >点击查看详情</el-button>
             </div>
@@ -16,7 +19,12 @@
       </el-col>
     </el-row>
   </el-main>
-
+    <el-divider></el-divider>
+    <!--添加页脚-->
+    <el-footer>
+    <el-tag>如有疑问请联系QQ:942840260</el-tag>
+    </el-footer>
+  </div>
 </template>
 
 <script>
@@ -94,8 +102,6 @@
 
 <style scoped>
   .bottom {
-    margin-top: 13px;
-    line-height: 12px;
   }
 
   .button {

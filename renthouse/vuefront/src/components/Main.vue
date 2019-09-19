@@ -3,14 +3,15 @@
     <div id = "main_page">
       <!-- VNavbar 引入导航栏模块-->
       <VNavbar></VNavbar>
-      <!--添加走马灯，用于展示最新房源信息-->
-      <el-carousel trigger="click" height="300px">
+      <!--添加走马灯，用于展示最新房源广告等信息-->
+      <el-carousel trigger="click" height="400px">
         <el-carousel-item v-for="(jpgurl,index) in jpgurls" :key="jpgurl">
           <el-image
             :src="jpgurl.cur_url"
             :fit="cover"></el-image>
         </el-carousel-item>
       </el-carousel>
+      <el-tag style="width:100%">最新活动：现在租房立享7折优惠</el-tag>
       <VHouse></VHouse>
     </div>
 </template>
