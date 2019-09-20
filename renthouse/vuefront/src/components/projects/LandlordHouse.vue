@@ -347,6 +347,26 @@
         },
         handleDelete(index, row) {
             //处理删除问题
+          let that = this;
+          let json_data = {'tenant':that.tableData[index]['renter_name']};
+          let cur_headers = {'Authorization':"JWT " + localStorage.getItem('token')};
+          this.$axios(
+            {
+              url:'api/gettenantinfo/',
+              method:'delete',
+              data:json_data,
+              headers:cur_headers,
+            }
+          ).then(
+            function (res) {
+              console.log(res.data);
+              location.reload();//刷新页面
+            }
+          ).catch(
+            function (res) {
+              //异常处理
+            }
+          );
           console.log(index, row);
         },
         //addpost:提交修改方法

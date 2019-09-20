@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c898d3d-de4b-4d39-9bbd-69af8a20092b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vuefront/src/components/projects/LandlordHouse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuefront/src/components/projects/LandlordHouse.vue" afterDir="false" />
     </list>
@@ -23,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="276" column="24" lean-forward="true" selection-start-line="276" selection-start-column="24" selection-end-line="276" selection-end-column="24" />
+            <state relative-caret-position="428">
+              <caret line="304" column="77" selection-start-line="304" selection-start-column="77" selection-end-line="304" selection-end-column="77" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -33,10 +32,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/rest_framework/mixins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="131">
+              <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="62">
-              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="31" />
+              <caret line="29" column="31" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="31" />
               <folding>
                 <element signature="e#35#67#0" expanded="true" />
               </folding>
@@ -82,6 +90,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,29 +101,17 @@
             <path>
               <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
               <item name="renthouse" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
               <item name="renthouse" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renthouse" type="462c0819:PsiDirectoryNode" />
-              <item name="media" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="renthouse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="renthouse" type="462c0819:PsiDirectoryNode" />
-              <item name="renthouse" type="462c0819:PsiDirectoryNode" />
+              <item name="vuefront" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,6 +278,7 @@
       <workItem from="1568940134850" duration="2589000" />
       <workItem from="1568950487696" duration="846000" />
       <workItem from="1568951567397" duration="491000" />
+      <workItem from="1568961067255" duration="1415000" />
     </task>
     <task id="LOCAL-00001" summary="添加mac虚拟环境">
       <created>1567910382647</created>
@@ -293,17 +291,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3926000" />
+    <option name="totallyTimeSpent" value="5341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="582" y="123" width="1069" height="759" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25966305" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26461843" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3296" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.2992" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -398,17 +396,27 @@
     <entry file="file://$PROJECT_DIR$/renthouse/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
-          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="31" />
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="31" />
           <folding>
             <element signature="e#35#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vuefront/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/rest_framework/mixins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="276" column="24" lean-forward="true" selection-start-line="276" selection-start-column="24" selection-end-line="276" selection-end-column="24" />
+        <state relative-caret-position="428">
+          <caret line="304" column="77" selection-start-line="304" selection-start-column="77" selection-end-line="304" selection-end-column="77" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

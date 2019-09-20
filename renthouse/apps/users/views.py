@@ -264,7 +264,7 @@ class AllRenterHouseViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     serializer_class = LandloadManageSerializer
     queryset = LandlordManage.objects.all() # 显示所有的
 
-class GetRenterInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+class GetRenterInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.DestroyModelMixin):
     '''
     @brief:根据租户名获取用户租房信息
     '''
@@ -298,3 +298,9 @@ class GetRenterInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
                                                                 is_air=str_is_air,
                                                                 is_washer=str_is_washer)
         return Response('更新成功',status=status.HTTP_200_OK)
+    def delete(self, request):
+        '''
+        @brief:删除功能
+        '''
+        LandlordManage.objects.filter(tenant=request.data['tenant']).delete()
+        return Response('删除成功',status=status.HTTP_200_OK)
