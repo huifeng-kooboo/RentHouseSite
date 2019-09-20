@@ -115,6 +115,143 @@
         </el-table-column>
       </el-table>
 
+      <!--编辑数据对话框 ：租户名不允许修改，其余信息可修改-->
+      <el-dialog title="租户信息修改" :visible.sync="dialogTableVisible">
+        <!--修改自TenantManage.vue中的表单-->
+        <el-row :gutter="30">
+          <el-col :span="3">租户名：</el-col>
+          <el-col :span="6">
+            <el-input
+              :disabled="true"
+              v-model="tenant"
+              placeholder="租户名">
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--租房时间-->
+        <el-row :gutter="30">
+          <el-col :span="3">租房时间：</el-col>
+          <el-col :span="6">
+            <el-date-picker
+              v-model="rental_time"
+              format="yyyy-MM-dd"
+              value-format="yyyy-MM-dd"
+              type="date"
+              placeholder="选择日期">
+            </el-date-picker>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--租户地址-->
+        <el-row :gutter="30">
+          <el-col :span="3">租房地址：</el-col>
+          <el-col :span="6">
+            <el-input
+              v-model="rental_address"
+              placeholder="租房地址">
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--房租价格-->
+        <el-row :gutter="30">
+          <el-col :span="3">房租价格：</el-col>
+          <el-col :span="6">
+            <el-input
+              v-model="rent_fee"
+              placeholder="房租价格">
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--水费-->
+        <el-row :gutter="30">
+          <el-col :span="3">水费：</el-col>
+          <el-col :span="6">
+            <el-input
+              v-model="water_fee"
+              placeholder="水费">
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--电费-->
+        <el-row :gutter="30">
+          <el-col :span="3">电费：</el-col>
+          <el-col :span="6">
+            <el-input
+              v-model="electric_fee"
+              placeholder="电费">
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--是否有网费-->
+        <el-row :gutter="30">
+          <el-col :span="3">是否有网费：</el-col>
+          <el-col :span="6">
+            <el-switch
+              v-model="is_net"
+              active-color="#13ce66"
+              inactive-color="#ff4949">
+            </el-switch>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--网费-->
+        <el-row :gutter="30">
+          <el-col :span="3">网费：</el-col>
+          <el-col :span="6">
+            <el-input
+              v-model="net_fee"
+              placeholder="网费">
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--钥匙数量-->
+        <el-row :gutter="30">
+          <el-col :span="3">钥匙数量：</el-col>
+          <el-col :span="6">
+            <el-input
+              v-model="key_num"
+              placeholder="钥匙数量">
+            </el-input>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--是否有空调-->
+        <el-row :gutter="30">
+          <el-col :span="3">是否有空调：</el-col>
+          <el-col :span="6">
+            <el-switch
+              v-model="is_air"
+              active-color="#13ce66"
+              inactive-color="#ff4949">
+            </el-switch>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--是否有洗衣机-->
+        <el-row :gutter="30">
+          <el-col :span="3">是否有洗衣机：</el-col>
+          <el-col :span="6">
+            <el-switch
+              v-model="is_washer"
+              active-color="#13ce66"
+              inactive-color="#ff4949">
+            </el-switch>
+          </el-col>
+        </el-row>
+        <el-divider></el-divider>
+        <!--提交按钮-->
+        <el-row :gutter="30">
+          <el-button type="primary" @click="addpost">确认修改</el-button>
+        </el-row>
+
+      </el-dialog>
+
     </div>
 </template>
 
@@ -159,6 +296,7 @@
       },
       data() {
         return {
+          //显示表单数据
           tableData: [{
             renter_name:'小黄',
             date: '2016-05-02',
@@ -168,19 +306,54 @@
               water_fee:14,
               net_fee:20,
               key_num:1,
-              air_num :1,
-              washer_num:1,
-          }]
+              air_num :true,
+              washer_num:true,
+          }],
+          //编辑框数据
+          dialogTableVisible:false,
+          //编辑修改数据
+          tenant:'12',
+          rental_time:'2019-08-30', //时间格式'yyyy-mm-dd'
+          rental_address:'香港',
+          rent_fee:11,
+          water_fee:122,
+          electric_fee:21,
+          is_net:true,
+          net_fee:22,
+          key_num:1,
+          is_air:true,
+          is_washer:true,
+
         }
       },
       methods: {
         handleEdit(index, row) {
             //处理编辑问题
+          let cur_rentername =  this.tableData[index]['renter_name'];
+          this.tenant = cur_rentername;
+          this.rent_fee = this.tableData[index]['rent_fee'];
+          this.water_fee = this.tableData[index]['water_fee'];
+          this.net_fee = this.tableData[index]['net_fee'];
+          this.electric_fee = this.tableData[index]['electric_fee'];
+          this.key_num = this.tableData[index]['key_num'];
+          this.rental_time = this.tableData[index]['date'];
+          this.rental_address = this.tableData[index]['address'];
+          this.is_air = this.tableData[index]['air_num'];
+          this.is_washer = this.tableData[index]['washer_num'];
+          this.is_net = true; //默认网费
+
+          this.dialogTableVisible = true;
           console.log(index, row);
         },
         handleDelete(index, row) {
             //处理删除问题
           console.log(index, row);
+        },
+        //addpost:提交修改方法
+        addpost(){
+          //
+          alert("修改成功");
+          this.dialogTableVisible = false;
         }
       }
     }

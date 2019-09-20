@@ -263,3 +263,13 @@ class AllRenterHouseViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     permission_classes = [IsAdminUser]
     serializer_class = LandloadManageSerializer
     queryset = LandlordManage.objects.all() # 显示所有的
+
+class GetRenterInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief:根据租户名获取用户租房信息
+    '''
+    permission_classes = [IsAdminUser]
+    serializer_class = LandloadManageSerializer
+    def get_queryset(self):
+        return LandlordManage.objects.filter(tenant=self.request.query_params['tenant']) #传递用户名即可
+
