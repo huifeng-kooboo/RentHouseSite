@@ -17,6 +17,7 @@ import FeeList from "../components/projects/FeeList";
 import MyInfo from "../components/users/MyInfo";
 import HouseDetail from "../components/projects/HouseDetail";
 import LandlordHouse from "../components/projects/LandlordHouse";
+import NewPromotion from "../components/projects/NewPromotion";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -91,6 +92,11 @@ export default new Router({
       path:'/allrenters',
       name:'LandlordHouse',
       component:LandlordHouse,
+    },
+    {
+      path:'/newpromotion',
+      name:'NewPromotion',
+      component:NewPromotion,
     }
   ]
 })

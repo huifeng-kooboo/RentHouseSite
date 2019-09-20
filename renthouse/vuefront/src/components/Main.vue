@@ -11,7 +11,7 @@
             :fit="cover"></el-image>
         </el-carousel-item>
       </el-carousel>
-      <el-tag style="width:100%">最新活动：现在租房立享7折优惠</el-tag>
+      <el-tag style="width:100%"> <el-link type="primary" href="/newpromotion">点击查看最新优惠活动</el-link></el-tag>
       <VHouse></VHouse>
     </div>
 </template>
