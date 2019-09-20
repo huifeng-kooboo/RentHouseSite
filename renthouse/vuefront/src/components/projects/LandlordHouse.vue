@@ -264,6 +264,9 @@
           VNavbar:Navbar,
       },
       mounted() {
+          //判断是否有权限访问
+
+
           //这边发送请求获取数据
           let cur_headers = {'Authorization':"JWT " + localStorage.getItem('token')};//
           let that = this;
@@ -292,6 +295,7 @@
               that.tableData.pop();
           }).catch(function (res) {
               //处理异常 不擅长
+            window.location.href = "/main"; //没权限便不允许访问
           });
       },
       data() {
@@ -360,7 +364,6 @@
           ).then(
             function (res) {
               console.log(res.data);
-              location.reload();//刷新页面
             }
           ).catch(
             function (res) {
@@ -368,6 +371,7 @@
             }
           );
           console.log(index, row);
+          location.reload();//刷新页面
         },
         //addpost:提交修改方法
         addpost(){
