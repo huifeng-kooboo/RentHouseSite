@@ -272,4 +272,29 @@ class GetRenterInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     serializer_class = LandloadManageSerializer
     def get_queryset(self):
         return LandlordManage.objects.filter(tenant=self.request.query_params['tenant']) #传递用户名即可
-
+    def put(self,request):
+        '''
+        @brief:修改更新数据中使用
+        '''
+        str_tenant = request.data['tenant']
+        str_rental_time = request.data['rental_time']
+        str_rental_address = request.data['rental_address']
+        str_rent_fee = request.data['rent_fee']
+        str_water_fee = request.data['water_fee']
+        str_electric_fee = request.data['electric_fee']
+        str_is_net = request.data['is_net']
+        str_net_fee = request.data['net_fee']
+        str_key_num = request.data['key_num']
+        str_is_air = request.data['is_air']
+        str_is_washer = request.data['is_washer']
+        LandlordManage.objects.filter(tenant=str_tenant).update(rental_time=str_rental_time,
+                                                                rent_fee=str_rent_fee,
+                                                                rental_address=str_rental_address,
+                                                                water_fee=str_water_fee,
+                                                                electric_fee=str_electric_fee,
+                                                                is_net=str_is_net,
+                                                                net_fee= str_net_fee,
+                                                                key_num= str_key_num,
+                                                                is_air=str_is_air,
+                                                                is_washer=str_is_washer)
+        return Response('更新成功',status=status.HTTP_200_OK)

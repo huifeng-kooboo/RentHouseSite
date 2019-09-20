@@ -342,7 +342,7 @@
           this.is_washer = this.tableData[index]['washer_num'];
           this.is_net = true; //默认网费
 
-          this.dialogTableVisible = true;
+          this.dialogTableVisible = true; //显示界面
           console.log(index, row);
         },
         handleDelete(index, row) {
@@ -351,9 +351,35 @@
         },
         //addpost:提交修改方法
         addpost(){
-          //
+          let that = this;
+          let json_data = {'tenant':this.tenant,'rental_time':this.rental_time,
+            'rental_address':this.rental_address,'rent_fee':this.rent_fee,
+            'water_fee':this.water_fee,'electric_fee':this.electric_fee,
+            'is_net':this.is_net,'net_fee':this.net_fee,
+            'key_num':this.key_num,'is_air':this.is_air,
+            'is_washer':this.is_washer};
+          let cur_headers = {'Authorization':"JWT " + localStorage.getItem('token')};
+          
+          this.$axios(
+            {
+              url:'api/gettenantinfo/',
+              method:'put',
+              data:json_data,
+              headers:cur_headers,
+            }
+          ).then(
+            function (res) {
+              console.log(res.data);
+            }
+          ).catch(
+            function (res) {
+              //异常处理
+            }
+          );
+          
           alert("修改成功");
           this.dialogTableVisible = false;
+          location.reload();//刷新页面
         }
       }
     }
