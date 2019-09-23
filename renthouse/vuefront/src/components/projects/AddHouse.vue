@@ -143,7 +143,7 @@
                         console.log(response.data);
                     }
                 });
-          return isIMAGE && isLt1M;
+          return isIMAGE && isLt5M;
         },
         //上传成功
         onSuccessUpload(response,file,fileList){

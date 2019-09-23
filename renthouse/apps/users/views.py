@@ -332,13 +332,15 @@ class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.U
         '''
         str_house_title = request.data['house_title']
         image = request.data['house_images']
+        #print('current image:' + image)
+        print(image.name)
         image_data = [image.file, image.field_name, image.name, image.content_type,
                       image.size, image.charset, image.content_type_extra]
         cache_key = 'image_key'
         cache.set(cache_key, image_data, 60)
         cache_data = cache.get(cache_key)
         str_house_images = InMemoryUploadedFile(*cache_data)
-
+        print(type(str_house_images))
         str_basic_interviews = request.data['basic_interviews']
         str_house_price = request.data['house_price']
         str_house_position = request.data['house_position']
