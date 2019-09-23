@@ -53,6 +53,32 @@
           }]
         }
       },
+      mounted(){
+       //
+        let that = this;
+        this.$axios(
+          {
+            url:'api/ads/',
+            method:'get',
+          }
+        ).then(
+          //返回数据处理
+          function (res) {
+            let cur_count = res.data['count'];
+            if (cur_count < 1)
+            {
+              that.tableData.pop();
+              return;
+            }
+            let i = 0;
+            for(;i<cur_count;i++)
+            {
+              that.tableData.unshift({'image_url':res.data['results'][i]['adphoto']});
+            }
+            that.tableData.pop();
+          }
+        ).catch();
+      },
       methods:{
           //增加图片功能
         handleAdd(index, row) {
