@@ -19,6 +19,7 @@ import HouseDetail from "../components/projects/HouseDetail";
 import LandlordHouse from "../components/projects/LandlordHouse";
 import NewPromotion from "../components/projects/NewPromotion";
 import HouseManage from "../components/projects/HouseManage";
+import AdPhotoManage from "../components/projects/AdPhotoManage";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -103,6 +104,11 @@ export default new Router({
       path:'/housemanage',
       name:'HouseManage',
       component:HouseManage,
+    },
+    {
+      path:'/adphoto',
+      name:'AdPhotoManage',
+      component:AdPhotoManage,
     }
   ]
 })

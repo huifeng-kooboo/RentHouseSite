@@ -41,6 +41,7 @@
         <el-menu-item index="3-2"><a href="/allrenters">租户管理</a></el-menu-item> <!--修改提交的房源信息等-->
         <el-menu-item index="3-3"><a href="/addhouse">添加房源</a></el-menu-item> <!--此处为房东增加房源功能-->
         <el-menu-item index="3-4"><a href="/housemanage">房源管理</a></el-menu-item> <!--此处为房东增加房源功能-->
+        <el-menu-item index="3-5"><a href="/adphoto">广告投放管理</a></el-menu-item>
       </el-submenu>
     </el-menu>
 

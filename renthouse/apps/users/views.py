@@ -247,13 +247,26 @@ class MyInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
         UserModel.objects.filter(username=str_username).update(rent_address=str_address,idcard=str_idcard,phone_number=str_phone)
         return Response('更新成功',status=status.HTTP_200_OK)
 
-class AdViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+class AdViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.CreateModelMixin,mixins.DestroyModelMixin):
     '''
     @brief:首页广告请求：使用get请求获取
     '''
     permission_classes = ()
     serializer_class = AdPhotoSerializer
     queryset = AdInfoModel.objects.all()
+    def delete(self,request):
+        '''
+        @brief:删除广告图片功能
+        '''
+        AdInfoModel.objects.filter(adphoto=request.data['image_url']).delete()
+        return Response('图片删除成功',status=status.HTTP_200_OK) #删除图片
+    def post(self,request):
+        '''
+        @brief:添加广告图片功能
+        '''
+        AdInfoModel.objects.create(adphoto=request.data['image_url']).save()
+        return Response('图片增加成功',status=status.HTTP_201_CREATED)
+
 
 class AllRenterHouseViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
