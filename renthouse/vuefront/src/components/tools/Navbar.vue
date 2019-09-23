@@ -37,9 +37,10 @@
       </el-submenu>
       <el-submenu index="3">
         <template slot="title">管理中心</template>
-        <el-menu-item index="3-1"><a href="/tenant">租户管理</a></el-menu-item>
-        <el-menu-item index="3-2"><a href="/allrenters">房源管理</a></el-menu-item> <!--修改提交的房源信息等-->
+        <el-menu-item index="3-1"><a href="/tenant">添加租户</a></el-menu-item>
+        <el-menu-item index="3-2"><a href="/allrenters">租户管理</a></el-menu-item> <!--修改提交的房源信息等-->
         <el-menu-item index="3-3"><a href="/addhouse">添加房源</a></el-menu-item> <!--此处为房东增加房源功能-->
+        <el-menu-item index="3-4"><a href="/housemanage">房源管理</a></el-menu-item> <!--此处为房东增加房源功能-->
       </el-submenu>
     </el-menu>
 

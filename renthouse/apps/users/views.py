@@ -304,3 +304,12 @@ class GetRenterInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.
         '''
         LandlordManage.objects.filter(tenant=request.data['tenant']).delete()
         return Response('删除成功',status=status.HTTP_200_OK)
+
+
+class GetAllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+    '''
+    @brief 获取所有房源的序列化信息:使用get请求
+    '''
+    permission_classes = [IsAdminUser]#管理员才能显示
+    serializer_class = HouseInfoSerializer
+    queryset = HouseInfoModel.objects.all()

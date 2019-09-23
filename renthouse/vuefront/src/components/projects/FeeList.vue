@@ -69,6 +69,7 @@
                 if (cur_Count < 1)
                 {
                   alert("当前缴费清单未出，请联系房东！");
+                  window.location.href = '/main';//返回主页
                   return;
                 }
                 that.rent_fee = res.data['results'][0]['rent_fee'];

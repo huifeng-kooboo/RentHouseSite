@@ -15,7 +15,7 @@ import xadmin
 from django.views.static import serve
 
 #@comment: data view
-from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet,RenterBriefInfoViewSet,LandloadManageViewSet,FeelistViewSet,AnalysisToken,MyInfoViewSet,AdViewSet,AllRenterHouseViewSet,GetRenterInfoViewSet
+from users.views import UserRegisterViewSet,LoginView,AddHouseView,AddPhotoView,BriefHouseInfoViewSet,HouseDetailInfoViewSet,RenterBriefInfoViewSet,LandloadManageViewSet,FeelistViewSet,AnalysisToken,MyInfoViewSet,AdViewSet,AllRenterHouseViewSet,GetRenterInfoViewSet,GetAllHouseInfoViewSet
 
 router = DefaultRouter()
 router.register(r'register',UserRegisterViewSet,base_name='register') #用户注册
@@ -28,6 +28,8 @@ router.register(r'myinfo',MyInfoViewSet,base_name='myinfo') #个人信息设置�
 router.register(r'ads',AdViewSet,base_name='ad') #首页走马车的广告栏
 router.register(r'allrenters',AllRenterHouseViewSet,base_name='allrenters') #获取所有房源信息，展示到前端房源管理部分
 router.register(r'gettenantinfo',GetRenterInfoViewSet,base_name='gettenantinfo') #获取单个的租户的租房信息 适用于修改租房数据时候调用
+router.register(r'getallhouses',GetAllHouseInfoViewSet,base_name='getallhouses') #使用get请求获取所有房源信息
+
 
 urlpatterns = [
     url(r'^gettoken/', obtain_jwt_token), #登录获取token

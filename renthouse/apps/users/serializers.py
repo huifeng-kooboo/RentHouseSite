@@ -18,7 +18,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class HouseInfoSerializer(serializers.HyperlinkedModelSerializer):
     '''
-    @brief: 暂时无用，日后处理
+    @brief: 用于获取房源管理信息方便
     '''
     class Meta:
         model = HouseInfoModel

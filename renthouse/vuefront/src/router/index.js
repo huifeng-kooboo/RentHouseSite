@@ -18,6 +18,7 @@ import MyInfo from "../components/users/MyInfo";
 import HouseDetail from "../components/projects/HouseDetail";
 import LandlordHouse from "../components/projects/LandlordHouse";
 import NewPromotion from "../components/projects/NewPromotion";
+import HouseManage from "../components/projects/HouseManage";
 //Vue.use(VueAxios,axios); //使用axios请求
 Vue.use(ElementUI);
 Vue.use(Router);
@@ -97,6 +98,11 @@ export default new Router({
       path:'/newpromotion',
       name:'NewPromotion',
       component:NewPromotion,
+    },
+    {
+      path:'/housemanage',
+      name:'HouseManage',
+      component:HouseManage,
     }
   ]
 })
