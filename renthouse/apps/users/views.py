@@ -306,10 +306,34 @@ class GetRenterInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.
         return Response('删除成功',status=status.HTTP_200_OK)
 
 
-class GetAllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
+class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
     '''
     @brief 获取所有房源的序列化信息:使用get请求
     '''
-    permission_classes = [IsAdminUser]#管理员才能显示
+    permission_classes = [IsAdminUser]#管理员才能管理调试
     serializer_class = HouseInfoSerializer
-    queryset = HouseInfoModel.objects.all()
+    queryset = HouseInfoModel.objects.all() #使用get请求时，传递所有集合
+    def put(self,request):
+        '''
+        @brief:更新数据，修改
+        '''
+        str_house_title = request.data['house_title']
+        str_house_images = request.data['house_images']
+        str_basic_interviews = request.data['basic_interviews']
+        str_house_price = request.data['house_price']
+        str_house_position = request.data['house_position']
+        str_connect_phone = request.data['connect_phone']
+        str_renter_name = request.data['renter_name']
+        HouseInfoModel.objects.filter(house_title=str_house_title).update(house_images=str_house_images,
+                                                                          basic_interviews=str_basic_interviews,
+                                                                          house_price=str_house_price,
+                                                                          house_position=str_house_position,
+                                                                          connect_phone=str_connect_phone,
+                                                                          renter_name=str_renter_name)
+        return Response('修改成功',status=status.HTTP_200_OK) #修改成功
+    def delete(self,request):
+        '''
+        @brief:删除数据：bug：还未解决批量删除数据的问题：后面调整修复
+        '''
+        HouseInfoModel.objects.filter(house_title=request.data['house_title']).delete()
+        return Response('数据删除成功！',status=status.HTTP_200_OK)
