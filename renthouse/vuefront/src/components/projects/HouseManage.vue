@@ -275,8 +275,69 @@
         },
         //@brief:修改更新方法
         putModify(){
+          this.$refs.uploadhousephoto.submit();
+        },
+        //@brief:上传照片相关方法
+        //移除方法
+        handleRemove(file, fileList) {
+        },
+        //@brief :点击图片事件
+        handlePreview(file) {
+          //@brief :前面
+        },
+        //@brief :超过限制事件
+        uploadExceed(){
+          //超过限制张数处理事件
+          alert("上传数量超出限制，最多只允许1张图，联系QQ：942840260");
+        },
+        //@brief:改变移除文件 都会触发该事件
+        changeUploadFile(file,fileList){
 
-        }
+        },
+        //上传前 ：也是主要上传处理逻辑的地方
+        onBeforeUpload(file){
+          const isIMAGE = file.type === 'image/jpeg'||'image/gif'||'image/png';
+          const isLt10M = file.size / 1024 / 1024 < 10; //大小小于10M
+          if (!isIMAGE) {
+            alert('只允许上传图片');
+            return isIMAGE;
+          }
+          if (!isLt10M) {
+            alert('上传房源大小需要小于5M');
+            return isLt10M;
+          }
+
+          //进行上传的功能
+          //添加token
+          let params = new FormData();//创建form对象
+          params.append('house_images',file);
+          params.append('house_title',this.house_title); //房源名字
+          params.append('basic_interviews',this.basic_interviews); //简单介绍
+          params.append('house_price',this.house_price); //房源价格
+          params.append('house_position',this.house_position); //房源位置
+          params.append('connect_phone',this.connect_phone); //联系电话
+          params.append('renter_name',this.renter_name); //房东
+          let config = {
+            headers:{'Content-Type':'multipart/form-data','Authorization':"JWT " + localStorage.getItem('token')}
+          }; //添加请求头
+          this.$http.put('api/allhouses/',params,config)
+            .then(response=>{
+              if(response.status == 200)
+              {
+                alert("上传成功！");
+                console.log(response.data);
+              }
+              else if(response.status == 201){
+                alert("添加成功！");
+                console.log(response.data);
+              }
+            });
+          return isIMAGE && isLt1M;
+        },
+        //上传成功
+        onSuccessUpload(response,file,fileList){
+          //上传成功处理事件
+        },
       },
     }
 </script>

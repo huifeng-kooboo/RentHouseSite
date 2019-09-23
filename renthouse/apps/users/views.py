@@ -331,7 +331,14 @@ class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.U
         @brief:更新数据，修改
         '''
         str_house_title = request.data['house_title']
-        str_house_images = request.data['house_images']
+        image = request.data['house_images']
+        image_data = [image.file, image.field_name, image.name, image.content_type,
+                      image.size, image.charset, image.content_type_extra]
+        cache_key = 'image_key'
+        cache.set(cache_key, image_data, 60)
+        cache_data = cache.get(cache_key)
+        str_house_images = InMemoryUploadedFile(*cache_data)
+
         str_basic_interviews = request.data['basic_interviews']
         str_house_price = request.data['house_price']
         str_house_position = request.data['house_position']
