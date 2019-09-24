@@ -343,6 +343,31 @@ class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.U
         '''
         @brief:更新数据，修改
         '''
+        if request.data['is_upload'] == '0':
+            print('处理无图片功能')
+            str_house_title = request.data['house_title']
+            # image = request.data['house_images']
+            # print(image.name)
+            # image_data = [image.file, image.field_name, image.name, image.content_type,
+            #               image.size, image.charset, image.content_type_extra]
+            # cache_key = 'image_key'
+            # cache.set(cache_key, image_data, 60)
+            str_basic_interviews = request.data['basic_interviews']
+            str_house_price = request.data['house_price']
+            str_house_position = request.data['house_position']
+            str_connect_phone = request.data['connect_phone']
+            str_renter_name = request.data['renter_name']
+            '''
+            @brief:后续改动 bug：无法更新的问题
+            '''
+            HouseInfoModel.objects.filter(house_title=request.data['house_title']).update(basic_interviews=str_basic_interviews, house_price=str_house_price,
+                                          house_position=str_house_position, connect_phone=str_connect_phone,
+                                          renter_name=str_renter_name)  # 更新
+            # HouseInfoModel.objects.create(
+            #                               basic_interviews=str_basic_interviews, house_price=str_house_price,
+            #                               house_position=str_house_position, connect_phone=str_connect_phone,
+            #                               renter_name=str_renter_name)
+            return Response('修改成功', status=status.HTTP_200_OK)  # 修改成功
         str_house_title = request.data['house_title']
         image = request.data['house_images']
         print(image.name)

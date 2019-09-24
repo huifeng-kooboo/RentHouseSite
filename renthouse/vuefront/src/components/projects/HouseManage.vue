@@ -196,6 +196,8 @@
 
             //添加图片框
             fileList:[{name:'',url:''}],
+            //
+            isUpload:false, //是否有文件更新
           }
       },
       //@brief:相关组件引入
@@ -297,6 +299,37 @@
         //@brief:修改更新方法
         putModify(){
           this.$refs.uploadhousephoto.submit();
+          if (this.isUpload == false)
+          {
+              //当没有上传图片时候，调用这个方法进行
+              let params = new FormData();//创建form对象
+              params.append('house_title',this.house_title); //房源名字
+              params.append('basic_interviews',this.basic_interviews); //简单介绍
+              params.append('house_price',this.house_price); //房源价格
+              params.append('house_position',this.house_position); //房源位置
+              params.append('connect_phone',this.connect_phone); //联系电话
+              params.append('renter_name',this.renter_name); //房东
+              params.append('is_upload','0'); //0表示不上传图片
+              let config = {
+                  headers:{'Content-Type':'multipart/form-data','Authorization':"JWT " + localStorage.getItem('token')}
+              }; //添加请求头
+              this.$http.put('api/allhouses/',params,config)
+                  .then(response=>{
+                      if(response.status == 200)
+                      {
+                          alert("修改成功！");
+
+                          console.log(response.data);
+                          window.location.reload();
+                      }
+                      else if(response.status == 201){
+                          alert("添加成功！");
+                          console.log(response.data);
+                      }
+                  });
+
+              alert('测试有效');
+          }
         },
         //@brief:上传照片相关方法
         //移除方法
@@ -317,6 +350,7 @@
         },
         //上传前 ：也是主要上传处理逻辑的地方
         onBeforeUpload(file){
+            this.isUpload = true; //表示已经上传
           const isIMAGE = file.type === 'image/jpeg'||'image/gif'||'image/png';
           const isLt10M = file.size / 1024 / 1024 < 10; //大小小于10M
           if (!isIMAGE) {
@@ -338,6 +372,7 @@
           params.append('house_position',this.house_position); //房源位置
           params.append('connect_phone',this.connect_phone); //联系电话
           params.append('renter_name',this.renter_name); //房东
+          params.append('is_upload','1'); //1表示上传图片
           let config = {
             headers:{'Content-Type':'multipart/form-data','Authorization':"JWT " + localStorage.getItem('token')}
           }; //添加请求头
@@ -346,6 +381,7 @@
               if(response.status == 200)
               {
                 alert("上传成功！");
+
                 console.log(response.data);
                 window.location.reload();
               }
