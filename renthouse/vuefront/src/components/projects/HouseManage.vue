@@ -103,8 +103,8 @@
       </el-table-column>
     </el-table>
     <el-divider></el-divider>
-    <el-button type="danger" round>批量删除</el-button>
-    <el-tag @click="batchDelete" type="warning">友情提示：批量删除默认删除勾选部分</el-tag>
+    <el-button type="danger" @click="batchDelete" round>批量删除</el-button>
+    <el-tag  type="warning">友情提示：批量删除默认删除勾选部分</el-tag>
 
     <!--编辑框部分-->
     <el-dialog title="房源信息修改" style="font-size: 12px;" :visible.sync="dialogTableVisible">
@@ -267,11 +267,32 @@
         },
         //删除按钮
         handleDelete(index, row) {
-          console.log(index, row);
+          this.house_title = this.tableData[index]['house_title'];
+          let delete_data = {'house_title':this.house_title};
+          let cur_headers = {'Content-Type':'multipart/form-data','Authorization':"JWT " + localStorage.getItem('token')};//
+          let params = new FormData();//创建form对象
+          params.append('house_title',this.house_title)
+          this.$axios(
+            {
+              url:'api/allhouses/',
+              method:'delete',
+              data:params,
+              headers:cur_headers,
+            }
+          ).then(
+            function (res) {
+              alert('删除成功');
+              window.location.reload();
+            }
+          ).catch(
+            function (res) {
+
+            }
+          );
         },
         //@brief:批量删除按钮
         batchDelete(){
-
+          alert('暂未推出，敬请期待');
         },
         //@brief:修改更新方法
         putModify(){

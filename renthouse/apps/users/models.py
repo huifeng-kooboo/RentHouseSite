@@ -74,7 +74,7 @@ class AdInfoModel(models.Model):
     '''
      @brief:首页广告信息展示
     '''
-    adphoto = models.FileField(verbose_name='广告图片',upload_to='ad/',blank=False,default='/house/1.png')
+    adphoto = models.FileField(verbose_name='广告图片',upload_to='ad/',blank=False,default='/ad/1.png')
     class Meta:
         db_table = 'ad_table'
         verbose_name = '广告数据表'

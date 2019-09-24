@@ -247,7 +247,7 @@ class MyInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
         UserModel.objects.filter(username=str_username).update(rent_address=str_address,idcard=str_idcard,phone_number=str_phone)
         return Response('更新成功',status=status.HTTP_200_OK)
 
-class AdViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.CreateModelMixin,mixins.DestroyModelMixin):
+class AdViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.UpdateModelMixin,mixins.CreateModelMixin,mixins.DestroyModelMixin):
     '''
     @brief:首页广告请求：使用get请求获取
     '''
@@ -258,13 +258,26 @@ class AdViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.CreateModel
         '''
         @brief:删除广告图片功能
         '''
-        AdInfoModel.objects.filter(adphoto=request.data['image_url']).delete()
-        return Response('图片删除成功',status=status.HTTP_200_OK) #删除图片
-    def post(self,request):
+        print(request.data['id'])
+        cur_count = AdInfoModel.objects.filter(id=request.data['id'])
+        print(len(cur_count))
+        AdInfoModel.objects.filter(id=request.data['id']).delete()
+        return Response('图片删除成功',status=status.HTTP_200_OK) #删除图片功能（根据id删除比较方便）
+    def put(self,request):
         '''
         @brief:添加广告图片功能
         '''
-        AdInfoModel.objects.create(adphoto=request.data['image_url']).save()
+        print('get nowtjj')
+        image = request.data['image_url']
+        print(image.name)
+        image_data = [image.file, image.field_name, image.name, image.content_type,
+                      image.size, image.charset, image.content_type_extra]
+        cache_key = 'image_key'
+        cache.set(cache_key, image_data, 60)
+        cache_data = cache.get(cache_key)
+        str_house_images = InMemoryUploadedFile(*cache_data)
+        print('进行是')
+        AdInfoModel.objects.create(adphoto=str_house_images)
         return Response('图片增加成功',status=status.HTTP_201_CREATED)
 
 
@@ -345,6 +358,9 @@ class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.U
         str_house_position = request.data['house_position']
         str_connect_phone = request.data['connect_phone']
         str_renter_name = request.data['renter_name']
+        '''
+        @brief:后续改动 bug：无法更新的问题
+        '''
         HouseInfoModel.objects.filter(house_title=request.data['house_title']).delete()#删除
         HouseInfoModel.objects.create(house_title=str_house_title,house_images=image,basic_interviews=str_basic_interviews,house_price=str_house_price,house_position=str_house_position,connect_phone=str_connect_phone,renter_name=str_renter_name)
         return Response('修改成功',status=status.HTTP_200_OK) #修改成功
@@ -352,5 +368,6 @@ class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.U
         '''
         @brief:删除数据：bug：还未解决批量删除数据的问题：后面调整修复
         '''
+        print(request.data)
         HouseInfoModel.objects.filter(house_title=request.data['house_title']).delete()
         return Response('数据删除成功！',status=status.HTTP_200_OK)
