@@ -332,7 +332,6 @@ class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.U
         '''
         str_house_title = request.data['house_title']
         image = request.data['house_images']
-        #print('current image:' + image)
         print(image.name)
         image_data = [image.file, image.field_name, image.name, image.content_type,
                       image.size, image.charset, image.content_type_extra]
@@ -346,12 +345,8 @@ class AllHouseInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin,mixins.U
         str_house_position = request.data['house_position']
         str_connect_phone = request.data['connect_phone']
         str_renter_name = request.data['renter_name']
-        HouseInfoModel.objects.filter(house_title=str_house_title).update(house_images=str_house_images,
-                                                                          basic_interviews=str_basic_interviews,
-                                                                          house_price=str_house_price,
-                                                                          house_position=str_house_position,
-                                                                          connect_phone=str_connect_phone,
-                                                                          renter_name=str_renter_name)
+        HouseInfoModel.objects.filter(house_title=request.data['house_title']).delete()#删除
+        HouseInfoModel.objects.create(house_title=str_house_title,house_images=image,basic_interviews=str_basic_interviews,house_price=str_house_price,house_position=str_house_position,connect_phone=str_connect_phone,renter_name=str_renter_name)
         return Response('修改成功',status=status.HTTP_200_OK) #修改成功
     def delete(self,request):
         '''

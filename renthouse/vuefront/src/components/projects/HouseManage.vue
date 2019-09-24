@@ -258,7 +258,7 @@
           this.house_images = this.tableData[index]['house_images'];
           this.basic_interviews = this.tableData[index]['basic_interviews'];
           this.house_price = this.tableData[index]['house_price'];
-          this.house_position = this.tableData[index]['house_position'];          this.house_title = this.tableData[index]['house_title'];
+          this.house_position = this.tableData[index]['house_position'];
           this.connect_phone = this.tableData[index]['connect_phone'];
           this.renter_name = this.tableData[index]['renter_name'];
           this.fileList.unshift({name:'1.png',url:this.house_images});
@@ -326,13 +326,15 @@
               {
                 alert("上传成功！");
                 console.log(response.data);
+                window.location.reload();
               }
               else if(response.status == 201){
                 alert("添加成功！");
                 console.log(response.data);
               }
             });
-          return isIMAGE && isLt1M;
+          //window.location.reload(); //刷新
+          return isIMAGE && isLt10M;
         },
         //上传成功
         onSuccessUpload(response,file,fileList){
