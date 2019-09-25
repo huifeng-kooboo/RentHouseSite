@@ -122,8 +122,7 @@
         }
       },
       methods:{
-
-          //付款
+        //付款
         payMoney(){
           this.dialogVisible = true;
         }
