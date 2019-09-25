@@ -20,6 +20,16 @@
       </el-table>
 
       <el-button type="primary" @click="payMoney">立即支付</el-button>
+
+      <el-dialog
+        title="扫描二维码付款"
+        :visible.sync="dialogVisible"
+        width="30%"
+        :before-close="handleClose">
+        <el-image src="http://localhost:8000/media/payphoto/pay.jpg/"></el-image>
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </el-dialog>
     </div>
 </template>
 
@@ -107,13 +117,15 @@
           water_fee: 0, //水费
           electric_fee:0,//电费
           net_fee:0,//网费
+
+          dialogVisible:false,
         }
       },
       methods:{
 
           //付款
         payMoney(){
-          alert("付款功能暂未开通 敬请期待");
+          this.dialogVisible = true;
         }
       }
     }
