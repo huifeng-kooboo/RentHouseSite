@@ -228,3 +228,7 @@ bind(): Address already in use [core/socket.c line 769]
 [pid: 24299|app: -1|req: -1/22] 58.248.229.152 () {38 vars in 691 bytes} [Mon Oct  7 15:27:42 2019] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
 --- no python application found, check your startup logs for errors ---
 [pid: 24299|app: -1|req: -1/23] 58.248.229.152 () {38 vars in 640 bytes} [Mon Oct  7 15:27:42 2019] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 24299|app: -1|req: -1/24] 58.248.229.152 () {38 vars in 692 bytes} [Mon Oct  7 15:32:41 2019] GET / => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 24299|app: -1|req: -1/25] 58.248.229.152 () {38 vars in 641 bytes} [Mon Oct  7 15:32:42 2019] GET /favicon.ico => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
