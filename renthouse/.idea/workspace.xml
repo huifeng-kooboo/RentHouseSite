@@ -36,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/start.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="39" selection-start-column="39" selection-end-column="39" />
+              <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -94,7 +94,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="241" />
     <option name="y" value="122" />
     <option name="width" value="1174" />
@@ -354,7 +354,7 @@
       <workItem from="1570428424886" duration="63000" />
       <workItem from="1570430026232" duration="906000" />
       <workItem from="1570432110936" duration="6520000" />
-      <workItem from="1570498335424" duration="6657000" />
+      <workItem from="1570498335424" duration="7263000" />
     </task>
     <task id="LOCAL-00001" summary="添加mac虚拟环境">
       <created>1567910382647</created>
@@ -367,7 +367,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15560000" />
+    <option name="totallyTimeSpent" value="16166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="241" y="122" width="1174" height="988" extended-state="0" />
@@ -561,7 +561,7 @@
     <entry file="file://$PROJECT_DIR$/start.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="39" selection-start-column="39" selection-end-column="39" />
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
