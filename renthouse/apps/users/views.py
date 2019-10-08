@@ -38,6 +38,7 @@ class HouseDetailInfoViewSet(viewsets.GenericViewSet,mixins.ListModelMixin):
     '''
     @brief: 获得单个房源所有信息功能
     '''
+    authentication_classes = ()
     permission_classes = () #所有都可以访问
     serializer_class = HouseInfoSerializer
     def get_queryset(self):
