@@ -72,7 +72,7 @@
          let json_token = {'token':token_data};
          this.$axios(
            {
-             url:'http://localhost:8080/api/anatoken/', //解决housedetail问题
+             url:'http://49.234.6.143:8080/api/anatoken/', //解决housedetail问题
              method: 'post',
              data:JSON.stringify(json_token),
            }

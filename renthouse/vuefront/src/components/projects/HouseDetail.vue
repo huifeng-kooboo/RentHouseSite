@@ -54,7 +54,7 @@
             that.house_title = house_title;
             let json_data = {'house_title':house_title};
             //发送get请求
-            this.$axios.get('http://localhost:8080/api/housedetail/', {
+            this.$axios.get('http://49.234.6.143:8080/api/housedetail/', {
                 params: json_data
             })
                 .then(function (response) {

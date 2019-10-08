@@ -26,7 +26,7 @@
         :visible.sync="dialogVisible"
         width="30%"
         :before-close="handleClose">
-        <el-image src="http://localhost:8000/media/payphoto/pay.jpg/"></el-image>
+        <el-image src="http://49.234.6.143:8000/media/payphoto/pay.jpg/"></el-image>
     <el-button @click="dialogVisible = false">取 消</el-button>
     <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
       </el-dialog>
