@@ -47,7 +47,6 @@
             }
         },
         mounted() {
-          alert('准备开始');
             let that = this;
             //处理路由
             let house_title = this.$route.params.housetitle; //获取房源名称

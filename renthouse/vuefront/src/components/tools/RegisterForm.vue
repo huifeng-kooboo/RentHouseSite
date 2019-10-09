@@ -42,11 +42,11 @@
         name: "RegisterForm",
         data(){
         return{
-          input_username:'ytouch78', //此处可以设置 直接绑定到输入框
-          input_password:'1234567',
-          input_phone_number:'13824464121',
-          input_rent_address:'dkalkdla',
-          input_idcard:'350181199608271875',
+          input_username:'', //此处可以设置 直接绑定到输入框
+          input_password:'',
+          input_phone_number:'',
+          input_rent_address:'',
+          input_idcard:'',
         }
        },
       methods:{
