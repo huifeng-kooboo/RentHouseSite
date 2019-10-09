@@ -46,6 +46,7 @@
                 console.log("当前按钮的id为：");
                 console.log(this.house_infos[index]['house_images']);
                 console.log(index);
+                alert('触发这个功能');
                 window.location.href='/housedetail/'+this.house_infos[index]['house_title']; //跳转到指定url
             },
       },

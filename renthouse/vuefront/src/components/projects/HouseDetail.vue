@@ -47,16 +47,17 @@
             }
         },
         mounted() {
+          alert('准备开始');
             let that = this;
             //处理路由
             let house_title = this.$route.params.housetitle; //获取房源名称
             console.log(house_title);
             that.house_title = house_title;
             let json_data = {'house_title':house_title};
+            //没问题
+            let str_url = 'http://49.234.6.143:8000/housedetail/?house_title='+house_title;
             //发送get请求
-            this.$axios.get('http://49.234.6.143:8080/api/housedetail/', {
-                params: json_data
-            })
+            this.$axios.get(str_url)
                 .then(function (response) {
                     if (response.status == 200)
                     {
@@ -71,6 +72,7 @@
                 })
                 .catch(function (error) {
                     console.log(error);
+                    alert('请求错误');
                 });
         },
        //

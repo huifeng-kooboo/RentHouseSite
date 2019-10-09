@@ -45,7 +45,7 @@
           let cur_headers = {'Authorization':"JWT " + localStorage.getItem('token')};//暂时不加 主要是用于游客访问 怕有bug
           //对dom进行操作，即赋值等操作
           this.$axios({
-              url:'api/ads/',
+              url:'http://49.234.6.143:8000/ads/',
               method:'get',
           }).then(
               function (res) {
