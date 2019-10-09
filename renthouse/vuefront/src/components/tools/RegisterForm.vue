@@ -77,7 +77,7 @@
              // var post_data = {"username":this.input_username,"password":this.input_password};/*需要post的数据*/
               this.$axios(
                 {
-                  url:"api/register/", //请求的url 由于跨域
+                  url:"http://49.234.6.143:8080/api/register/", //请求的url 由于跨域
                   method:'post',
                   data:JSON.stringify(post_data),
                 }

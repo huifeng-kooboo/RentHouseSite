@@ -44,7 +44,8 @@
         let json_token = {'token':token_data};
         this.$axios(
           {
-            url:'api/anatoken/',
+            //url:'api/anatoken/', //修改到生产模式
+            url:'http://49.234.6.143:8000/api/anatoken/',
             method: 'post',
             data:JSON.stringify(json_token),
           }
@@ -89,7 +90,7 @@
               var post_data = {"username":this.input_username,"password":this.input_password};/*需要post的数据*/
               this.$axios(
                 {
-                  url:'api/gettoken/',
+                  url:'http://49.234.6.143:8080/api/gettoken/',
                   method:'post',
                   data:JSON.stringify(post_data),
                 }
@@ -104,7 +105,7 @@
 
               this.$axios(
                 {
-                  url:"api/login/", //请求的url 由于跨域
+                  url:"http://49.234.6.143:8080/api/login/", //请求的url 由于跨域
                   method:'post',
                   data:JSON.stringify(post_data),
                 }
