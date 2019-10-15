@@ -126,9 +126,9 @@ WSGI_APPLICATION = 'renthouse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.mysql',
-        'NAME':'xmproject',
+        'NAME':'xm',
         'USER':'root',
-        'PASSWORD':'123456abc',
+        'PASSWORD':'123456Dhf.',
         'HOST':'49.234.6.143',
         'PORT':'3306',
     }
