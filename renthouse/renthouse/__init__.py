@@ -3,4 +3,4 @@
 # description : basic init environment config
 
 '''add mysql database config'''
-import MySQLdb
+#import MySQLdb
